@@ -1,0 +1,64 @@
+html, body {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+    background: #f5f5f5;
+    color: #fff;
+    padding: 0;
+}
+a {
+    color: #03A9F4;
+}
+
+main {
+  width: 100%;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+// styles applied on :host are applied on the current component, "app" in this case
+#app {
+    height: 100vh;
+    width: 100vw;
+}
+
+.main-content {
+  max-width: 1280px;
+  margin: auto;
+  padding: 0 1rem;
+}
+
+//Fix Material Design rendering inputs as invalid before interaction
+form {
+  .mdl-textfield__label {
+    color: inherit;
+  }
+  .mdl-textfield__input {
+
+  }
+  &:not(.invalid) {
+    .mdl-textfield.is-invalid {
+      input:invalid {
+        border-color: rgba(0,0,0, 0.12);
+        &:focus {
+          border-color: rgb(63, 81, 181);
+        }
+      }
+
+      &.is-focused label {
+        font-size: 12px;
+      }
+
+      .mdl-textfield__label {
+        color: inherit;
+        font-size: inherit;
+        &:after {
+          background-color: inherit;
+        }
+      }
+    }
+  }
+}

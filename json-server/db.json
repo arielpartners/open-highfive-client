@@ -1,0 +1,69 @@
+{
+  "items": [
+    {
+      "_id": 1,
+      "vendorId": "lg",
+      "siteId": "1111111",
+      "ipAddress": "192.168.1.1",
+      "description": "First LG Site",
+      "phoneNumber": "2125551234",
+      "streetAddress": "21 25th Street, New York, NY 51234",
+      "isEnabled": true
+    },
+    {
+      "_id": 2,
+      "vendorId": "lg",
+      "siteId": "222222",
+      "ipAddress": "127.0.0.1",
+      "description": "Second LG Site",
+      "phoneNumber": "2125551234",
+      "streetAddress": "21 25th Street, New York, NY 51234",
+      "isEnabled": true
+    },
+    {
+      "_id": 3,
+      "vendorId": "enseo",
+      "siteId": "111111",
+      "ipAddress": "192.168.1.1",
+      "description": "First Enseo site",
+      "phoneNumber": "2125551234",
+      "streetAddress": "21 25th Street, New York, NY 51234",
+      "isEnabled": true
+    },
+    {
+      "_id": 4,
+      "vendorId": "enseo",
+      "siteId": "222222",
+      "ipAddress": "127.0.0.1",
+      "description": "Second Enseo site",
+      "phoneNumber": "2125551234",
+      "streetAddress": "21 25th Street, New York, NY 51234",
+      "isEnabled": true
+    },
+    {
+      "vendorId": "d",
+      "siteId": "d",
+      "ipAddress": "d",
+      "isEnabled": false,
+      "phoneNumber": "",
+      "streetAddress": "",
+      "description": "",
+      "_id": 5
+    }
+  ],
+  "login": {
+    "userName": "ttesterson",
+    "password": "",
+    "firstName": "Test",
+    "lastName": "Testerson",
+    "token": "JUaHJlZSBFeWVkI"
+  },
+  "sampleUser": {
+    "roleId": "b71b0f63-199e-46e2-a64e-a453216b7dc8",
+    "role": "Manager",
+    "access": true,
+    "firstName": "Test",
+    "lastName": "Testerson",
+    "email": "test.testerson@hbo.com"
+  }
+}
