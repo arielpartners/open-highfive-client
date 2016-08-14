@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "HighFive peer recognition app",
   "main": "server.js",
+  "engines": {
+    "node": "6.3.0"
+  },
   "scripts": {
     "preacceptance": "npm run coverage-clean",
     "acceptance": "./node_modules/protractor/bin/protractor protractor.acceptance.conf.js",
