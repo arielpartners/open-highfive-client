@@ -1,2 +1,2 @@
 [config]
-command = npm prune && npm install && npm test && npm start
+command = npm prune && npm install && npm test
