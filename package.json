@@ -26,7 +26,7 @@
     "e2e-test-server": "concurrently --kill-others \"npm run server\" \"webpack-dev-server \"",
     "lint": "eslint src",
     "postinstall": "node \"node_modules/protractor/bin/webdriver-manager\" update",
-    "preinstall": "npm link test/helpers/ajax-helper 2>&1",
+    "preinstall": "npm link test/helpers/ajax-helper 2>nul",
     "rimraf": "rimraf",
     "server": "json-server --watch --delay 500 json-server/db.json --id _id --port $npm_package_config_apiPort --routes routes.json",
     "start": "concurrently \"npm run server\" \"npm run client\"",
