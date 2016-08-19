@@ -76,7 +76,7 @@ const mapStateToProps = (state) => state;
 
 /* istanbul ignore next */
 const mapDispatchToProps = (dispatch) => {
-    return {login}
+    return {login: () => dispatch(login())}
 };
 
 const Login = connect(mapStateToProps, mapDispatchToProps)(_Login);
