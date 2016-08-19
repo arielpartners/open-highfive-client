@@ -5,7 +5,7 @@ import {Provider} from 'react-redux';
 import {persistStore} from 'redux-persist';
 import {Router, Route, IndexRoute, browserHistory} from 'react-router'
 import {syncHistoryWithStore} from 'react-router-redux'
-import {Login} from './components/login';
+import Login from './components/login';
 //import {Home} from './components/home';
 
 import auth from './auth'
