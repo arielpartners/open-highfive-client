@@ -22,7 +22,7 @@
     "e2e": "node \"node_modules/protractor/bin/protractor\" protractor.conf.js",
     "poste2e": "node \"node_modules/babel-istanbul/lib/cli.js\" report --include=coverage/*.json && open coverage/index.html",
     "e2e-test-server": "concurrently --kill-others \"npm run server\" \"webpack-dev-server \"",
-    "lint": "eslint src -o ./test-artifacts/junit.eslint.xml -f junit",
+    "lint": "eslint src --ext .jsx,.js -o ./test-artifacts/junit.eslint.xml -f junit",
     "__preinstall (azure symlink failure on smb drive)": "npm link test/helpers/ajax-helper",
     "preinstall": "cp -r test/helpers/ajax-helper node_modules",
     "rimraf": "rimraf",
