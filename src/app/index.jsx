@@ -3,7 +3,7 @@ import {render} from 'react-dom';
 import configureStore from './store/configure-store';
 import {Provider} from 'react-redux';
 import {persistStore} from 'redux-persist';
-import Home from './components/home';
+import {Login} from './components/login';
 
 const store = configureStore();
 
@@ -17,7 +17,7 @@ if (__WEBPACK__) {
 render(
     <Provider store={store}>
         <main>
-            <Home />
+            <Login />
         </main>
     </Provider>,
     document.getElementById('app')
