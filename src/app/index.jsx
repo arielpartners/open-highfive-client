@@ -3,7 +3,12 @@ import {render} from 'react-dom';
 import configureStore from './store/configure-store';
 import {Provider} from 'react-redux';
 import {persistStore} from 'redux-persist';
+import {Router, Route, IndexRoute, browserHistory} from 'react-router'
+import {syncHistoryWithStore} from 'react-router-redux'
 import {Login} from './components/login';
+//import {Home} from './components/home';
+
+import auth from './auth'
 
 const store = configureStore();
 
@@ -14,10 +19,31 @@ if (__WEBPACK__) {
     require('!style!css!sass!./style.scss');
 }
 
+
+const history = syncHistoryWithStore(browserHistory, store);
+
+const requireAuth =  (nextState, replace) => {
+    if (!auth.loggedIn()) {
+        replace({
+            pathname: '/login',
+            state: { nextPathname: nextState.location.pathname }
+        })
+    }
+};
+
+export const Home = () => {
+    return (
+        <div>I'm home!</div>
+    );
+};
+
 render(
     <Provider store={store}>
         <main>
-            <Login />
+            <Router history={history}>
+                <Route path="/" component={Home} onEnter={requireAuth}/>
+                <Route path="/login" component={Login} />
+            </Router>
         </main>
     </Provider>,
     document.getElementById('app')

@@ -5,13 +5,21 @@ if (__WEBPACK__) {
 }
 
 /* eslint-disable no-shadow, max-len*/
-export const Login = ({submit, error}) => {
+export const Login = () => {
     const inputs = [];
     // TODO: Support user object when testing locally https://youtrack.hbo.com/youtrack/issue/UT-382
     const devUserObj = {
         firstName: 'Test',
         lastName: 'Testerson',
         tokenSeed: 'JUaHJlZSBFeWVkI'
+    };
+
+    const submit = () => {
+
+    };
+
+    const error = () => {
+
     };
 
     return (
@@ -63,7 +71,4 @@ export const Login = ({submit, error}) => {
     );
 };
 
-Login.propTypes = {
-    submit: React.PropTypes.func.isRequired,
-    error: React.PropTypes.object
-};
+Login.propTypes = {};
