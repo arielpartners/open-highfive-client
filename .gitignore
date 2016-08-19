@@ -41,3 +41,6 @@ jspm_packages
 
 # Test Artifacts
 test-artifacts
+
+# Static build output
+dist

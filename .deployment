@@ -1,2 +1,2 @@
 [config]
-command = npm prune && npm install && npm test
+command = bash deploy.sh
