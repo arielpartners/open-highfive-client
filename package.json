@@ -30,7 +30,8 @@
     "start": "concurrently \"npm run server\" \"npm run client\"",
     "test": "mocha ./test/index.jsx --compilers js:babel-core/register --reporter mocha-junit-reporter --reporter-options mochaFile=./test-artifacts/junit.mocha.xml",
     "posttest": "npm run lint && npm run coverage",
-    "pretest": "rimraf test-artifacts"
+    "pretest": "rimraf test-artifacts",
+    "eslint": "eslint src"
   },
   "repository": {
     "type": "git",
