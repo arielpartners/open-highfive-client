@@ -14,7 +14,7 @@
     "coverage-clean": "npm run rimraf -- test-artifacts/coverage",
     "coverage-open": "open coverage/index.html",
     "delayed-open": "sleep 5 && open http://localhost:$npm_package_config_clientPort",
-    "deploy": "webpack",
+    "deploy": "webpack --bail",
     "e2e": "node \"node_modules/protractor/bin/protractor\" protractor.conf.js",
     "e2e-test-server": "concurrently --kill-others \"npm run server\" \"webpack-dev-server \"",
     "lint": "eslint src --ext .jsx,.js",
