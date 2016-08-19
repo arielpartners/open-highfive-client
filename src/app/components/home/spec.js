@@ -7,23 +7,6 @@ import {Home} from './index';
 import {ItemDetail} from './components/item-detail';
 
 describe('Home component suite', () => {
-    describe('Logged out', ()=> {
-        it('should render the Login Component', ()=> {
-            const props = {
-                login: sinon.spy(),
-                logout: sinon.spy(),
-                loadItems: sinon.spy(),
-                createItem: sinon.spy(),
-                selectItem: sinon.spy(),
-                updateItem: sinon.spy(),
-                deleteItem: sinon.spy(),
-                items: [],
-                loggedIn: false
-            };
-            const wrapper = shallow(<Home {...props} />);
-            expect(wrapper.find('Login')).to.have.length(1);
-        });
-    });
 
     describe('Logged in', ()=> {
         let globalProps = {
@@ -38,20 +21,6 @@ describe('Home component suite', () => {
             items : [],
             loggedIn: true
         };
-
-        describe('Error handling', ()=> {
-            it('should display an error message if an error is defined', ()=> {
-                const props = {
-                        ...globalProps,
-                        error: {message: 'the db went missing'},
-                        items: [],
-                        selectedItem: {}
-                    },
-                    wrapper = shallow(<Home {...props} />);
-
-                expect(wrapper.text()).to.contain(props.error.message);
-            });
-        });
 
         describe('Item Detail', ()=> {
             it('should not render item detail component if selected item is null', ()=> {
@@ -88,19 +57,6 @@ describe('Home component suite', () => {
             });
         });
 
-        describe('Login Component', ()=> {
-            it('should not render', ()=> {
-                const props = {
-                        ...globalProps,
-                        items: [{_id: 'foo'}],
-                        selectedItem: {_id: 'foo'}
-                    },
-                    wrapper = shallow(<Home {...props} />);
-
-                expect(wrapper.find('Login')).to.have.length(0);
-            });
-        });
-
         describe('Connects the React home component to a Redux store', () => {
             it('should not test the connect logic by convention, its not worth the effort');
         });
@@ -109,14 +65,11 @@ describe('Home component suite', () => {
 
     describe('Redux', () => {
         require('./reducers/spec');
-        require('./components/login/reducers/spec');
         require('./actions/spec');
-        require('./components/login/actions/spec');
     });
 
     describe('Subcomponents', () => {
         require('./components/header/spec');
-        require('./components/login/spec');
         require('./components/sites-table/spec');
         require('./components/item-detail/spec');
     });

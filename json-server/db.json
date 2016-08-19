@@ -49,10 +49,20 @@
       "streetAddress": "",
       "description": "",
       "_id": 5
+    },
+    {
+      "vendorId": 123,
+      "siteId": 123,
+      "ipAddress": 123,
+      "isEnabled": false,
+      "phoneNumber": "",
+      "streetAddress": "",
+      "description": "",
+      "_id": 6
     }
   ],
   "login": {
-    "userName": "ttesterson",
+    "userName": "",
     "password": "",
     "firstName": "Test",
     "lastName": "Testerson",

@@ -2,8 +2,6 @@ import React, {PropTypes} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as Actions from './actions';
-import * as LoginActions from './components/login/actions';
-import {Login} from './components/login';
 import {ItemDetail} from './components/item-detail';
 import {SitesTable} from './components/sites-table';
 import {Header} from './components/header';
@@ -13,61 +11,46 @@ if (__WEBPACK__) {
     require('!style!css!sass!./style.scss');
 }
 
-export const Home = ({login, loggedIn, error, logout, loadItems, items, selectedItem,
+export const Home = ({logout, loadItems, items, selectedItem,
                      selectItem, createItem, updateItem, deleteItem, createAndSelectItem}) => {
     return (
             <div className="home-component">
-                <Header logout={logout} loggedIn={loggedIn}/>
-                {
-                    (error) ?
-                        <div className="error-message">
-                            <p>An error has occurred:<br />{error.message}</p>
-                        </div>
-                        : null
-                }
-                {
-                    loggedIn ?
-                        <div className="main-content">
-                            <div className="actions">
-                                <button className="mdl-button mdl-js-button mdl-button--raised"
-                                        onClick={()=>selectItem({})}>Add A Site
-                                </button>
-                            </div>
-                            <SitesTable loadItems={loadItems}
-                                        updateItem={updateItem}
-                                        selectItem={selectItem}
-                                        selectedItem={selectedItem}
-                                        deleteItem={deleteItem}
-                                        sites={items}/>
+                <Header />
+                <div className="main-content">
+                    <div className="actions">
+                        <button className="mdl-button mdl-js-button mdl-button--raised"
+                                onClick={()=>selectItem({})}>Add A Site
+                        </button>
+                    </div>
+                    <SitesTable loadItems={loadItems}
+                                updateItem={updateItem}
+                                selectItem={selectItem}
+                                selectedItem={selectedItem}
+                                deleteItem={deleteItem}
+                                sites={items}/>
 
-                            {
-                                (selectedItem) ?
-                                    <div className="form-modal">
-                                        <ItemDetail item={selectedItem}
-                                                    submitAndSelect={createAndSelectItem}
-                                                    submit={selectedItem._id ? updateItem : createItem}
-                                                    cancel={()=>selectItem()}/>
-                                    </div>
-                                    : null
-                            }
-                        </div>
-                        : <Login submit={login} error={error}/>
-                }
+                    {
+                        (selectedItem) ?
+                            <div className="form-modal">
+                                <ItemDetail item={selectedItem}
+                                            submitAndSelect={createAndSelectItem}
+                                            submit={selectedItem._id ? updateItem : createItem}
+                                            cancel={()=>selectItem()}/>
+                            </div>
+                            : null
+                    }
+                </div>
             </div>
     );
 };
 
 Home.propTypes = {
-    login: PropTypes.func.isRequired,
-    logout: PropTypes.func.isRequired,
     createItem: PropTypes.func.isRequired,
     updateItem: PropTypes.func.isRequired,
     loadItems: PropTypes.func.isRequired,
     selectItem: PropTypes.func.isRequired,
     deleteItem: PropTypes.func.isRequired,
-    items: PropTypes.array.isRequired,
-    user: PropTypes.object,
-    error: PropTypes.object,
+    items: PropTypes.array.isRequired
 };
 
 /* istanbul ignore next  */
@@ -75,7 +58,7 @@ const mapStateToProps = (state) => state;
 
 /* istanbul ignore next  */
 const mapDispatchToProps = (dispatch) => (
-    bindActionCreators({...Actions, ...LoginActions}, dispatch)
+    bindActionCreators({...Actions}, dispatch)
 );
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

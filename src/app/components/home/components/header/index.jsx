@@ -13,27 +13,18 @@ if (__WEBPACK__) {
     require('!style!css!sass!./style.scss');
 }
 
-export const Header = ({logout, loggedIn}) => {
-    const logoutBtnClasses = cx({
-        'logout-btn mdl-button mdl-js-button mdl-button--raised': true,
-        'invisible': !loggedIn
-    });
-
+export const Header = () => {
     return (
         <div className="header-component">
             <div className="header-content main-content">
                 <div className="logo"></div>
                 <h1 className="title">High Five</h1>
-                <button className={logoutBtnClasses}
-                        onClick={logout}>Logout
-                </button>
             </div>
         </div>
     );
 };
 
 Header.propTypes = {
-    logout: React.PropTypes.func.isRequired,
-    loggedIn: React.PropTypes.bool.isRequired
+
 };
 

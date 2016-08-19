@@ -13,7 +13,7 @@
     "postacceptance": "node \"node_modules/babel-istanbul/lib/cli.js\" report --include=coverage/*.json && open coverage/index.html",
     "client": "webpack-dev-server --hot --inline --profile --colors --display-error-details --display-cached & npm run delayed-open & wait",
     "precoverage": "npm run coverage-clean",
-    "coverage": "babel-node node_modules/babel-istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha ./test/index.jsx && npm run lint",
+    "coverage": "babel-node node_modules/babel-istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha ./test/index.jsx && npm run eslint",
     "coverage-clean": "npm run rimraf -- coverage",
     "coverage-open": "open coverage/index.html",
     "delayed-open": "sleep 5 && open http://localhost:$npm_package_config_clientPort",
@@ -24,6 +24,7 @@
     "poste2e": "node \"node_modules/babel-istanbul/lib/cli.js\" report --include=coverage/*.json && open coverage/index.html",
     "e2e-test-server": "concurrently --kill-others \"npm run server\" \"webpack-dev-server \"",
     "lint": "eslint src -o ./test-artifacts/junit.eslint.xml -f junit",
+    "eslint": "eslint src",
     "postinstall": "node \"node_modules/protractor/bin/webdriver-manager\" update",
     "preinstall": "npm link test/helpers/ajax-helper 2>nul",
     "rimraf": "rimraf",
@@ -128,8 +129,8 @@
     "yargs": "4.7.1"
   },
   "config": {
-    "clientPort": "2368",
-    "apiPort": "3000",
+    "clientPort": "2369",
+    "apiPort": "3001",
     "baseURL": "/api/items/"
   }
 }
