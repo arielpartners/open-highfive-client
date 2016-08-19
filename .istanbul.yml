@@ -4,7 +4,7 @@ instrumentation:
   verbose: true
   excludes: ["*.spec.js", "spec.js"]
 reporting:
-  dir: "coverage"
+  dir: "test-artifacts/coverage"
   reports:
     - html
     - cobertura
