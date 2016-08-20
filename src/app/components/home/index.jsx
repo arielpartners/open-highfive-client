@@ -53,11 +53,11 @@ Home.propTypes = {
 };
 
 /* istanbul ignore next  */
-const mapStateToProps = (state) => state;
-
-/* istanbul ignore next  */
-const mapDispatchToProps = (dispatch) => (
-    bindActionCreators({...Actions}, dispatch)
-);
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+// const mapStateToProps = (state) => state;
+//
+// /* istanbul ignore next  */
+// const mapDispatchToProps = (dispatch) => (
+//     bindActionCreators({...Actions}, dispatch)
+// );
+//
+// export default connect(mapStateToProps, mapDispatchToProps)(Home);

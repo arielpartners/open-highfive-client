@@ -1,20 +1,135 @@
 @keyframes fadeInOut {
-   0% {
-       opacity: 0;
-    }
+  0% {
+    opacity: 0;
+  }
 
-   50% {
-       opacity: 0;
-   }
+  50% {
+    opacity: 0;
+  }
 
-   100% {
-      opacity: 1;
-   }
+  100% {
+    opacity: 1;
+  }
 }
+.login-container {
+  margin: 0 auto;
+  max-width: 300px;
+  -webkit-animation: fadeInOut 1s;
+  animation: fadeInOut 1s;
+  .mdl-card__supporting-text {
+    // make room for error messages
+    padding: 16px 8px;
+  }
+  .mdl-textfield__error {
+    font-size: 10px;
+  }
+  .hiddenanchor {
+    display: none;
+  }
+  #tochange-password {
+    &:target {
+      ~ .login-component {
+        .change-password {
+          max-height: 300px;
+        }
+        .tologin {
+          max-height: 100px;
+        }
+        .tochange-password {
+          max-height: 0px;
+        }
+        .login-button {
+          max-height: 0px;
+        }
+      }
+    }
+  }
+  #tochange-email {
+    &:target {
+      ~ .login-component {
+        .change-email {
+          max-height: 300px;
+        }
+        .tologin {
+          max-height: 100px;
+        }
+        .tochange-email {
+          max-height: 0px;
+        }
+        .login-button {
+          max-height: 0px;
+        }
+      }
+    }
+  }
+  .change-email {
+    -webkit-transition: max-height 1s;
+    -moz-transition: max-height 1s;
+    -ms-transition: max-height 1s;
+    -o-transition: max-height 1s;
+    transition: max-height 1s;
+    overflow: hidden;
+    // "height: 0" does not work with css transitions
+    max-height: 0;
+  }
+  .change-password {
+    -webkit-transition: max-height 1s;
+    -moz-transition: max-height 1s;
+    -ms-transition: max-height 1s;
+    -o-transition: max-height 1s;
+    transition: max-height 1s;
+    overflow: hidden;
+    max-height: 0;
+  }
 
-.login-component{
-   margin: 0 auto;
-   max-width: 300px;
-   -webkit-animation: fadeInOut 1s;
-   animation: fadeInOut 1s;
+  .change-links {
+    margin-bottom: 10px;
+    .tologin {
+      -webkit-transition: max-height .5s;
+      -moz-transition: max-height .5s;
+      -ms-transition: max-height .5s;
+      -o-transition: max-height .5s;
+      transition: max-height .5s;
+      overflow: hidden;
+      max-height: 0;
+    }
+    .tochange-password {
+      -webkit-transition: max-height .5s;
+      -moz-transition: max-height .5s;
+      -ms-transition: max-height .5s;
+      -o-transition: max-height .5s;
+      transition: max-height .5s;
+      overflow: hidden;
+      max-height: 50px;
+    }
+    .tochange-email {
+      -webkit-transition: max-height .5s;
+      -moz-transition: max-height .5s;
+      -ms-transition: max-height .5s;
+      -o-transition: max-height .5s;
+      transition: max-height .5s;
+      overflow: hidden;
+      max-height: 50px;
+    }
+    .change-link {
+      font-size: 11px;
+      color: black;
+      text-align: center;
+      margin-bottom: 0px;
+      a {
+        font-weight: bold;
+        color: rgb(29, 162, 193);
+        margin-left: 10px;
+      }
+    }
+    .login-button {
+      -webkit-transition: max-height .5s;
+      -moz-transition: max-height .5s;
+      -ms-transition: max-height .5s;
+      -o-transition: max-height .5s;
+      transition: max-height .5s;
+      overflow: hidden;
+      max-height: 50px;
+    }
+  }
 }

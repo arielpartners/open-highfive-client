@@ -32,6 +32,18 @@ const requireAuth =  (nextState, replace) => {
     }
 };
 
+export const getFormData = (inputs, toOmit=[]) => {
+    var cb = (data, input) => {
+        const name = input.id;
+        const value = input.value;
+        if (toOmit.indexOf(name) === -1) {
+            data[name] = value === '' ? undefined : value;
+        }
+        return data;
+    };
+    return inputs.reduce(cb, {});
+};
+
 render(
     <Provider store={store}>
         <main>
