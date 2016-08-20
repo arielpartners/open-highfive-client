@@ -7,7 +7,6 @@ import {Router, Route, IndexRoute, browserHistory} from 'react-router'
 import {syncHistoryWithStore} from 'react-router-redux'
 import {Header} from './components/header';
 import Login from './components/login';
-import {Home} from './components/home';
 
 import auth from './auth'
 
@@ -49,7 +48,6 @@ render(
         <main>
             <Header />
             <Router history={history}>
-                <Route path="/" component={Home} onEnter={requireAuth}/>
                 <Route path="/login" component={Login} />
             </Router>
         </main>
