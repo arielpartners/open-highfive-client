@@ -4,7 +4,6 @@ import {connect} from 'react-redux';
 import * as Actions from './actions';
 import {ItemDetail} from './components/item-detail';
 import {SitesTable} from './components/sites-table';
-import {Header} from './components/header';
 
 /* istanbul ignore next */
 if (__WEBPACK__) {
@@ -15,7 +14,7 @@ export const Home = ({logout, loadItems, items, selectedItem,
                      selectItem, createItem, updateItem, deleteItem, createAndSelectItem}) => {
     return (
             <div className="home-component">
-                <Header />
+
                 <div className="main-content">
                     <div className="actions">
                         <button className="mdl-button mdl-js-button mdl-button--raised"
