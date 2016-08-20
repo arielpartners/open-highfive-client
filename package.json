@@ -17,7 +17,7 @@
     "e2e": "node \"node_modules/protractor/bin/protractor\" protractor.conf.js",
     "e2e-test-server": "concurrently --kill-others \"npm run server\" \"webpack-dev-server \"",
     "lint": "eslint src --ext .jsx,.js",
-    "lint-ci": "eslint src --ext .jsx,.js -o ./test-artifacts/junit.eslint.xml -f junit ; exit 0",
+    "lint-ci": "eslint src --ext .jsx,.js -o ./test-artifacts/junit.eslint.xml -f junit",
     "postacceptance": "node \"node_modules/babel-istanbul/lib/cli.js\" report --include=coverage/*.json && open coverage/index.html",
     "poste2e": "node \"node_modules/babel-istanbul/lib/cli.js\" report --include=coverage/*.json && open coverage/index.html",
     "posttest": "npm run lint-ci && npm run coverage",
