@@ -21,7 +21,7 @@
     "postacceptance": "node \"node_modules/babel-istanbul/lib/cli.js\" report --include=coverage/*.json && open coverage/index.html",
     "poste2e": "node \"node_modules/babel-istanbul/lib/cli.js\" report --include=coverage/*.json && open coverage/index.html",
     "posttest": "npm run lint && npm run coverage",
-    "posttest-junit": "npm run lint:junit && npm run coverage",
+    "posttest-junit": "npm run coverage && npm run lint:junit",
     "preacceptance": "npm run coverage-clean",
     "precoverage": "npm run coverage-clean",
     "predeploy": "npm prune && npm install",
