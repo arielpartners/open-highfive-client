@@ -7,7 +7,6 @@
     "node": "6.3.0"
   },
   "scripts": {
-    "__preinstall (azure symlink failure on smb drive)": "npm link test/helpers/ajax-helper",
     "acceptance": "node \"node_modules/protractor/bin/protractor\" protractor.acceptance.conf.js",
     "client": "webpack-dev-server --hot --inline --profile --colors --display-error-details --display-cached & npm run delayed-open & wait",
     "coverage": "babel-node node_modules/babel-istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha ./test/index.jsx",
@@ -27,7 +26,7 @@
     "precoverage": "npm run coverage-clean",
     "predeploy": "npm prune && npm install",
     "pree2e": "node \"node_modules/protractor/bin/webdriver-manager\" update && npm run coverage-clean",
-    "preinstall": "cp -r test/helpers/ajax-helper node_modules",
+    "preinstall": "npm link test/helpers/ajax-helper || cp -r test/helpers/ajax-helper node_modules",
     "pretest": "rimraf test-artifacts",
     "rimraf": "rimraf",
     "server": "json-server --watch --delay 500 json-server/db.json --id _id --port $npm_package_config_apiPort --routes routes.json",
