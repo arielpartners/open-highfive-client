@@ -1,4 +1,4 @@
-import React, {PropTypes, Component} from 'react';
+import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
@@ -10,46 +10,52 @@ if (__WEBPACK__) {
     require('!style!css!sass!./style.scss');
 }
 
-const LOGIN = "Login";
-const CHANGE_PASSWORD = "Change Password";
-const CHANGE_EMAIL = "Change Email";
+/*global componentHandler*/
+
+const LOGIN = 'Login';
+const CHANGE_PASSWORD = 'Change Password';
+const CHANGE_EMAIL = 'Change Email';
 export const emailRegExStr = '^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$';
 
 /* eslint-disable no-shadow, max-len*/
 export class Login extends Component {
     constructor(props) {
         super(props);
-        this.state = { submitButtonLabel: LOGIN };
+        this.state = {submitButtonLabel: LOGIN};
     }
 
-    componentDidMount(){
+    componentDidMount() {
         componentHandler.upgradeDom();
     }
-    componentDidUpdate(){
+
+    componentDidUpdate() {
         componentHandler.upgradeDom();
     }
 
     isChangePassword() {
-        return this.state.submitButtonLabel == CHANGE_PASSWORD;
+        return this.state.submitButtonLabel === CHANGE_PASSWORD;
     }
+
     isChangeEmail() {
-        return this.state.submitButtonLabel == CHANGE_EMAIL;
+        return this.state.submitButtonLabel === CHANGE_EMAIL;
     }
+
     setFormState(newLabel) {
-        this.setState({submitButtonLabel:newLabel});
+        this.setState({submitButtonLabel: newLabel});
     }
 
     isValid(form) {
         return form.querySelectorAll('*:invalid').length === 0;
     }
 
+    /*eslint-disable max-statements, complexity, max-depth */
     onSubmit(form, inputs) {
         form.classList.remove('invalid');
         if (!this.isValid(form)) {
             form.classList.add('invalid');
         } else {
             if (this.isChangeEmail()) {
-                if (inputs[2].value != inputs[3].value) {
+                if (inputs[2].value !== inputs[3].value) {
                     // emails must match
                     inputs[2].parentNode.classList.add('is-invalid');
                     inputs[3].parentNode.classList.add('is-invalid');
@@ -59,13 +65,13 @@ export class Login extends Component {
                     this.props.changeEmail(getFormData(inputs, toOmit));
                 }
             } else if (this.isChangePassword()) {
-                if (inputs[4].value != inputs[5].value) {
+                if (inputs[4].value !== inputs[5].value) {
                     // passwords must match
                     inputs[4].parentNode.classList.add('is-invalid');
                     inputs[5].parentNode.classList.add('is-invalid');
                     form.classList.add('invalid');
                 } else {
-                    const toOmit = ['email_new', 'email_new_confirm','userpass_new_confirm'];
+                    const toOmit = ['email_new', 'email_new_confirm', 'userpass_new_confirm'];
                     this.props.changePassword(getFormData(inputs, toOmit));
                 }
             }
@@ -74,6 +80,7 @@ export class Login extends Component {
             }
         }
     }
+    /*eslint-enable max-statements */
 
     render() {
         const {error} = this.props,
@@ -84,14 +91,8 @@ export class Login extends Component {
             labelClass = 'mdl-textfield__label',
             inputClass = 'mdl-textfield__input',
             errorClass = 'mdl-textfield__error',
-            fieldSetClass = 'mdl-textfield mdl-js-textfield mdl-textfield--floating-label extrawide',
-            // TODO: Support user object when testing locally https://youtrack.hbo.com/youtrack/issue/UT-382
-            devUserObj = {
-                firstName: 'Test',
-                lastName: 'Testerson',
-                tokenSeed: 'JUaHJlZSBFeWVkI',
-                role: 'Admin'
-            };
+            fieldSetClass = 'mdl-textfield mdl-js-textfield mdl-textfield--floating-label extrawide';
+
         let form;
 
         return (
@@ -101,7 +102,9 @@ export class Login extends Component {
                 <div className="login-component">
                     <h1>Welcome to HighFive!</h1>
                     <div className="mdl-card__supporting-text">
-                        <form ref={(ref)=> {form = ref}}
+                        <form ref={(ref)=> {
+                            form = ref;
+                        }}
                               className="mdl-card__supporting-text"
                               noValidate>
                             <div className={fieldSetClass}>
@@ -131,7 +134,8 @@ export class Login extends Component {
                                            required={this.isChangeEmail()}
                                            id="email_new"/>
                                     <label className={labelClass} htmlFor="email_new">New Email</label>
-                                    <span className={errorClass}>Email address must be valid and match confirmation</span>
+                                    <span
+                                        className={errorClass}>Email address must be valid and match confirmation</span>
                                 </div>
                                 <div className={fieldSetClass}>
                                     <input ref={addInput}

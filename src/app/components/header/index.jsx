@@ -6,7 +6,6 @@
  * These buttons could be moved to a sidebar, menu, or footer.
  */
 import React, {PropTypes} from 'react';
-import cx from 'classnames';
 import {Menu} from './components/menu';
 
 /* istanbul ignore next */
@@ -15,20 +14,20 @@ if (__WEBPACK__) {
 }
 
 export const Header = ({loggedIn}) => {
-  return (
-    <div>
-      <div className="container-fluid h5-hdr header-component">
-        <div className="row">
-          <div className="col-lg-12 h5-logo">
-            <a href="#" className="logo"/>
-          </div>
+    return (
+        <div>
+            <div className="container-fluid h5-hdr header-component">
+                <div className="row">
+                    <div className="col-lg-12 h5-logo">
+                        <a href="#" className="logo"/>
+                    </div>
+                </div>
+            </div>
+            <Menu loggedIn={loggedIn}/>
         </div>
-      </div>
-      <Menu loggedIn={loggedIn}/>
-    </div>
-  )
+    );
 };
 
 Header.propTypes = {
-  loggedIn: PropTypes.object
-}
+    loggedIn: PropTypes.object
+};

@@ -3,12 +3,12 @@ import {render} from 'react-dom';
 import configureStore from './store/configure-store';
 import {Provider} from 'react-redux';
 import {persistStore} from 'redux-persist';
-import {Router, Route, IndexRoute, browserHistory} from 'react-router'
-import {syncHistoryWithStore} from 'react-router-redux'
+import {Router, Route, browserHistory} from 'react-router';
+import {syncHistoryWithStore} from 'react-router-redux';
 import {Header} from './components/header';
 import Login from './components/login';
 
-import auth from './auth'
+//import auth from './auth';
 
 const store = configureStore();
 
@@ -19,19 +19,18 @@ if (__WEBPACK__) {
     require('!style!css!sass!./style.scss');
 }
 
-
 const history = syncHistoryWithStore(browserHistory, store);
 
-const requireAuth =  (nextState, replace) => {
-    if (!auth.loggedIn()) {
-        replace({
-            pathname: '/login',
-            state: { nextPathname: nextState.location.pathname }
-        })
-    }
-};
+// const requireAuth = (nextState, replace) => {
+//     if (!auth.loggedIn()) {
+//         replace({
+//             pathname: '/login',
+//             state: {nextPathname: nextState.location.pathname}
+//         })
+//     }
+// };
 
-export const getFormData = (inputs, toOmit=[]) => {
+export const getFormData = (inputs, toOmit = []) => {
     var cb = (data, input) => {
         const name = input.id;
         const value = input.value;
