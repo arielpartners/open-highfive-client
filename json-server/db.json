@@ -62,11 +62,8 @@
     }
   ],
   "login": {
-    "userName": "",
-    "password": "",
-    "firstName": "Test",
-    "lastName": "Testerson",
-    "token": "JUaHJlZSBFeWVkI"
+    "email": "cfulnecky@gmail.com",
+    "userpass": "adsfa"
   },
   "sampleUser": {
     "roleId": "b71b0f63-199e-46e2-a64e-a453216b7dc8",
