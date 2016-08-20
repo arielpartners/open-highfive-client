@@ -17,7 +17,7 @@
     "e2e": "node \"node_modules/protractor/bin/protractor\" protractor.conf.js",
     "e2e-test-server": "concurrently --kill-others \"npm run server\" \"webpack-dev-server \"",
     "lint": "eslint src --ext .jsx,.js",
-    "lint-junit": "eslint src --ext .jsx,.js -o ./test-artifacts/junit.eslint.xml -f junit",
+    "lint-ci": "eslint src --ext .jsx,.js -o ./test-artifacts/junit.eslint.xml -f junit ; exit 0",
     "postacceptance": "node \"node_modules/babel-istanbul/lib/cli.js\" report --include=coverage/*.json && open coverage/index.html",
     "poste2e": "node \"node_modules/babel-istanbul/lib/cli.js\" report --include=coverage/*.json && open coverage/index.html",
     "posttest": "npm run lint && npm run coverage",
@@ -32,7 +32,7 @@
     "server": "json-server --watch --delay 500 json-server/db.json --id _id --port $npm_package_config_apiPort --routes routes.json",
     "start": "concurrently \"npm run server\" \"npm run client\"",
     "test": "mocha ./test/index.jsx --compilers js:babel-core/register",
-    "test-junit": "mocha ./test/index.jsx --compilers js:babel-core/register --reporter mocha-junit-reporter --reporter-options mochaFile=./test-artifacts/junit.mocha.xml"
+    "test-ci": "mocha ./test/index.jsx --compilers js:babel-core/register --reporter mocha-junit-reporter --reporter-options mochaFile=./test-artifacts/junit.mocha.xml"
   },
   "repository": {
     "type": "git",
