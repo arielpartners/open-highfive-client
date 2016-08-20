@@ -14,6 +14,6 @@ describe('App suite', () => {
 
     // components
     describe('Components', () => {
-        require('./components/home/spec');
+
     });
 });
