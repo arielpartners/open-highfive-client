@@ -13,7 +13,7 @@
 }
 .login-container {
   margin: 0 auto;
-  max-width: 300px;
+  padding-left: 15px;
   -webkit-animation: fadeInOut 1s;
   animation: fadeInOut 1s;
   .mdl-card__supporting-text {
@@ -131,5 +131,10 @@
       overflow: hidden;
       max-height: 50px;
     }
+  }
+
+  .mdl-textfield {
+    display: block;
+    width: 1005;
   }
 }
