@@ -1,11 +1,4 @@
 .header-component {
-  background: black;
-  color: #ccc;
-  padding: 0 1em;
-  width: 100%;
-  margin: 0 0 1rem 0;
-  height: 75px;
-
   .header-content {
     background: black;
     position: relative;
@@ -22,10 +15,10 @@
     display: inline-block;
     vertical-align: middle;
     margin-right: 2em;
-    background-image: url('../../../img/logo.svg');
+    background-image: url('img/logoHighFive.png');
     background-repeat: no-repeat;
-    width: 125px;
-    height: 100%;
+    width: 200px;
+    min-height: 70px;
     background-size: 100% auto;
     background-position: 0 10px;
     font-weight: normal;

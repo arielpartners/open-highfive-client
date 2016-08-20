@@ -5,26 +5,30 @@
  * Application header with toolbar buttons.
  * These buttons could be moved to a sidebar, menu, or footer.
  */
-import React from 'react';
+import React, {PropTypes} from 'react';
 import cx from 'classnames';
+import {Menu} from './components/menu';
 
 /* istanbul ignore next */
 if (__WEBPACK__) {
     require('!style!css!sass!./style.scss');
 }
 
-export const Header = () => {
-    return (
-        <div className="header-component">
-            <div className="header-content main-content">
-                <div className="logo"></div>
-                <h1 className="title">High Five</h1>
-            </div>
+export const Header = ({loggedIn}) => {
+  return (
+    <div>
+      <div className="container-fluid h5-hdr header-component">
+        <div className="row">
+          <div className="col-lg-12 h5-logo">
+            <a href="#" className="logo"/>
+          </div>
         </div>
-    );
+      </div>
+      <Menu loggedIn={loggedIn}/>
+    </div>
+  )
 };
 
 Header.propTypes = {
-
-};
-
+  loggedIn: PropTypes.object
+}
