@@ -136,6 +136,6 @@
   "config": {
     "clientPort": "2368",
     "apiPort": "3000",
-    "baseURL": "/api/items/"
+    "baseURL": "/api/"
   }
 }

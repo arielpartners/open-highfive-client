@@ -1,10 +1,10 @@
 import React, {PropTypes, Component} from 'react';
-//import {bindActionCreators} from 'redux';
+import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
 import {getFormData} from '../../index';
+import * as LoginActions from './actions';
 
-import {login} from './actions';
 /* istanbul ignore next  */
 if (__WEBPACK__) {
     require('!style!css!sass!./style.scss');
@@ -209,8 +209,8 @@ Login.propTypes = {
 const mapStateToProps = (state) => state;
 
 /* istanbul ignore next */
-const mapDispatchToProps = (dispatch) => {
-    return {login: () => dispatch(login())}
-};
+const mapDispatchToProps = (dispatch) => (
+    bindActionCreators({...LoginActions}, dispatch)
+);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
