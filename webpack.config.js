@@ -278,7 +278,6 @@ module.exports = (function makeWebpackConfig() {
             // Minify all javascript, switch loaders to minimizing mode
             new webpack.optimize.UglifyJsPlugin({
                 // to debug prod builds uncomment //debug lines and comment //prod lines
-
                 // beautify: true,//debug
                 // mangle: false,//debug
                 // dead_code: false,//debug
