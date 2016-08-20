@@ -19,7 +19,6 @@ if (__WEBPACK__) {
     require('!style!css!sass!./style.scss');
 }
 
-
 const history = syncHistoryWithStore(browserHistory, store);
 
 const requireAuth =  (nextState, replace) => {
@@ -30,6 +29,19 @@ const requireAuth =  (nextState, replace) => {
         })
     }
 };
+
+export const getFormData = (inputs, toOmit=[]) => {
+    var cb = (data, input) => {
+        const name = input.id;
+        const value = input.value;
+        if (toOmit.indexOf(name) === -1) {
+            data[name] = value === '' ? undefined : value;
+        }
+        return data;
+    };
+    return inputs.reduce(cb, {});
+};
+
 
 export const Home = () => {
     return (
@@ -42,7 +54,7 @@ render(
         <main>
             <Router history={history}>
                 <Route path="/" component={Home} onEnter={requireAuth}/>
-                <Route path="/login" component={Login} />
+                <Route path="/login" getFormData={getFormData} component={Login} />
             </Router>
         </main>
     </Provider>,

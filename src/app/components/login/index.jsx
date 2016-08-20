@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import {bindActionCreators} from 'redux';
+//import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
 import {login} from './actions';
@@ -8,67 +8,208 @@ if (__WEBPACK__) {
     require('!style!css!sass!./style.scss');
 }
 
+const LOGIN = "Login";
+const CHANGE_PASSWORD = "Change Password";
+const CHANGE_EMAIL = "Change Email";
+export const emailRegExStr = '^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$';
+
 /* eslint-disable no-shadow, max-len*/
-const _Login = ({login, error}) => {
-    const inputs = [];
-    // TODO: Support user object when testing locally https://youtrack.hbo.com/youtrack/issue/UT-382
-    const devUserObj = {
-        firstName: 'Test',
-        lastName: 'Testerson',
-        tokenSeed: 'JUaHJlZSBFeWVkI'
-    };
+export class Login extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { submitButtonLabel: LOGIN };
+    }
 
-    return (
-      <div className="login-component mdl-card mdl-shadow--6dp">
-          <div className="mdl-card__supporting-text">
-              <form action="#">
-                  <div className="mdl-textfield
-                                    mdl-js-textfield
-                                    mdl-textfield--floating-label">
-                      <input ref={(input)=>inputs.push(input)}
-                             className="mdl-textfield__input"
-                             required
-                             type="text" id="username"/>
-                      <label className="mdl-textfield__label" htmlFor="username">Username</label>
-                  </div>
-                  <div className="mdl-textfield
-                                    mdl-js-textfield
-                                    mdl-textfield--floating-label">
-                      <input ref={(input)=>inputs.push(input)}
-                             className="mdl-textfield__input"
-                             type="password"
-                             required
-                             id="userpass"/>
-                      <label className="mdl-textfield__label" htmlFor="userpass">Password</label>
-                  </div>
-              </form>
-          </div>
-          <div className="mdl-card__actions mdl-card--border">
-              <button onClick={()=>login({
-                  userName : inputs[0].value,
-                  password: inputs[1].value,
-                  firstName: devUserObj.firstName,
-                  lastName: devUserObj.lastName,
-                  token: devUserObj.tokenSeed,
-              })
-              }
-                      type="submit"
-                      className="mdl-button
-                                   mdl-button--colored
-                                   mdl-js-button
-                                   mdl-js-ripple-effect">Log in
-              </button>
-              {
-                  (error) ?
-                    <p className="mdl-color-text--red">{error.message}</p> : null
-              }
-          </div>
-      </div>
-    );
-};
+    componentDidMount(){
+        componentHandler.upgradeDom();
+    }
+    componentDidUpdate(){
+        componentHandler.upgradeDom();
+    }
 
-_Login.propTypes = {
-    login: PropTypes.func.isRequired
+    isChangePassword() {
+        return this.state.submitButtonLabel == CHANGE_PASSWORD;
+    }
+    isChangeEmail() {
+        return this.state.submitButtonLabel == CHANGE_EMAIL;
+    }
+    setFormState(newLabel) {
+        this.setState({submitButtonLabel:newLabel});
+    }
+
+    isValid(form) {
+        return form.querySelectorAll('*:invalid').length === 0;
+    }
+
+    onSubmit(form, inputs) {
+        form.classList.remove('invalid');
+        if (!this.isValid(form)) {
+            form.classList.add('invalid');
+        } else {
+            if (this.isChangeEmail()) {
+                if (inputs[2].value != inputs[3].value) {
+                    // emails must match
+                    inputs[2].parentNode.classList.add('is-invalid');
+                    inputs[3].parentNode.classList.add('is-invalid');
+                    form.classList.add('invalid');
+                } else {
+                    const toOmit = ['userpass_new', 'userpass_new_confirm', 'email_new_confirm'];
+                    this.props.changeEmail(getFormData(inputs, toOmit));
+                }
+            } else if (this.isChangePassword()) {
+                if (inputs[4].value != inputs[5].value) {
+                    // passwords must match
+                    inputs[4].parentNode.classList.add('is-invalid');
+                    inputs[5].parentNode.classList.add('is-invalid');
+                    form.classList.add('invalid');
+                } else {
+                    const toOmit = ['email_new', 'email_new_confirm','userpass_new_confirm'];
+                    this.props.changePassword(getFormData(inputs, toOmit));
+                }
+            }
+            else {
+                this.props.login(getFormData(inputs));
+            }
+        }
+    }
+
+    render() {
+        const {error} = this.props,
+            inputs = [],
+            addInput = (input) => {
+                inputs.push(input);
+            },
+            labelClass = 'mdl-textfield__label',
+            inputClass = 'mdl-textfield__input',
+            errorClass = 'mdl-textfield__error',
+            fieldSetClass = 'mdl-textfield mdl-js-textfield mdl-textfield--floating-label extrawide',
+            // TODO: Support user object when testing locally https://youtrack.hbo.com/youtrack/issue/UT-382
+            devUserObj = {
+                firstName: 'Test',
+                lastName: 'Testerson',
+                tokenSeed: 'JUaHJlZSBFeWVkI',
+                role: 'Admin'
+            };
+        let form;
+
+        return (
+            <div className="login-container">
+                <a className="hiddenanchor" id="tochange-email">foo</a>
+                <a className="hiddenanchor" id="tochange-password">foo</a>
+                <div className="login-component mdl-card mdl-shadow--6dp">
+                    <div className="mdl-card__title mdl-color--black mdl-color-text--white">
+                        <h2 className="mdl-card__title-text">Login</h2>
+                    </div>
+                    <div className="mdl-card__supporting-text">
+                        <form ref={(ref)=> {form = ref}}
+                              className="mdl-card__supporting-text"
+                              noValidate>
+                            <div className={fieldSetClass}>
+                                <input ref={addInput}
+                                       className={inputClass}
+                                       required={true}
+                                       pattern={emailRegExStr}
+                                       type="text" id="email"/>
+                                <label className={labelClass} htmlFor="email">Email</label>
+                                <span className={errorClass}>Valid email address is required</span>
+                            </div>
+                            <div className={fieldSetClass}>
+                                <input ref={addInput}
+                                       className={inputClass}
+                                       type="password"
+                                       required={true}
+                                       id="userpass"/>
+                                <label className={labelClass} htmlFor="userpass">Password</label>
+                                <span className={errorClass}>Password is required</span>
+                            </div>
+                            <div className="change-email">
+                                <div className={fieldSetClass}>
+                                    <input ref={addInput}
+                                           className={inputClass}
+                                           type="text"
+                                           pattern={emailRegExStr}
+                                           required={this.isChangeEmail()}
+                                           id="email_new"/>
+                                    <label className={labelClass} htmlFor="email_new">New Email</label>
+                                    <span className={errorClass}>Email address must be valid and match confirmation</span>
+                                </div>
+                                <div className={fieldSetClass}>
+                                    <input ref={addInput}
+                                           className={inputClass}
+                                           type="text"
+                                           pattern={emailRegExStr}
+                                           required={this.isChangeEmail()}
+                                           id="email_new_confirm"/>
+                                    <label className={labelClass} htmlFor="email_new_confirm">Confirm New
+                                        Email</label>
+                                    <span className={errorClass}>Email address must be valid and match above</span>
+                                </div>
+                            </div>
+                            <div className="change-password">
+                                <div className={fieldSetClass}>
+                                    <input ref={addInput}
+                                           className={inputClass}
+                                           type="password"
+                                           required={this.isChangePassword()}
+                                           id="userpass_new"/>
+                                    <label className={labelClass} htmlFor="userpass_new">New Password</label>
+                                    <span className={errorClass}>Password required, must match confirmation</span>
+                                </div>
+                                <div className={fieldSetClass}>
+                                    <input ref={addInput}
+                                           className={inputClass}
+                                           type="password"
+                                           required={this.isChangePassword()}
+                                           id="userpass_new_confirm"/>
+                                    <label className={labelClass} htmlFor="userpass_new_confirm">Confirm New
+                                        Password</label>
+                                    <span className={errorClass}>Password required, must match above</span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div className="change-links">
+                        <div className="tologin">
+                            <p className="change-link">
+                                Changed your mind?
+                                <a onClick={()=>this.setFormState(LOGIN)} href="#tologin">Log in</a>
+                            </p>
+                        </div>
+                        <div className="tochange-email">
+                            <p className="change-link">
+                                Want to change your email?
+                                <a onClick={()=>this.setFormState(CHANGE_EMAIL)} href="#tochange-email">Change it</a>
+                            </p>
+                        </div>
+                        <div className="tochange-password">
+                            <p className="change-link">
+                                Want to change your password?
+                                <a onClick={()=>this.setFormState(CHANGE_PASSWORD)} href="#tochange-password">Change it</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div className="mdl-card__actions mdl-card--border">
+                        <button onClick={()=>this.onSubmit(form, inputs)}
+                                type="submit"
+                                className="mdl-button mdl-button--colored mdl-js-button
+                                               mdl-js-ripple-effect">{this.state.submitButtonLabel}
+                        </button>
+                        {
+                            (error) ?
+                                <p className="mdl-color-text--red">{error.message}</p> : null
+                        }
+                    </div>
+                </div>
+            </div>
+        );
+    }
+}
+
+Login.propTypes = {
+    login: React.PropTypes.func.isRequired,
+    changeEmail: React.PropTypes.func.isRequired,
+    changePassword: React.PropTypes.func.isRequired,
+    error: React.PropTypes.object
 };
 
 /* istanbul ignore next */
@@ -79,6 +220,4 @@ const mapDispatchToProps = (dispatch) => {
     return {login: () => dispatch(login())}
 };
 
-const Login = connect(mapStateToProps, mapDispatchToProps)(_Login);
-
-export default Login;
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
