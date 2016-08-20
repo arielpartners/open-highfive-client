@@ -5,8 +5,9 @@ import {Provider} from 'react-redux';
 import {persistStore} from 'redux-persist';
 import {Router, Route, IndexRoute, browserHistory} from 'react-router'
 import {syncHistoryWithStore} from 'react-router-redux'
+import {Header} from './components/header';
 import Login from './components/login';
-//import {Home} from './components/home';
+import {Home} from './components/home';
 
 import auth from './auth'
 
@@ -31,15 +32,10 @@ const requireAuth =  (nextState, replace) => {
     }
 };
 
-export const Home = () => {
-    return (
-        <div>I'm home!</div>
-    );
-};
-
 render(
     <Provider store={store}>
         <main>
+            <Header />
             <Router history={history}>
                 <Route path="/" component={Home} onEnter={requireAuth}/>
                 <Route path="/login" component={Login} />
