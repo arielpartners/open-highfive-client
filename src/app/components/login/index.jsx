@@ -98,10 +98,8 @@ export class Login extends Component {
             <div className="login-container">
                 <a className="hiddenanchor" id="tochange-email">foo</a>
                 <a className="hiddenanchor" id="tochange-password">foo</a>
-                <div className="login-component mdl-card mdl-shadow--6dp">
-                    <div className="mdl-card__title mdl-color--black mdl-color-text--white">
-                        <h2 className="mdl-card__title-text">Login</h2>
-                    </div>
+                <div className="login-component">
+                    <h1>Welcome to HighFive!</h1>
                     <div className="mdl-card__supporting-text">
                         <form ref={(ref)=> {form = ref}}
                               className="mdl-card__supporting-text"
@@ -177,18 +175,6 @@ export class Login extends Component {
                                 <a onClick={()=>this.setFormState(LOGIN)} href="#tologin">Log in</a>
                             </p>
                         </div>
-                        <div className="tochange-email">
-                            <p className="change-link">
-                                Want to change your email?
-                                <a onClick={()=>this.setFormState(CHANGE_EMAIL)} href="#tochange-email">Change it</a>
-                            </p>
-                        </div>
-                        <div className="tochange-password">
-                            <p className="change-link">
-                                Want to change your password?
-                                <a onClick={()=>this.setFormState(CHANGE_PASSWORD)} href="#tochange-password">Change it</a>
-                            </p>
-                        </div>
                     </div>
                     <div className="mdl-card__actions mdl-card--border">
                         <button onClick={()=>this.onSubmit(form, inputs)}
@@ -200,6 +186,11 @@ export class Login extends Component {
                             (error) ?
                                 <p className="mdl-color-text--red">{error.message}</p> : null
                         }
+                    </div>
+                    <div className="tochange-email">
+                        <p className="change-link">
+                            <a onClick={()=>this.setFormState(CHANGE_EMAIL)} href="#tochange-email">Sign up</a>
+                        </p>
                     </div>
                 </div>
             </div>

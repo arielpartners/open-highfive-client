@@ -1,0 +1,90 @@
+/* ---------------- bootstrap override ----------------  */
+
+.navbar {
+	border: none;
+	border-radius: 0;
+	margin-bottom: 0;
+}
+
+.navbar-default {
+	background: #415464;
+}
+
+.navbar-default .navbar-nav > li > a {
+	color: #FFF;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+	color: #FC0;
+}
+
+
+.navbar-default .navbar-nav > .active > a {
+	background: #5E6E7B;
+	color: #FFF;
+}
+
+.navbar-default .navbar-collapse {
+	border: none;
+	max-width: 1340px;
+	margin: 0 auto;
+}
+
+.container-fluid .row {
+	max-width: 1340px;
+	margin: 0 auto;
+}
+
+/*.h5-stats .col-lg-6 {
+	padding-right: 0;
+	padding-left: 0;
+}*/
+
+/* ---------------- highfive styles ---------------- */
+
+body {
+	font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+}
+
+.h5-hdr {
+	background: url(../images/bgHdr.jpg) repeat-x left top;
+}
+
+.h5-logo {
+	background: url(../images/bgHdrSeal.png) no-repeat 50% top;
+	padding-top: 30px;
+	border-bottom: #677682 
+}
+
+.h5-stats {
+	background: #ECEEEF;
+	border-bottom: solid 1px #CACFD3;
+	margin-bottom: 20px;
+}
+
+.h5-stats-title {
+	padding: 7px;
+	font-weight: bold;
+}
+
+.h5-stats-content {
+	padding: 7px;
+}
+
+h1 {
+	font-family: "Merriweather", Georgia, Times, "Times New Roman", serif;
+	color: #264363;
+	font-size: 2.2em;
+}
+
+h2 {
+	font-family: "Merriweather", Georgia, Times, "Times New Roman", serif;
+	color: #264363;
+	font-size: 1.65em;
+}
+
+h3 {
+	font-family: "Merriweather", Georgia, Times, "Times New Roman", serif;
+	color: #264363;
+	font-size: 1.25em;
+}
