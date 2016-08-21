@@ -1,66 +1,94 @@
 {
-  "items": [
-    {
-      "_id": 1,
-      "vendorId": "lg",
-      "siteId": "1111111",
-      "ipAddress": "192.168.1.1",
-      "description": "First LG Site",
-      "phoneNumber": "2125551234",
-      "streetAddress": "21 25th Street, New York, NY 51234",
-      "isEnabled": true
+  "recognitions": {
+    "toDate":{
+      "labels": [
+      ],
+      "datasets": [
+        {
+          "data": [1440, 650, 400, 1387, 888],
+          "backgroundColor": [
+            "#FF9900",
+            "#CC3300",
+            "#990000",
+            "#6633CC",
+            "#0033CC"
+          ],
+          "hoverBackgroundColor": [
+            "#FF9900",
+            "#CC3300",
+            "#990000",
+            "#6633CC",
+            "#0033CC"
+          ]
+        }]
     },
-    {
-      "_id": 2,
-      "vendorId": "lg",
-      "siteId": "222222",
-      "ipAddress": "127.0.0.1",
-      "description": "Second LG Site",
-      "phoneNumber": "2125551234",
-      "streetAddress": "21 25th Street, New York, NY 51234",
-      "isEnabled": true
+    "year": {
+      "labels": [
+      ],
+      "datasets": [
+        {
+          "data": [280, 130, 240, 387, 188],
+          "backgroundColor": [
+            "#FF9900",
+            "#CC3300",
+            "#990000",
+            "#6633CC",
+            "#0033CC"
+          ],
+          "hoverBackgroundColor": [
+            "#FF9900",
+            "#CC3300",
+            "#990000",
+            "#6633CC",
+            "#0033CC"
+          ]
+        }]
     },
-    {
-      "_id": 3,
-      "vendorId": "enseo",
-      "siteId": "111111",
-      "ipAddress": "192.168.1.1",
-      "description": "First Enseo site",
-      "phoneNumber": "2125551234",
-      "streetAddress": "21 25th Street, New York, NY 51234",
-      "isEnabled": true
+    "month": {
+      "labels": [
+      ],
+      "datasets": [
+        {
+          "data": [40, 50, 10, 87, 48],
+          "backgroundColor": [
+            "#FF9900",
+            "#CC3300",
+            "#990000",
+            "#6633CC",
+            "#0033CC"
+          ],
+          "hoverBackgroundColor": [
+            "#FF9900",
+            "#CC3300",
+            "#990000",
+            "#6633CC",
+            "#0033CC"
+          ]
+        }]
     },
-    {
-      "_id": 4,
-      "vendorId": "enseo",
-      "siteId": "222222",
-      "ipAddress": "127.0.0.1",
-      "description": "Second Enseo site",
-      "phoneNumber": "2125551234",
-      "streetAddress": "21 25th Street, New York, NY 51234",
-      "isEnabled": true
-    },
-    {
-      "vendorId": "d",
-      "siteId": "d",
-      "ipAddress": "d",
-      "isEnabled": false,
-      "phoneNumber": "",
-      "streetAddress": "",
-      "description": "",
-      "_id": 5
-    },
-    {
-      "vendorId": 123,
-      "siteId": 123,
-      "ipAddress": 123,
-      "isEnabled": false,
-      "phoneNumber": "",
-      "streetAddress": "",
-      "description": "",
-      "_id": 6
+    "week": {
+      "labels": [
+      ],
+      "datasets": [
+        {
+          "data": [20, 10, 10, 17, 28],
+          "backgroundColor": [
+            "#FF9900",
+            "#CC3300",
+            "#990000",
+            "#6633CC",
+            "#0033CC"
+          ],
+          "hoverBackgroundColor": [
+            "#FF9900",
+            "#CC3300",
+            "#990000",
+            "#6633CC",
+            "#0033CC"
+          ]
+        }]
     }
-  ],
+  },
   "login": {
     "email": "cfulnecky@gmail.com",
     "userpass": "adsfa"

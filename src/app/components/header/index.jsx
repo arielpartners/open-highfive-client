@@ -7,6 +7,7 @@
  */
 import React, {PropTypes} from 'react';
 import {Menu} from './components/menu';
+import {Recognitions} from './components/recognitions';
 
 /* istanbul ignore next */
 if (__WEBPACK__) {
@@ -24,6 +25,7 @@ export const Header = ({loggedIn}) => {
                 </div>
             </div>
             <Menu loggedIn={loggedIn}/>
+            <Recognitions loggedIn={loggedIn}/>
         </div>
     );
 };

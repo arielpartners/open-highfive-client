@@ -5,7 +5,7 @@ if (__WEBPACK__) {
     require('!style!css!sass!./style.scss');
 }
 
-export const Menu = ({}) => {
+export const Menu = () => {
     return (
         <nav className="navbar navbar-default">
             <div className="container-fluid">
