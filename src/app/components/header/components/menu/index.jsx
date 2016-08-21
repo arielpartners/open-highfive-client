@@ -2,10 +2,10 @@ import React, {PropTypes} from 'react';
 
 /* istanbul ignore next */
 if (__WEBPACK__) {
-  require('!style!css!sass!./style.scss');
+  //require('!style!css!sass!./style.scss');
 }
 
-export const Menu = ({loggedIn}) => {
+export const Menu = () => {
   return (
     <nav className="navbar navbar-default">
       <div className="container-fluid">
