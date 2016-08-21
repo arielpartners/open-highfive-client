@@ -1,4 +1,6 @@
 .header-component {
+  height: 100px;
+
   .header-content {
     background: black;
     position: relative;
@@ -14,13 +16,11 @@
   .logo {
     display: inline-block;
     vertical-align: middle;
-    margin-right: 2em;
     background-image: url('img/logoHighFive.png');
     background-repeat: no-repeat;
-    width: 200px;
-    min-height: 70px;
+    width: 187px;
+    min-height: 40px;
     background-size: 100% auto;
-    background-position: 0 10px;
     font-weight: normal;
   }
 
@@ -33,4 +33,6 @@
       color: white;
     }
   }
+
+
 }
