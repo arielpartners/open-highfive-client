@@ -172,15 +172,7 @@ export class Login extends Component {
                             </div>
                         </form>
                     </div>
-                    <div className="change-links">
-                        <div className="tologin">
-                            <p className="change-link">
-                                Changed your mind?
-                                <a onClick={()=>this.setFormState(LOGIN)} href="#tologin">Log in</a>
-                            </p>
-                        </div>
-                    </div>
-                    <div className="mdl-card__actions mdl-card--border">
+                    <div className="mdl-card__actions">
                         <button onClick={()=>this.onSubmit(form, inputs)}
                                 type="submit"
                                 className="mdl-button mdl-button--colored mdl-js-button
@@ -191,9 +183,10 @@ export class Login extends Component {
                                 <p className="mdl-color-text--red">{error.message}</p> : null
                         }
                     </div>
-                    <div className="tochange-email">
+                    <div className="tochange-email change-links">
                         <p className="change-link">
-                            <a onClick={()=>this.setFormState(CHANGE_EMAIL)} href="#tochange-email">Sign up</a>
+                            <a onClick={()=>this.setFormState(CHANGE_EMAIL)}
+                               href="#tochange-email">Sign up for new account</a>
                         </p>
                     </div>
                 </div>

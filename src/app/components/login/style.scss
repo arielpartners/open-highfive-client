@@ -18,7 +18,7 @@
   animation: fadeInOut 1s;
   .mdl-card__supporting-text {
     // make room for error messages
-    padding: 16px 8px;
+    padding: 0px 8px;
   }
   .mdl-textfield__error {
     font-size: 10px;
@@ -26,6 +26,7 @@
   .hiddenanchor {
     display: none;
   }
+
   #tochange-password {
     &:target {
       ~ .login-component {
@@ -84,6 +85,8 @@
 
   .change-links {
     margin-bottom: 10px;
+    margin-top: 15px;
+
     .tologin {
       -webkit-transition: max-height .5s;
       -moz-transition: max-height .5s;
@@ -114,12 +117,12 @@
     .change-link {
       font-size: 11px;
       color: black;
-      text-align: center;
-      margin-bottom: 0px;
+
       a {
         font-weight: bold;
         color: rgb(29, 162, 193);
-        margin-left: 10px;
+        padding-left: 8px;
+        padding-top: 15px;
       }
     }
     .login-button {
@@ -136,5 +139,11 @@
   .mdl-textfield {
     display: block;
     width: 1005;
+  }
+
+  .mdl-button--colored {
+    background: #337ab7;
+    color: #ffffff;
+    border-radius: 4px;
   }
 }
