@@ -29,7 +29,7 @@ main {
   padding: 0 1rem;
 }
 
-//Fix Material Design rendering inputs as invalid before interaction
+// Fix Material Design rendering inputs as invalid before interaction
 form {
   .mdl-textfield__label {
     color: inherit;
@@ -59,4 +59,15 @@ form {
       }
     }
   }
+}
+
+// Support for Bootstrap menus without Javascript
+/* show the collapse when navbar toggle is checked */
+#navbar-toggle-cbox:checked ~ .collapse {
+  display: block;
+}
+
+/* the checkbox used only internally; don't display it */
+#navbar-toggle-cbox {
+  display:none
 }

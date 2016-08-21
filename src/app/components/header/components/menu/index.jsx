@@ -9,18 +9,26 @@ export const Menu = () => {
     return (
         <nav className="navbar navbar-default">
             <div className="container-fluid">
+                <input type="checkbox" id="navbar-toggle-cbox"/>
                 <div className="navbar-header">
-                    <button type="button" className="navbar-toggle collapsed" data-toggle="collapse"
-                            data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <label htmlFor="navbar-toggle-cbox"
+                           className="navbar-toggle collapsed"
+                           data-toggle="collapse"
+                           data-target="#navbar"
+                           aria-expanded="false"
+                           aria-controls="navbar">
                         <span className="sr-only">Toggle navigation</span>
-                        <span className="icon-bar"></span> <span className="icon-bar"></span>
                         <span className="icon-bar"></span>
-                    </button>
+                        <span className="icon-bar"></span>
+                        <span className="icon-bar"></span>
+                    </label>
                 </div>
 
-                <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <div className="collapse navbar-collapse" id="navbar">
                     <ul className="nav navbar-nav">
-                        <li className="active"><a href="#">Home <span className="sr-only">(current)</span></a></li>
+                        <li className="active">
+                            <a href="#">Home <span className="sr-only">(current)</span></a>
+                        </li>
                         <li><a href="#">Spot Recognition</a></li>
                         <li><a href="#">Annual Evaluation</a></li>
                         <li><a href="#">Organization</a></li>
