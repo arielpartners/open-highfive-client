@@ -59,8 +59,8 @@ export const Recognitions = ({loggedIn}) => {
                   </div>
               </div>
           </span>
-        )
-    }
+        );
+    };
 
     return (
         <div className="container-fluid h5-stats">
