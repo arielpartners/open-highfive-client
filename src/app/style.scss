@@ -293,8 +293,16 @@ h3 {
   font-style: normal;
 }
 
+.h5-quicklinks .glyphicon {
+  margin-right: 10px;
+}
+
 @media (max-width: 768px) {
   .h5-stats-display {
+    display: none;
+  }
+
+  .h5-mobilehidden {
     display: none;
   }
 }

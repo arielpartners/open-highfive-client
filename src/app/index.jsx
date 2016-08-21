@@ -7,6 +7,7 @@ import {Router, Route, browserHistory} from 'react-router';
 import {syncHistoryWithStore} from 'react-router-redux';
 import {Header} from './components/header';
 import Login from './components/login';
+//import {Home} from './components/home';
 
 const store = configureStore();
 
