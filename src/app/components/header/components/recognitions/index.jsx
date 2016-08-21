@@ -52,7 +52,8 @@ export const Recognitions = () => {
                     <div className="h5-stats-content">
 
                         <div className="h5-recognition-card h5-empowerment">
-                            <img src="https://github.com/arielpartners/highfive-client/raw/master/dev/img/headshot.jpg" alt="Julie Doe"/>
+                            <img src="https://github.com/arielpartners/highfive-client/raw/master/dev/img/headshot.jpg"
+                                 alt="Julie Doe"/>
                             <a href="#" className="h5-recognized-person">Julie Doe</a> was
                             recognized for
                             <span className="h5-recognized-value">Empowerment</span> by <a
