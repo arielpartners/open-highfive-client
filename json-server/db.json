@@ -1,11 +1,16 @@
 {
   "recognitions": {
-    "toDate":{
-      "labels": [
-      ],
+    "toDate": {
+      "labels": [],
       "datasets": [
         {
-          "data": [1440, 650, 400, 1387, 888],
+          "data": [
+            1440,
+            650,
+            400,
+            1387,
+            888
+          ],
           "backgroundColor": [
             "#FF9900",
             "#CC3300",
@@ -20,14 +25,20 @@
             "#6633CC",
             "#0033CC"
           ]
-        }]
+        }
+      ]
     },
     "year": {
-      "labels": [
-      ],
+      "labels": [],
       "datasets": [
         {
-          "data": [280, 130, 240, 387, 188],
+          "data": [
+            280,
+            130,
+            240,
+            387,
+            188
+          ],
           "backgroundColor": [
             "#FF9900",
             "#CC3300",
@@ -42,14 +53,20 @@
             "#6633CC",
             "#0033CC"
           ]
-        }]
+        }
+      ]
     },
     "month": {
-      "labels": [
-      ],
+      "labels": [],
       "datasets": [
         {
-          "data": [40, 50, 10, 87, 48],
+          "data": [
+            40,
+            50,
+            10,
+            87,
+            48
+          ],
           "backgroundColor": [
             "#FF9900",
             "#CC3300",
@@ -64,14 +81,20 @@
             "#6633CC",
             "#0033CC"
           ]
-        }]
+        }
+      ]
     },
     "week": {
-      "labels": [
-      ],
+      "labels": [],
       "datasets": [
         {
-          "data": [20, 10, 10, 17, 28],
+          "data": [
+            20,
+            10,
+            10,
+            17,
+            28
+          ],
           "backgroundColor": [
             "#FF9900",
             "#CC3300",
@@ -86,12 +109,13 @@
             "#6633CC",
             "#0033CC"
           ]
-        }]
+        }
+      ]
     }
   },
   "login": {
     "email": "cfulnecky@gmail.com",
-    "userpass": "adsfa"
+    "userpass": "test"
   },
   "sampleUser": {
     "roleId": "b71b0f63-199e-46e2-a64e-a453216b7dc8",

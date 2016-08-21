@@ -3,11 +3,15 @@ import {render} from 'react-dom';
 import configureStore from './store/configure-store';
 import {Provider} from 'react-redux';
 import {persistStore} from 'redux-persist';
-import {Router, Route, browserHistory} from 'react-router';
+import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 import {syncHistoryWithStore} from 'react-router-redux';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+
 import {Header} from './components/header';
 import Login from './components/login';
-//import {Home} from './components/home';
+import {Home} from './components/home';
+
 
 const store = configureStore();
 
@@ -32,14 +36,34 @@ export const getFormData = (inputs, toOmit = []) => {
     return inputs.reduce(cb, {});
 };
 
+export const App = (props) => {
+    return (
+        <div>
+            <Header />
+            {props.children}
+        </div>
+    );
+};
+
+/* istanbul ignore next */
+const mapStateToProps = (state) => state;
+
+/* istanbul ignore next */
+// const mapDispatchToProps = (dispatch) => (
+//     bindActionCreators({...LoginActions}, dispatch)
+// );
+
+export default connect(mapStateToProps)(App);
+
 render(
     <Provider store={store}>
-        <main>
-            <Header />
-            <Router history={history}>
+        <Router history={history}>
+            <Route path="/" component={App}>
+                <IndexRoute component={Home} />
+                <Route path="/home" component={Home} />
                 <Route path="/login" component={Login} />
-            </Router>
-        </main>
+            </Route>
+        </Router>
     </Provider>,
     document.getElementById('app')
 );
