@@ -199,7 +199,7 @@ module.exports = (function makeWebpackConfig() {
         }),
 
         new HtmlWebpackPlugin({
-            template: './src/public/index.html',
+            template: './public/index.html',
             inject: 'body',
             title: 'App - ' + target
         })
@@ -226,7 +226,7 @@ module.exports = (function makeWebpackConfig() {
             // Reference: https://github.com/ampedandwired/html-webpack-plugin
 
             new HtmlWebpackPlugin({
-                template: './src/public/index.html',
+                template: './public/index.html',
                 inject: 'body',
                 title: 'App - ' + target,
                 chunksSortMode: function compare(a, b) {
@@ -299,7 +299,7 @@ module.exports = (function makeWebpackConfig() {
             // Copy assets from the public folder
             // Reference: https://github.com/kevlened/copy-webpack-plugin
             new CopyWebpackPlugin([{
-                from: root('src/public')
+                from: root('public')
             }])
         );
     }
@@ -339,11 +339,12 @@ module.exports = (function makeWebpackConfig() {
      */
     config.devServer = {
         port: hotMiddleWarePort,
-        contentBase: './src/public',
+        contentBase: './public',
         historyApiFallback: true,
         stats: 'minimal', // none (or false), errors-only, minimal, normal (or true) and verbose
         proxy: [
-            {path: npmConfig.baseURL + '*', target:'http://localhost:' + npmConfig.apiPort}
+            {path: npmConfig.baseURL + '*', target:'http://localhost:' + npmConfig.apiPort},
+            {path:'/api/login', target:'http://localhost:' + npmConfig.apiPort + '/login'}
         ]
     };
 
