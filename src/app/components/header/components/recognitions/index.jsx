@@ -118,8 +118,11 @@ export const Recognitions = () => {
                         <div className="h5-mystats">20 <em>Given</em></div>
                         <div className="h5-mystats">80 <em>Remaining</em></div>
                         <div className="clearfix"></div>
-                        <div style={{marginTop: '20px'}}><input
-                            className="btn btn-primary" value="Submit Recognition"/></div>
+                        <div style={{marginTop: '20px'}}>
+                            <input className="btn btn-primary"
+                                   readOnly="true"
+                                   value="Submit Recognition"/>
+                        </div>
                     </div>
                 </div>
 
