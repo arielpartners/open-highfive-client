@@ -8,8 +8,6 @@ import {syncHistoryWithStore} from 'react-router-redux';
 import {Header} from './components/header';
 import Login from './components/login';
 
-//import auth from './auth';
-
 const store = configureStore();
 
 persistStore(store, { blacklist : ['error']});
@@ -20,15 +18,6 @@ if (__WEBPACK__) {
 }
 
 const history = syncHistoryWithStore(browserHistory, store);
-
-// const requireAuth = (nextState, replace) => {
-//     if (!auth.loggedIn()) {
-//         replace({
-//             pathname: '/login',
-//             state: {nextPathname: nextState.location.pathname}
-//         })
-//     }
-// };
 
 export const getFormData = (inputs, toOmit = []) => {
     var cb = (data, input) => {
