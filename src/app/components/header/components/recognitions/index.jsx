@@ -42,6 +42,7 @@ export const Recognitions = ({loggedIn}) => {
         }
     ];
 
+    /* eslint-disable react/no-multi-comp */
     const getMyRewardActivities = () => {
         return (
           <span>
