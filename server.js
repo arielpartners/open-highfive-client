@@ -2,6 +2,7 @@
 
 let express = require('express'),
     compression = require('compression'),
+    proxy = require('express-http-proxy'),
     http = require('http'),
     url = require('url'),
     serveStatic = require('serve-static'),
@@ -14,6 +15,12 @@ process.argv.forEach(arg => {
         port = parseInt(arg.split('=')[1]);
     }
 });
+
+app.use('/api', proxy(process.env.HIGHFIVE_API_SERVER || 'http://arielflash-server.azurewebsites.net/', {
+    forwardPath: function(req) {
+        return `/api${url.parse(req.url).path}`;
+    }
+}));
 
 app.set('port', process.env.PORT || 8080);
 app.use(compression());
