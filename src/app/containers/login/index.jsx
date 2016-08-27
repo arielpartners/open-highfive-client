@@ -26,6 +26,10 @@ export class Login extends Component {
 
     componentDidMount() {
         componentHandler.upgradeDom();
+        let email = document.querySelector("#email");
+        if (email) {
+            email.focus();
+        }
     }
 
     componentDidUpdate() {
