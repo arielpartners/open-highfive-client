@@ -1,4 +1,9 @@
 import React, {PropTypes} from 'react';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import * as RecognitionActions from './actions';
+import * as RecognitionEpics from './epics';
+
 
 import Chart from './components/chart';
 
@@ -7,8 +12,10 @@ if (__WEBPACK__) {
     //require('!style!css!sass!./style.scss');
 }
 
-export const Recognitions = ({loggedIn}) => {
-
+export const Recognitions = (props) => {
+    const loggedIn = props.loggedIn;
+    /* eslint-disable no-console */
+    console.log('recognitions', props);
     let chartData = [
         {
             value: 1440,
@@ -45,7 +52,7 @@ export const Recognitions = ({loggedIn}) => {
     /* eslint-disable react/no-multi-comp */
     const getMyRewardActivities = () => {
         return (
-          <span>
+            <span>
               <div className="h5-stats-title">
                   My Reward Activities
               </div>
@@ -143,3 +150,13 @@ export const Recognitions = ({loggedIn}) => {
 Recognitions.propTypes = {
     loggedIn: PropTypes.object
 };
+
+/* istanbul ignore next */
+const mapStateToProps = (state) => state;
+
+/* istanbul ignore next */
+const mapDispatchToProps = (dispatch) => (
+    bindActionCreators({...RecognitionActions, ...RecognitionEpics}, dispatch)
+);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Recognitions);

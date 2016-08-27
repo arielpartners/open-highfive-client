@@ -112,6 +112,7 @@
     "node-sass": "3.7.0",
     "npm": "3.9.5",
     "opener": "1.4.1",
+    "postcss-loader": "^0.11.0",
     "promise": "7.1.1",
     "protractor": "3.3.0",
     "protractor-cucumber-framework": "0.6.0",
@@ -137,8 +138,8 @@
     "yargs": "4.7.1"
   },
   "config": {
-    "clientPort": "2368",
-    "apiPort": "3000",
+    "clientPort": "2330",
+    "apiPort": "3030",
     "baseURL": "/api/"
   }
 }

@@ -26,7 +26,7 @@ export const Header = ({loggedIn, routing}) => {
                 </div>
             </div>
             <Menu loggedIn={loggedIn}/>
-            <Recognitions loggedIn={loggedIn}/>
+            <Recognitions />
         </div>
     );
 };

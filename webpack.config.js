@@ -131,7 +131,7 @@ module.exports = (function makeWebpackConfig() {
             },
             {
                 test: /\.scss/,
-                loaders: ['style', 'css', 'scss']
+                loader: 'style-loader!css-loader!postcss-loader!sass-loader'
             },
             {
                 test: /\.json$/,

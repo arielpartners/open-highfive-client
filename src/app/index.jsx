@@ -1,25 +1,22 @@
 import React from 'react';
 import {render} from 'react-dom';
-import configureStore from './store/configure-store';
+import configureStore from './store';
 import {Provider} from 'react-redux';
 import {persistStore} from 'redux-persist';
 import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 import {syncHistoryWithStore} from 'react-router-redux';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
 
-import {Header} from './components/header';
-import Login from './components/login';
-import {Home} from './components/home';
-
+import {Header} from './containers/header';
+import Login from './containers/login';
+import {Home} from './containers/home';
 
 const store = configureStore();
 
-persistStore(store, { blacklist : ['error']});
+persistStore(store, { blacklist : ['error','routing']});
 
 /* istanbul ignore next */
 if (__WEBPACK__) {
-    require('!style!css!sass!./style.scss');
+    require('./style.scss');
 }
 
 const history = syncHistoryWithStore(browserHistory, store);
@@ -39,21 +36,11 @@ export const getFormData = (inputs, toOmit = []) => {
 export const App = (props) => {
     return (
         <div>
-            <Header />
+            <Header {...props}/>
             {props.children}
         </div>
     );
 };
-
-/* istanbul ignore next */
-const mapStateToProps = (state) => state;
-
-/* istanbul ignore next */
-// const mapDispatchToProps = (dispatch) => (
-//     bindActionCreators({...LoginActions}, dispatch)
-// );
-
-export default connect(mapStateToProps)(App);
 
 render(
     <Provider store={store}>
@@ -67,4 +54,3 @@ render(
     </Provider>,
     document.getElementById('app')
 );
-
