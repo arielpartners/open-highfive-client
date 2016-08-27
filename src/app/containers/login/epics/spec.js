@@ -46,7 +46,7 @@ describe('Actions', ()=> {
     describe('LOGIN', () => {
         it('triggers the LOGIN action when login action creator is called', () => {
             const store = createStore(reducer, applyMiddleware(middleware));
-            const user = {email: 'a@b.com', userpass: 'password'};
+            const user = {email: 'a@b.com', password: 'password'};
             const retUser = {email: 'a@b.com', token: 'ABC123'};
             const expected = JSON.stringify(retUser);
 
@@ -68,10 +68,10 @@ describe('Actions', ()=> {
         it('triggers the LOGIN_ERROR action when LOGIN action creator call fails', () => {
 
             const store = createStore(reducer, applyMiddleware(middleware));
+            const user = [{email: 'a@b.com', password: 'password'}];
+            const error = { message : 'error'};
 
-            const user = [{email: 'a@b.com', userpass: 'password'}];
-
-            const expected = JSON.stringify(user);
+            const expected = JSON.stringify(error);
 
             store.dispatch(login(user));
 
@@ -85,7 +85,7 @@ describe('Actions', ()=> {
             state[0].should.deep.equal({type: '@@redux/INIT'});
             state[1].should.deep.equal({type: LOGIN_PENDING, payload: user});
             state[2].type.should.equal(LOGIN_ERROR);
-            state[2].payload.message.should.equal('ajax error 500');
+            state[2].payload.should.deep.equal(error);
         });
 
     });
@@ -105,7 +105,7 @@ describe('Actions', ()=> {
     describe('CHANGE_EMAIL', () => {
         it('triggers the CHANGE_EMAIL action when changeEmail action creator is called and login is successful', () => {
             const store = createStore(reducer, applyMiddleware(middleware));
-            const user = {email: 'a@b.com', userpass: 'password', email_new: 'b@c.com'};
+            const user = {email: 'a@b.com', password: 'password', updatedEmail: 'b@c.com'};
             const retLogin = {email: 'a@b.com', token: 'ABC123'};
             const expectedFromLogin = JSON.stringify(retLogin);
             const retChangeEmail = {email: 'b@c.com'};
@@ -137,9 +137,11 @@ describe('Actions', ()=> {
 
             const store = createStore(reducer, applyMiddleware(middleware));
 
-            const user = [{email: 'a@b.com', userpass: 'password', email_new: 'b@c.com'}];
+            const user = [{email: 'a@b.com', password: 'password', updatedEmail: 'b@c.com'}];
 
-            const expected = JSON.stringify(user);
+            const error = {message : 'error'};
+
+            const expected = JSON.stringify(error);
 
             store.dispatch(changeEmail(user));
 
@@ -149,29 +151,28 @@ describe('Actions', ()=> {
                 responseText: expected
             });
 
-            JSON.stringify(store.getState()).should.include('ajax error 500');
-
             const state = store.getState();
             state[0].should.deep.equal({type: '@@redux/INIT'});
             state[1].should.deep.equal({type: CHANGE_EMAIL_PENDING, payload: user});
             state[2].type.should.equal(LOGIN_ERROR);
-            state[2].payload.message.should.equal('ajax error 500');
+            state[2].payload.should.deep.equal(error);
         });
 
         it('triggers the CHANGE_EMAIL_ERROR action when changeEmail action creator call fails in changeEmail', () => {
 
             const store = createStore(reducer, applyMiddleware(middleware));
 
-            const user = {email: 'a@b.com', userpass: 'password', email_new: 'b@c.com'};
+            const user = {email: 'a@b.com', password: 'password', updatedEmail: 'b@c.com'};
             const retLogin = {email: 'a@b.com', token: 'ABC123'};
-            const expected = JSON.stringify(retLogin);
+            const error = {message: 'error'};
+            const expected = JSON.stringify(error);
 
             store.dispatch(changeEmail(user));
 
             MockXMLHttpRequest.mostRecent.respondWith({
                 status: 200,
                 contentType: 'application/json',
-                responseText: expected
+                responseText: JSON.stringify(retLogin)
             });
 
             MockXMLHttpRequest.mostRecent.respondWith({
@@ -180,20 +181,18 @@ describe('Actions', ()=> {
                 responseText: expected
             });
 
-            JSON.stringify(store.getState()).should.include('ajax error 500');
-
             const state = store.getState();
             state[0].should.deep.equal({type: '@@redux/INIT'});
             state[1].should.deep.equal({type: CHANGE_EMAIL_PENDING, payload: user});
             state[2].should.deep.equal({type: LOGIN, payload: retLogin});
             state[3].type.should.equal(CHANGE_EMAIL_ERROR);
-            state[3].payload.message.should.equal('ajax error 500');
+            state[3].payload.should.deep.equal(error);
         });
     });
     describe('CHANGE_PASSWORD', () => {
         it('triggers the CHANGE_PASSWORD action when changePassword action creator is called and login is successful', () => {
             const store = createStore(reducer, applyMiddleware(middleware));
-            const user = {email: 'a@b.com', userpass: 'password', userpass_new: 'password1'};
+            const user = {email: 'a@b.com', password: 'password', updatedPassword: 'password1'};
             const retLogin = {email: 'a@b.com', token: 'ABC123'};
             const expectedFromLogin = JSON.stringify(retLogin);
             const retChangePassword = {email: 'b@c.com'};
@@ -225,9 +224,11 @@ describe('Actions', ()=> {
 
             const store = createStore(reducer, applyMiddleware(middleware));
 
-            const user = [{email: 'a@b.com', userpass: 'password', userpass_new: 'password1'}];
+            const user = [{email: 'a@b.com', password: 'password', updatedPassword: 'password1'}];
 
-            const expected = JSON.stringify(user);
+            const error = {message: 'error'};
+
+            const expected = JSON.stringify(error);
 
             store.dispatch(changePassword(user));
 
@@ -237,29 +238,28 @@ describe('Actions', ()=> {
                 responseText: expected
             });
 
-            JSON.stringify(store.getState()).should.include('ajax error 500');
-
             const state = store.getState();
             state[0].should.deep.equal({type: '@@redux/INIT'});
             state[1].should.deep.equal({type: CHANGE_PASSWORD_PENDING, payload: user});
             state[2].type.should.equal(LOGIN_ERROR);
-            state[2].payload.message.should.equal('ajax error 500');
+            state[2].payload.should.deep.equal(error);
         });
 
         it('triggers the CHANGE_EMAIL_ERROR action when changeEmail action creator call fails in changeEmail', () => {
 
             const store = createStore(reducer, applyMiddleware(middleware));
 
-            const user = {email: 'a@b.com', userpass: 'password', userpass_new: 'password1'};
+            const user = {email: 'a@b.com', password: 'password', updatedPassword: 'password1'};
             const retLogin = {email: 'a@b.com', token: 'ABC123'};
-            const expected = JSON.stringify(retLogin);
+            const error = { message: 'error'};
+            const expected = JSON.stringify(error);
 
             store.dispatch(changePassword(user));
 
             MockXMLHttpRequest.mostRecent.respondWith({
                 status: 200,
                 contentType: 'application/json',
-                responseText: expected
+                responseText: JSON.stringify(retLogin)
             });
 
             MockXMLHttpRequest.mostRecent.respondWith({
@@ -268,14 +268,12 @@ describe('Actions', ()=> {
                 responseText: expected
             });
 
-            JSON.stringify(store.getState()).should.include('ajax error 500');
-
             const state = store.getState();
             state[0].should.deep.equal({type: '@@redux/INIT'});
             state[1].should.deep.equal({type: CHANGE_PASSWORD_PENDING, payload: user});
             state[2].should.deep.equal({type: LOGIN, payload: retLogin});
             state[3].type.should.equal(CHANGE_PASSWORD_ERROR);
-            state[3].payload.message.should.equal('ajax error 500');
+            state[3].payload.should.deep.equal(error);
         });
     });
 });
