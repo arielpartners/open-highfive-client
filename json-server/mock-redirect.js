@@ -1,7 +1,8 @@
 //write a function that takes a request input and returns true if it should be mocked to json server otherwise fall through
 const mockMatches = [
     req => req.url.includes('/api/recognitions'),
-    req => req.url.includes('/api/sampleUser')
+    req => req.url.includes('/api/sampleUser'),
+    req => req.url.includes('/api/login')
 ];
 
 module.exports = function (app) {
