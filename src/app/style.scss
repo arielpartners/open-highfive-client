@@ -244,7 +244,7 @@ h3 {
 .h5-stats-graph-value {
   font-family: "Merriweather", Georgia, Times, "Times New Roman", serif;
   color: #C22A37;
-  font-size: 2.2em;
+  font-size: 1.8em;
   position: absolute;
   width: 100%;
   top: 30%;
@@ -295,10 +295,14 @@ h3 {
 .h5-mystats {
   font-family: "Merriweather", Georgia, Times, "Times New Roman", serif;
   color: #C22A37;
-  font-size: 2.8em;
+  font-size: 2.6em;
   display: inline-block;
   text-align: center;
-  margin-right: 20px;
+}
+
+.h5-mystats.earned {
+  color: #080;
+  margin-left: 16px;
 }
 
 .h5-mystats em {

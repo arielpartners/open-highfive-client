@@ -70,7 +70,7 @@ export const Recognitions = ({loggedIn, recognitions}) => {
                     </div>
                 </div>
 
-                <div className="col-lg-6 h5-stats-display" style={{
+                <div className="col-lg-5 h5-mobilehidden" style={{
                     borderLeft: 'solid 1px #DBDEE1',
                     borderRight: 'solid 1px #DBDEE1'
                 }}>
@@ -78,10 +78,10 @@ export const Recognitions = ({loggedIn, recognitions}) => {
                         Corporate Recognition Trends
                     </div>
                     <div className="h5-stats-content">
-                      {getRecognitionsCategory('This week', 'week', '-80px')}
-                      {getRecognitionsCategory('This Month', 'month', '80px')}
-                      {getRecognitionsCategory('This Year', 'year', '240px')}
-                      {getRecognitionsCategory('To Date', 'toDate', '400px')}
+                      {getRecognitionsCategory('This week', 'week', '-60px')}
+                      {getRecognitionsCategory('This Month', 'month', '60px')}
+                      {getRecognitionsCategory('This Year', 'year', '180px')}
+                      {getRecognitionsCategory('To Date', 'toDate', '300px')}
 
                         <div className="h5-stats-legend">
                             <span className="h5-squaredot h5-stats-color-excellence"> </span>Excellence
@@ -93,7 +93,7 @@ export const Recognitions = ({loggedIn, recognitions}) => {
                     </div>
                 </div>
 
-                <div className="col-lg-3">
+                <div className="col-lg-4" style={{background: '#BFEFFF', marginRight: '-10px'}}>
                     { loggedIn ? <MyRewardActivities /> : null }
                 </div>
 
