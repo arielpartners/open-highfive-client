@@ -8,7 +8,12 @@ let express = require('express'),
     serveStatic = require('serve-static'),
     path = require('path'),
     app = express(),
-    proxyDomain = process.env.HIGHFIVE_API_SERVER || 'arielflash-server.azurewebsites.net';
+    mock = require('./json-server/mock-redirect'),
+    packageJson = require('./package.json'),
+    proxyDomain = process.env.HIGHFIVE_API_SERVER || packageJson.config.serverEndpoint;
+
+//use mocks where appropriate, then fall back to real thing if mocks aren't there
+mock(app);
 
 //proxy /api locally to the designated endpoint that should be passed in as an environment variable
 app.use('/api', proxy(proxyDomain, {
@@ -32,12 +37,9 @@ app.use('/api', proxy(proxyDomain, {
     }
 }));
 
-app.set('port', process.env.PORT || 8080);
+app.set('port', process.env.PORT || packageJson.config.clientPort);
 app.use(compression());
 app.use(serveStatic('dist'));
-app.get('*', function(request, response){
-    response.sendfile('./dist/index.html');
-});
 
 let server = http.createServer(app);
 server.listen(app.get('port'), () => {

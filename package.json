@@ -8,12 +8,12 @@
   },
   "scripts": {
     "acceptance": "node \"node_modules/protractor/bin/protractor\" protractor.acceptance.conf.js",
-    "client": "webpack-dev-server --hot --inline --profile --colors --display-error-details --display-cached & npm run delayed-open & wait",
+    "client": "webpack -d --watch --hot --inline --profile --colors --display-error-details --display-cached & npm run delayed-open & wait",
     "coverage": "babel-node node_modules/babel-istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha ./test/index.jsx",
     "coverage-clean": "npm run rimraf -- test-artifacts/coverage",
     "coverage-open": "open coverage/index.html",
     "delayed-open": "sleep 5 && open http://localhost:$npm_package_config_clientPort",
-    "deploy": "webpack --bail",
+    "deploy": "webpack -p --bail",
     "e2e": "node \"node_modules/protractor/bin/protractor\" protractor.conf.js",
     "e2e-test-server": "concurrently --kill-others \"npm run server\" \"webpack-dev-server \"",
     "lint": "eslint src --ext .jsx,.js",
@@ -30,7 +30,7 @@
     "pretest": "rimraf test-artifacts",
     "rimraf": "rimraf",
     "server": "json-server --watch --delay 500 json-server/db.json --id _id --port 3000 --routes routes.json",
-    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "start": "concurrently \"node server\" \"npm run client\"",
     "test": "mocha ./test/index.jsx --compilers js:babel-core/register",
     "test-ci": "mocha ./test/index.jsx --compilers js:babel-core/register --reporter mocha-junit-reporter --reporter-options mochaFile=./test-artifacts/junit.mocha.xml"
   },
@@ -139,6 +139,7 @@
   },
   "config": {
     "clientPort": "2368",
+    "serverEndpoint": "arielflash-server.azurewebsites.net",
     "apiPort": "3000",
     "baseURL": "/api/"
   }
