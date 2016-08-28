@@ -17,7 +17,7 @@ export const CHANGE_EMAIL_PENDING = 'CHANGE_EMAIL_PENDING';
 export const CHANGE_EMAIL = 'CHANGE_EMAIL';
 export const CHANGE_EMAIL_ERROR = 'CHANGE_EMAIL_ERROR';
 
-const BASE_URL = '/api/login';
+const BASE_URL = '/api/auth';
 const CHANGE_USER_URL = '/api/users';
 const HEADER = {'Content-Type': 'application/json'};
 

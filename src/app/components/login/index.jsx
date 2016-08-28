@@ -111,8 +111,7 @@ export class Login extends Component {
                                 <input ref={addInput}
                                        className={inputClass}
                                        required={true}
-                                       pattern={emailRegExStr}
-                                       type="text" id="email"/>
+                                       type="email" id="email"/>
                                 <label className={labelClass} htmlFor="email">Email</label>
                                 <span className={errorClass}>Valid email address is required</span>
                             </div>
@@ -121,16 +120,15 @@ export class Login extends Component {
                                        className={inputClass}
                                        type="password"
                                        required={true}
-                                       id="userpass"/>
-                                <label className={labelClass} htmlFor="userpass">Password</label>
+                                       id="password"/>
+                                <label className={labelClass} htmlFor="password">Password</label>
                                 <span className={errorClass}>Password is required</span>
                             </div>
                             <div className="change-email">
                                 <div className={fieldSetClass}>
                                     <input ref={addInput}
                                            className={inputClass}
-                                           type="text"
-                                           pattern={emailRegExStr}
+                                           type="email"
                                            required={this.isChangeEmail()}
                                            id="email_new"/>
                                     <label className={labelClass} htmlFor="email_new">New Email</label>
@@ -140,8 +138,7 @@ export class Login extends Component {
                                 <div className={fieldSetClass}>
                                     <input ref={addInput}
                                            className={inputClass}
-                                           type="text"
-                                           pattern={emailRegExStr}
+                                           type="email"
                                            required={this.isChangeEmail()}
                                            id="email_new_confirm"/>
                                     <label className={labelClass} htmlFor="email_new_confirm">Confirm New
