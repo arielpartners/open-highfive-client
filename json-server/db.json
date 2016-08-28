@@ -1,97 +1,137 @@
 {
   "recognitions": {
-    "toDate":{
-      "labels": [
-      ],
-      "datasets": [
-        {
-          "data": [1440, 650, 400, 1387, 888],
-          "backgroundColor": [
-            "#FF9900",
-            "#CC3300",
-            "#990000",
-            "#6633CC",
-            "#0033CC"
-          ],
-          "hoverBackgroundColor": [
-            "#FF9900",
-            "#CC3300",
-            "#990000",
-            "#6633CC",
-            "#0033CC"
-          ]
-        }]
-    },
-    "year": {
-      "labels": [
-      ],
-      "datasets": [
-        {
-          "data": [280, 130, 240, 387, 188],
-          "backgroundColor": [
-            "#FF9900",
-            "#CC3300",
-            "#990000",
-            "#6633CC",
-            "#0033CC"
-          ],
-          "hoverBackgroundColor": [
-            "#FF9900",
-            "#CC3300",
-            "#990000",
-            "#6633CC",
-            "#0033CC"
-          ]
-        }]
-    },
-    "month": {
-      "labels": [
-      ],
-      "datasets": [
-        {
-          "data": [40, 50, 10, 87, 48],
-          "backgroundColor": [
-            "#FF9900",
-            "#CC3300",
-            "#990000",
-            "#6633CC",
-            "#0033CC"
-          ],
-          "hoverBackgroundColor": [
-            "#FF9900",
-            "#CC3300",
-            "#990000",
-            "#6633CC",
-            "#0033CC"
-          ]
-        }]
-    },
-    "week": {
-      "labels": [
-      ],
-      "datasets": [
-        {
-          "data": [20, 10, 10, 17, 28],
-          "backgroundColor": [
-            "#FF9900",
-            "#CC3300",
-            "#990000",
-            "#6633CC",
-            "#0033CC"
-          ],
-          "hoverBackgroundColor": [
-            "#FF9900",
-            "#CC3300",
-            "#990000",
-            "#6633CC",
-            "#0033CC"
-          ]
-        }]
-    }
+    "toDate":  [
+      {
+        "value": 1440,
+        "color": "#FF9900",
+        "highlight": "#FF5A5E",
+        "label": "Excellence"
+      },
+      {
+        "value": 650,
+        "color": "#CC3300",
+        "highlightv": "#5AD3D1",
+        "label": "Accountability"
+      },
+      {
+        "value": 400,
+        "color": "#990000",
+        "highlight": "#FFC870",
+        "label": "Initiative"
+      },
+      {
+        "value": 1387,
+        "color": "#0033CC",
+        "highlight": "#A8B3C5",
+        "label": "Teamwork"
+      },
+      {
+        "value": 888,
+        "color": "#4D5360",
+        "highlight": "#616774",
+        "label": "Empowerment"
+      }
+    ],
+    "year": [
+      {
+        "value": 1440,
+        "color": "#FF9900",
+        "highlight": "#FF5A5E",
+        "label": "Excellence"
+      },
+      {
+        "value": 650,
+        "color": "#CC3300",
+        "highlightv": "#5AD3D1",
+        "label": "Accountability"
+      },
+      {
+        "value": 400,
+        "color": "#990000",
+        "highlight": "#FFC870",
+        "label": "Initiative"
+      },
+      {
+        "value": 1387,
+        "color": "#0033CC",
+        "highlight": "#A8B3C5",
+        "label": "Teamwork"
+      },
+      {
+        "value": 888,
+        "color": "#4D5360",
+        "highlight": "#616774",
+        "label": "Empowerment"
+      }
+    ],
+    "month": [
+      {
+        "value": 1440,
+        "color": "#FF9900",
+        "highlight": "#FF5A5E",
+        "label": "Excellence"
+      },
+      {
+        "value": 650,
+        "color": "#CC3300",
+        "highlightv": "#5AD3D1",
+        "label": "Accountability"
+      },
+      {
+        "value": 400,
+        "color": "#990000",
+        "highlight": "#FFC870",
+        "label": "Initiative"
+      },
+      {
+        "value": 1387,
+        "color": "#0033CC",
+        "highlight": "#A8B3C5",
+        "label": "Teamwork"
+      },
+      {
+        "value": 888,
+        "color": "#4D5360",
+        "highlight": "#616774",
+        "label": "Empowerment"
+      }
+    ],
+    "week": [
+      {
+        "value": 1440,
+        "color": "#FF9900",
+        "highlight": "#FF5A5E",
+        "label": "Excellence"
+      },
+      {
+        "value": 650,
+        "color": "#CC3300",
+        "highlightv": "#5AD3D1",
+        "label": "Accountability"
+      },
+      {
+        "value": 400,
+        "color": "#990000",
+        "highlight": "#FFC870",
+        "label": "Initiative"
+      },
+      {
+        "value": 1387,
+        "color": "#0033CC",
+        "highlight": "#A8B3C5",
+        "label": "Teamwork"
+      },
+      {
+        "value": 888,
+        "color": "#4D5360",
+        "highlight": "#616774",
+        "label": "Empowerment"
+      }
+    ]
   },
   "login": {
-    "email": "cfulnecky@gmail.com",
-    "userpass": "adsfa"
+    "email": "charles.fulnecky@hbo.com",
+    "userpass": "tewrert"
   },
   "sampleUser": {
     "roleId": "b71b0f63-199e-46e2-a64e-a453216b7dc8",

@@ -1,21 +1,22 @@
 import React from 'react';
 import {render} from 'react-dom';
-import configureStore from './store/configure-store';
+import configureStore from './store';
 import {Provider} from 'react-redux';
 import {persistStore} from 'redux-persist';
-import {Router, Route, browserHistory} from 'react-router';
+import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 import {syncHistoryWithStore} from 'react-router-redux';
-import {Header} from './components/header';
-import Login from './components/login';
-//import {Home} from './components/home';
+
+import Header from './containers/header';
+import Login from './containers/login';
+import {Home} from './containers/home';
 
 const store = configureStore();
 
-persistStore(store, { blacklist : ['error']});
+persistStore(store, { blacklist : ['error', 'routing']});
 
 /* istanbul ignore next */
 if (__WEBPACK__) {
-    require('!style!css!sass!./style.scss');
+    require('./style.scss');
 }
 
 const history = syncHistoryWithStore(browserHistory, store);
@@ -32,15 +33,24 @@ export const getFormData = (inputs, toOmit = []) => {
     return inputs.reduce(cb, {});
 };
 
+export const App = ({children}) => {
+    return (
+        <div>
+            <Header />
+            {children}
+        </div>
+    );
+};
+
 render(
     <Provider store={store}>
-        <main>
-            <Header />
-            <Router history={history}>
+        <Router history={history}>
+            <Route path="/" component={App}>
+                <IndexRoute component={Home} />
+                <Route path="/home" component={Home} />
                 <Route path="/login" component={Login} />
-            </Router>
-        </main>
+            </Route>
+        </Router>
     </Provider>,
     document.getElementById('app')
 );
-

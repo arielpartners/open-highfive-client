@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
 import {getFormData} from '../../index';
@@ -25,11 +24,19 @@ export class Login extends Component {
     }
 
     componentDidMount() {
+        /* eslint-disable no-undef */
         componentHandler.upgradeDom();
+        /* eslint-enable no-undef */
+        let email = document.querySelector('#email');
+        if (email) {
+            email.focus();
+        }
     }
 
     componentDidUpdate() {
+        /* eslint-disable no-undef */
         componentHandler.upgradeDom();
+        /* eslint-enable no-undef */
     }
 
     isChangePassword() {
@@ -199,12 +206,10 @@ Login.propTypes = {
     error: React.PropTypes.object
 };
 
-/* istanbul ignore next */
-const mapStateToProps = (state) => state;
+export default connect(
+    // Map State to Props (Reducers)
+    (state) => state,
+    //Map DispatchToProps (Actions)
+    {...LoginActions}
+)(Login);
 
-/* istanbul ignore next */
-const mapDispatchToProps = (dispatch) => (
-    bindActionCreators({...LoginActions}, dispatch)
-);
-
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
