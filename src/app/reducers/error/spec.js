@@ -11,7 +11,7 @@
 /* global describe, it */
 import {expect} from 'chai';
 import {error} from './index';
-import {LOGIN_ERROR} from '../../components/login/actions';
+import {LOGIN_ERROR} from '../../containers/login/actions';
 import {ITEM_ERROR} from '../../actions';
 
 describe('Error Reducer', () => {

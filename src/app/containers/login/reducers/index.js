@@ -1,16 +1,19 @@
-import {LOGIN, LOGIN_ERROR, LOGOUT} from '../actions';
+import * as ActionTypes from '../../../action-types';
 
 //-------------------------------------------------------------------
-// LOGIN STORE
+// LOGIN REDUCER
 //-------------------------------------------------------------------
+/* eslint-disable indent, complexity */
 export const loggedIn = (state = false, {type, payload}) => {
-    /* eslint-disable indent */
+
     switch (type) {
-        case LOGIN:
-            return true;
-        case LOGIN_ERROR:
+        case ActionTypes.LOGGING_IN:
             return false;
-        case LOGOUT:
+        case ActionTypes.LOGIN:
+            return true;
+        case ActionTypes.LOGIN_ERROR:
+            return false;
+        case ActionTypes.LOGOUT:
             return false;
         default:
             return payload && /(401|403)/.test(payload.status) ? false : state;

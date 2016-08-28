@@ -1,67 +1,14 @@
 import React, {PropTypes} from 'react';
 
-import Chart from './components/chart';
+import {DoughnutChart as Chart} from './components/chart';
+import {MyRewardActivities} from './components/my-reward-activities';
 
 /* istanbul ignore next */
 if (__WEBPACK__) {
     //require('!style!css!sass!./style.scss');
 }
 
-export const Recognitions = ({loggedIn}) => {
-
-    let chartData = [
-        {
-            value: 1440,
-            color: '#FF9900',
-            highlight: '#FF5A5E',
-            label: 'Excellence'
-        },
-        {
-            value: 650,
-            color: '#CC3300',
-            highlight: '#5AD3D1',
-            label: 'Accountability'
-        },
-        {
-            value: 400,
-            color: '#990000',
-            highlight: '#FFC870',
-            label: 'Initiative'
-        },
-        {
-            value: 1387,
-            color: '#0033CC',
-            highlight: '#A8B3C5',
-            label: 'Teamwork'
-        },
-        {
-            value: 888,
-            color: '#4D5360',
-            highlight: '#616774',
-            label: 'Empowerment'
-        }
-    ];
-
-    /* eslint-disable react/no-multi-comp */
-    const getMyRewardActivities = () => {
-        return (
-          <span>
-              <div className="h5-stats-title">
-                  My Reward Activities
-              </div>
-              <div className="h5-stats-content">
-                  <div className="h5-mystats">20 <em>Given</em></div>
-                  <div className="h5-mystats">80 <em>Remaining</em></div>
-                  <div className="h5-mystats earned">150 <em>Earned</em></div>
-                  <div className="clearfix"></div>
-                  <div style={{marginTop: '20px'}}>
-                      <input className="btn btn-primary" value="Submit Recognition"/>
-                      <input className="btn btn-success" value="Spend" style={{width: '80px', marginLeft: '10px'}}/>
-                  </div>
-              </div>
-          </span>
-        );
-    };
+export const Recognitions = ({loggedIn, recognitions}) => {
 
     return (
         <div className="container-fluid h5-stats">
@@ -96,43 +43,38 @@ export const Recognitions = ({loggedIn}) => {
                     </div>
                     <div className="h5-stats-content">
                         <div className="h5-stats-graph" style={{left: '-80px'}}>
-                            <Chart chartData={chartData}/>
+                            <Chart chartData={recognitions.toDate}/>
                             <div className="h5-stats-graph-value">4096 <em>To Date</em>
                             </div>
                         </div>
                         <div className="h5-stats-graph" style={{left: '80px'}}>
                             <div className="h5-stats-graph-value">693 <em>This Year</em>
                             </div>
-                            <Chart chartData={chartData}/>
+                            <Chart chartData={recognitions.year}/>
                         </div>
                         <div className="h5-stats-graph" style={{left: '240px'}}>
                             <div className="h5-stats-graph-value">158 <em>This Month</em>
                             </div>
-                            <Chart chartData={chartData}/>
+                            <Chart chartData={recognitions.month}/>
                         </div>
                         <div className="h5-stats-graph" style={{left: '400px'}}>
                             <div className="h5-stats-graph-value">75 <em>This Week</em>
                             </div>
-                            <Chart chartData={chartData}/>
+                            <Chart chartData={recognitions.week}/>
                         </div>
 
                         <div className="h5-stats-legend">
-    <span
-        className="h5-squaredot h5-stats-color-excellence"></span>
-                            Excellence
-                            <span
-                                className="h5-squaredot h5-stats-color-accountability"></span>Accountability
-                            <span
-                                className="h5-squaredot h5-stats-color-initiative"></span>Initiative
-                            <span className="h5-squaredot h5-stats-color-teamwork"></span>Teamwork
-                            <span
-                                className="h5-squaredot h5-stats-color-empowerment"></span>Empowerment
+                            <span className="h5-squaredot h5-stats-color-excellence"> </span>Excellence
+                            <span className="h5-squaredot h5-stats-color-accountability"> </span>Accountability
+                            <span className="h5-squaredot h5-stats-color-initiative"> </span>Initiative
+                            <span className="h5-squaredot h5-stats-color-teamwork"> </span>Teamwork
+                            <span className="h5-squaredot h5-stats-color-empowerment"> </span>Empowerment
                         </div>
                     </div>
                 </div>
 
                 <div className="col-lg-3">
-                    { loggedIn ? getMyRewardActivities() : null }
+                    { loggedIn ? <MyRewardActivities /> : null }
                 </div>
 
             </div>
@@ -141,5 +83,6 @@ export const Recognitions = ({loggedIn}) => {
 };
 
 Recognitions.propTypes = {
-    loggedIn: PropTypes.object
+    loggedIn: PropTypes.bool,
+    recognitions: PropTypes.object
 };

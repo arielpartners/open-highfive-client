@@ -59,7 +59,7 @@ module.exports = (function makeWebpackConfig() {
      */
     if (isTestEnv) {
         config.devtool = 'inline-source-map';
-    } else if (ENV === 'build') {
+    } else if (ENV === 'prebuild') {
         config.devtool = false;
     } else {
         config.devtool = 'cheap-module-eval-source-map';
@@ -72,7 +72,7 @@ module.exports = (function makeWebpackConfig() {
      * Entry
      * Reference: http://webpack.github.io/docs/configuration.html#entry
      */
-    config.entry = isTestEnv || ENV === 'build' ?
+    config.entry = isTestEnv || ENV === 'prebuild' ?
         {
             app: [ './src/app/index.jsx'],
             vendor: [
@@ -92,8 +92,8 @@ module.exports = (function makeWebpackConfig() {
     config.output = isTestEnv ? {} : {
         path: root('dist'),
         publicPath: '',
-        filename: ENV === 'build' ? 'js/[name].[hash].js' : 'js/[name].js',
-        chunkFilename: ENV === 'build' ? '[id].[hash].chunk.js' : '[id].chunk.js'
+        filename: ENV === 'prebuild' ? 'js/[name].[hash].js' : 'js/[name].js',
+        chunkFilename: ENV === 'prebuild' ? '[id].[hash].chunk.js' : '[id].chunk.js'
     };
 
     /**
@@ -131,7 +131,7 @@ module.exports = (function makeWebpackConfig() {
             },
             {
                 test: /\.scss/,
-                loaders: ['style', 'css', 'scss']
+                loader: 'style-loader!css-loader!postcss-loader!sass-loader'
             },
             {
                 test: /\.json$/,
@@ -194,7 +194,7 @@ module.exports = (function makeWebpackConfig() {
             // Environment helpers
             'process.env': {
                 ENV: JSON.stringify(ENV),
-                NODE_ENV: JSON.stringify(ENV === 'build' ? 'production' : 'development')
+                NODE_ENV: JSON.stringify(ENV === 'prebuild' ? 'production' : 'development')
             }
         }),
 
@@ -212,12 +212,12 @@ module.exports = (function makeWebpackConfig() {
             // Reference: https://webpack.github.io/docs/list-of-plugins.html#commonschunkplugin
             new CommonsChunkPlugin({
                 name: 'vendor',
-                filename: ENV === 'build' ? 'js/[name].[hash].js' : 'js/[name].js',
+                filename: ENV === 'prebuild' ? 'js/[name].[hash].js' : 'js/[name].js',
                 minChunks: Infinity
             }),
             new CommonsChunkPlugin({
                 name: 'common',
-                filename: ENV === 'build' ? 'js/[name].[hash].js' : 'js/[name].js',
+                filename: ENV === 'prebuild' ? 'js/[name].[hash].js' : 'js/[name].js',
                 minChunks: 2,
                 chunks: ['app', 'vendor']
             }),
@@ -264,7 +264,7 @@ module.exports = (function makeWebpackConfig() {
     }
 
     // Add build specific plugins
-    if (ENV === 'build') {
+    if (ENV === 'prebuild') {
         config.plugins.push(
             // Reference: http://webpack.github.io/docs/list-of-plugins.html#noerrorsplugin
             // Only emit files when there are no errors
@@ -346,8 +346,8 @@ module.exports = (function makeWebpackConfig() {
         historyApiFallback: true,
         stats: 'minimal', // none (or false), errors-only, minimal, normal (or true) and verbose
         proxy: [
-            {path: npmConfig.baseURL + '*', target:'http://localhost:' + npmConfig.apiPort},
-            {path:'/api/login', target:'http://localhost:' + npmConfig.apiPort + '/login'}
+            {path: npmConfig.baseURL + '*', target:npmConfig.apiHost + npmConfig.apiPort},
+            {path:'/api/login', target:npmConfig.apiHost + npmConfig.apiPort + '/login'}
         ]
     };*/
 

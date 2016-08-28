@@ -29,25 +29,41 @@ main {
   padding: 0 1rem;
 }
 
-// Fix Material Design rendering inputs as invalid before interaction
+//Fix Material Design rendering inputs as invalid before interaction
 form {
   .mdl-textfield__label {
     color: inherit;
-  }
-  .mdl-textfield__input {
 
+    &:after {
+      bottom: 15px;
+    }
   }
   &:not(.invalid) {
+
     .mdl-textfield.is-invalid {
-      input:invalid {
+      input:invalid, textarea:invalid {
         border-color: rgba(0,0,0, 0.12);
         &:focus {
           border-color: rgb(63, 81, 181);
         }
       }
 
-      &.is-focused label {
-        font-size: 12px;
+      .mdl-textfield__error {
+        visibility: hidden;
+      }
+
+      &.is-focused  {
+        .mdl-textfield__label {
+          font-size: 12px;
+          color: orange;
+          &:after {
+            background-color: orange;
+          }
+        };
+        .mdl-textfield__error {
+          visibility: visible;
+          color: grey;
+        }
       }
 
       .mdl-textfield__label {

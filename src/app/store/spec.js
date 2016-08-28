@@ -1,6 +1,6 @@
 /* global describe, it */
 import {expect} from 'chai';
-import configureStore from './configure-store';
+import configureStore from './index';
 
 describe('Store', function() {
 
