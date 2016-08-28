@@ -39,7 +39,8 @@ app.use('/api', proxy(proxyDomain, {
 
 app.set('port', process.env.PORT || packageJson.config.clientPort);
 app.use(compression());
-app.use(serveStatic('dist'));
+app.use(serveStatic('dist'));//compiled
+app.use(serveStatic('public'));//raw fallback
 app.get('*', (request, response, next) => {
     if (request.method === 'GET') {
         response.sendFile(path.join(__dirname, 'dist/index.html'));
