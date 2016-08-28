@@ -10,39 +10,6 @@ if (__WEBPACK__) {
 
 export const Recognitions = ({loggedIn, recognitions}) => {
 
-    let chartData = [
-        {
-            value: 1440,
-            color: '#FF9900',
-            highlight: '#FF5A5E',
-            label: 'Excellence'
-        },
-        {
-            value: 650,
-            color: '#CC3300',
-            highlight: '#5AD3D1',
-            label: 'Accountability'
-        },
-        {
-            value: 400,
-            color: '#990000',
-            highlight: '#FFC870',
-            label: 'Initiative'
-        },
-        {
-            value: 1387,
-            color: '#0033CC',
-            highlight: '#A8B3C5',
-            label: 'Teamwork'
-        },
-        {
-            value: 888,
-            color: '#4D5360',
-            highlight: '#616774',
-            label: 'Empowerment'
-        }
-    ];
-
     return (
         <div className="container-fluid h5-stats">
             <div className="row">
@@ -83,17 +50,17 @@ export const Recognitions = ({loggedIn, recognitions}) => {
                         <div className="h5-stats-graph" style={{left: '80px'}}>
                             <div className="h5-stats-graph-value">693 <em>This Year</em>
                             </div>
-                            <Chart chartData={chartData}/>
+                            <Chart chartData={recognitions.year}/>
                         </div>
                         <div className="h5-stats-graph" style={{left: '240px'}}>
                             <div className="h5-stats-graph-value">158 <em>This Month</em>
                             </div>
-                            <Chart chartData={chartData}/>
+                            <Chart chartData={recognitions.month}/>
                         </div>
                         <div className="h5-stats-graph" style={{left: '400px'}}>
                             <div className="h5-stats-graph-value">75 <em>This Week</em>
                             </div>
-                            <Chart chartData={chartData}/>
+                            <Chart chartData={recognitions.week}/>
                         </div>
 
                         <div className="h5-stats-legend">

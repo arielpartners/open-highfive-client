@@ -32,14 +32,102 @@
         "label": "Empowerment"
       }
     ],
-    "year": {
-
-    },
-    "month": {
-
-    },
-    "week": {
-    }
+    "year": [
+      {
+        "value": 1440,
+        "color": "#FF9900",
+        "highlight": "#FF5A5E",
+        "label": "Excellence"
+      },
+      {
+        "value": 650,
+        "color": "#CC3300",
+        "highlightv": "#5AD3D1",
+        "label": "Accountability"
+      },
+      {
+        "value": 400,
+        "color": "#990000",
+        "highlight": "#FFC870",
+        "label": "Initiative"
+      },
+      {
+        "value": 1387,
+        "color": "#0033CC",
+        "highlight": "#A8B3C5",
+        "label": "Teamwork"
+      },
+      {
+        "value": 888,
+        "color": "#4D5360",
+        "highlight": "#616774",
+        "label": "Empowerment"
+      }
+    ],
+    "month": [
+      {
+        "value": 1440,
+        "color": "#FF9900",
+        "highlight": "#FF5A5E",
+        "label": "Excellence"
+      },
+      {
+        "value": 650,
+        "color": "#CC3300",
+        "highlightv": "#5AD3D1",
+        "label": "Accountability"
+      },
+      {
+        "value": 400,
+        "color": "#990000",
+        "highlight": "#FFC870",
+        "label": "Initiative"
+      },
+      {
+        "value": 1387,
+        "color": "#0033CC",
+        "highlight": "#A8B3C5",
+        "label": "Teamwork"
+      },
+      {
+        "value": 888,
+        "color": "#4D5360",
+        "highlight": "#616774",
+        "label": "Empowerment"
+      }
+    ],
+    "week": [
+      {
+        "value": 1440,
+        "color": "#FF9900",
+        "highlight": "#FF5A5E",
+        "label": "Excellence"
+      },
+      {
+        "value": 650,
+        "color": "#CC3300",
+        "highlightv": "#5AD3D1",
+        "label": "Accountability"
+      },
+      {
+        "value": 400,
+        "color": "#990000",
+        "highlight": "#FFC870",
+        "label": "Initiative"
+      },
+      {
+        "value": 1387,
+        "color": "#0033CC",
+        "highlight": "#A8B3C5",
+        "label": "Teamwork"
+      },
+      {
+        "value": 888,
+        "color": "#4D5360",
+        "highlight": "#616774",
+        "label": "Empowerment"
+      }
+    ]
   },
   "login": {
     "email": "charles.fulnecky@hbo.com",
