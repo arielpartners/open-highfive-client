@@ -5,7 +5,8 @@ let express = require('express'),
     http = require('http'),
     url = require('url'),
     serveStatic = require('serve-static'),
-    path = require('path');
+    path = require('path'),
+    port;
 
 let app = express();
 
