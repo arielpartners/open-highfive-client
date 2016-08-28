@@ -16,10 +16,8 @@ const configColors = [
   { color: '#4D5360', highlight: '#616774' }
 ];
 
-const configureChip = (recognitions, key) => {
-  console.log('***recognitions:', recognitions)
-  debugger;
-  const recognitionsData = recognitions[key];
+const configureChip = (recognitions, k) => {
+  const recognitionsData = recognitions[k] || [];
   let chipTotal = 0;
   const chipData = recognitionsData.map((companyValueData, index) => {
     chipTotal += companyValueData.count;
@@ -31,12 +29,23 @@ const configureChip = (recognitions, key) => {
     }
   });
   return {
-    chipTotal,
-    chipData
+    chipData,
+    chipTotal
   }
 };
 
 export const Recognitions = ({loggedIn, recognitions}) => {
+    const getRecognitionsCategory = (caption, period, left) => {
+      const categoryData = configureChip(recognitions, period)
+      return (
+        <div className="h5-stats-graph" style={{left: left}}>
+          <Chart chartData={categoryData.chipData}/>
+          <div className="h5-stats-graph-value">{categoryData.chipTotal} <em>{caption}</em>
+          </div>
+        </div>
+      )
+    }
+
     return (
         <div className="container-fluid h5-stats">
             <div className="row">
@@ -69,33 +78,17 @@ export const Recognitions = ({loggedIn, recognitions}) => {
                         Corporate Recognition Trends
                     </div>
                     <div className="h5-stats-content">
-                        <div className="h5-stats-graph" style={{left: '-80px'}}>
-                            <Chart chartData={configureChip(recognitions, 'week').chipData}/>
-                            <div className="h5-stats-graph-value">4096 <em>To Date</em>
-                            </div>
-                        </div>
-                        <div className="h5-stats-graph" style={{left: '80px'}}>
-                            <div className="h5-stats-graph-value">693 <em>This Year</em>
-                            </div>
-                            <Chart chartData={configureChip(recognitions, 'month').chipData}/>
-                        </div>
-                        <div className="h5-stats-graph" style={{left: '240px'}}>
-                            <div className="h5-stats-graph-value">158 <em>This Month</em>
-                            </div>
-                            <Chart chartData={configureChip(recognitions, 'year').chipData}/>
-                        </div>
-                        <div className="h5-stats-graph" style={{left: '400px'}}>
-                            <div className="h5-stats-graph-value">75 <em>This Week</em>
-                            </div>
-                            <Chart chartData={configureChip(recognitions, 'toDate').chipData}/>
-                        </div>
+                      {getRecognitionsCategory('This week', 'week', '-80px')}
+                      {getRecognitionsCategory('This Month', 'month', '80px')}
+                      {getRecognitionsCategory('This Year', 'year', '240px')}
+                      {getRecognitionsCategory('To Date', 'toDate', '400px')}
 
                         <div className="h5-stats-legend">
                             <span className="h5-squaredot h5-stats-color-excellence"> </span>Excellence
-                            <span className="h5-squaredot h5-stats-color-accountability"> </span>Accountability
-                            <span className="h5-squaredot h5-stats-color-initiative"> </span>Initiative
+                            <span className="h5-squaredot h5-stats-color-accountability"> </span>Integrity
+                            <span className="h5-squaredot h5-stats-color-initiative"> </span>Respect
                             <span className="h5-squaredot h5-stats-color-teamwork"> </span>Teamwork
-                            <span className="h5-squaredot h5-stats-color-empowerment"> </span>Empowerment
+                            <span className="h5-squaredot h5-stats-color-empowerment"> </span>Vigilance
                         </div>
                     </div>
                 </div>

@@ -1,47 +1,25 @@
 {
   "recognitions": {
-    "toDate": [
+    "week": [
       {
         "companyValue": "Excellence",
-        "count": 1440
+        "count": 8
       },
       {
         "companyValue": "Integrity",
-        "count": 650
+        "count": 30
       },
       {
         "companyValue": "Respect",
-        "count": 400
+        "count": 8
       },
       {
         "companyValue": "Teamwork",
-        "count": 1387
+        "count": 18
       },
       {
         "companyValue": "Vigilance",
-        "count": 888
-      }
-    ],
-    "year": [
-      {
-        "companyValue": "Excellence",
-        "count": 1440
-      },
-      {
-        "companyValue": "Integrity",
-        "count": 650
-      },
-      {
-        "companyValue": "Respect",
-        "count": 400
-      },
-      {
-        "companyValue": "Teamwork",
-        "count": 1387
-      },
-      {
-        "companyValue": "Vigilance",
-        "count": 888
+        "count": 29
       }
     ],
     "month": [
@@ -66,26 +44,48 @@
         "count": 74
       }
     ],
-    "week": [
+    "year": [
       {
         "companyValue": "Excellence",
-        "count": 30
+        "count": 1440
       },
       {
         "companyValue": "Integrity",
-        "count": 13
+        "count": 650
       },
       {
         "companyValue": "Respect",
-        "count": 8
+        "count": 400
       },
       {
         "companyValue": "Teamwork",
-        "count": 29
+        "count": 1387
       },
       {
         "companyValue": "Vigilance",
-        "count": 18
+        "count": 888
+      }
+    ],
+    "toDate": [
+      {
+        "companyValue": "Excellence",
+        "count": 1440
+      },
+      {
+        "companyValue": "Integrity",
+        "count": 650
+      },
+      {
+        "companyValue": "Respect",
+        "count": 400
+      },
+      {
+        "companyValue": "Teamwork",
+        "count": 1387
+      },
+      {
+        "companyValue": "Vigilance",
+        "count": 888
       }
     ]
   },
