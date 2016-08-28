@@ -40,6 +40,10 @@ app.use('/api', proxy(proxyDomain, {
 app.set('port', process.env.PORT || packageJson.config.clientPort);
 app.use(compression());
 app.use(serveStatic('dist'));
+app.get('*', (request, response) => {
+    response.sendFile(path.join(__dirname, 'dist/index.html'));
+});
+
 
 let server = http.createServer(app);
 server.listen(app.get('port'), () => {
