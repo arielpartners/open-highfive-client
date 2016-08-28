@@ -80,7 +80,7 @@ module.exports = (function makeWebpackConfig() {
             ]
         }:
         [
-            'webpack-dev-server/client?http://localhost:' + hotMiddleWarePort,
+            //'webpack-dev-server/client?http://localhost:' + hotMiddleWarePort,
             './src/vendor.js',
             './src/app/index.jsx'
         ];
@@ -339,7 +339,7 @@ module.exports = (function makeWebpackConfig() {
      * Dev server configuration
      * Reference: http://webpack.github.io/docs/configuration.html#devserver
      * Reference: http://webpack.github.io/docs/webpack-dev-server.html
-     */
+
     config.devServer = {
         port: hotMiddleWarePort,
         contentBase: './public',
@@ -349,7 +349,7 @@ module.exports = (function makeWebpackConfig() {
             {path: npmConfig.baseURL + '*', target:'http://localhost:' + npmConfig.apiPort},
             {path:'/api/login', target:'http://localhost:' + npmConfig.apiPort + '/login'}
         ]
-    };
+    };*/
 
     return config;
 }());

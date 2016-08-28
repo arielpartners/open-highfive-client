@@ -8,7 +8,7 @@
   },
   "scripts": {
     "acceptance": "node \"node_modules/protractor/bin/protractor\" protractor.acceptance.conf.js",
-    "client": "webpack -d --watch --hot --inline --profile --colors --display-error-details --display-cached & npm run delayed-open & wait",
+    "client": "webpack -d --watch --inline --profile --colors --display-error-details --display-cached & npm run delayed-open & wait",
     "coverage": "babel-node node_modules/babel-istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha ./test/index.jsx",
     "coverage-clean": "npm run rimraf -- test-artifacts/coverage",
     "coverage-open": "open coverage/index.html",
