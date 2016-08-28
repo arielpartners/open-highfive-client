@@ -31,7 +31,7 @@ const storeAuthToken = payload => {
 };
 /* storeAuthToken will be called from signup also, in future */
 const loggedInEpic = action$ =>
-    action$.ofType(ActionTypes.LOGIN_PENDING)
+    action$.ofType(ActionTypes.LOGIN)
         .map(() => push('/home'));
 
 const loginEpic = action$ =>
