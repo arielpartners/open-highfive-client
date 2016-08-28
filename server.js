@@ -35,6 +35,9 @@ app.use('/api', proxy(proxyDomain, {
 app.set('port', process.env.PORT || 8080);
 app.use(compression());
 app.use(serveStatic('dist'));
+app.get('*', function(request, response){
+    response.sendfile('./dist/index.html');
+});
 
 let server = http.createServer(app);
 server.listen(app.get('port'), () => {
