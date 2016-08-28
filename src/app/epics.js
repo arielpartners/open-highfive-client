@@ -1,6 +1,6 @@
 import {combineEpics} from 'redux-observable';
 
 import LoginEpics from './containers/login/epics';
-import {recognitionsEpics} from './containers/header/components/recognitions/epics';
+import RecognitionsEpics from './containers/header/epics';
 
-export default combineEpics(LoginEpics, recognitionsEpics);
+export default combineEpics(LoginEpics, RecognitionsEpics);

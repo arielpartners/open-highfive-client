@@ -99,8 +99,6 @@ export class Login extends Component {
 
         let form;
 
-        /* eslint-disable no-console */
-        console.log('login state', this.props);
         return (
             <div className="login-container">
                 <a className="hiddenanchor" id="tochange-email">foo</a>

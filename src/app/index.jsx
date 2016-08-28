@@ -6,7 +6,7 @@ import {persistStore} from 'redux-persist';
 import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 import {syncHistoryWithStore} from 'react-router-redux';
 
-import {Header} from './containers/header';
+import Header from './containers/header';
 import Login from './containers/login';
 import {Home} from './containers/home';
 
@@ -33,11 +33,11 @@ export const getFormData = (inputs, toOmit = []) => {
     return inputs.reduce(cb, {});
 };
 
-export const App = (props) => {
+export const App = ({children}) => {
     return (
         <div>
-            <Header {...props}/>
-            {props.children}
+            <Header />
+            {children}
         </div>
     );
 };

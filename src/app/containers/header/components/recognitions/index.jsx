@@ -1,21 +1,18 @@
 import React, {PropTypes} from 'react';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
-import * as RecognitionActions from './actions';
-import * as RecognitionEpics from './epics';
 
-
-import Chart from './components/chart';
+import {DoughnutChart as Chart} from './components/chart';
+import {MyRewardActivities} from './components/my-reward-activities';
 
 /* istanbul ignore next */
 if (__WEBPACK__) {
     //require('!style!css!sass!./style.scss');
 }
 
-export const Recognitions = (props) => {
-    const loggedIn = props.loggedIn;
+export const Recognitions = ({loggedIn, recognitions}) => {
+
     /* eslint-disable no-console */
-    console.log('recognitions', props);
+    console.log('recognitions', recognitions);
+
     let chartData = [
         {
             value: 1440,
@@ -48,27 +45,6 @@ export const Recognitions = (props) => {
             label: 'Empowerment'
         }
     ];
-
-    /* eslint-disable react/no-multi-comp */
-    const getMyRewardActivities = () => {
-        return (
-            <span>
-              <div className="h5-stats-title">
-                  My Reward Activities
-              </div>
-              <div className="h5-stats-content">
-                  <div className="h5-mystats">20 <em>Given</em></div>
-                  <div className="h5-mystats">80 <em>Remaining</em></div>
-                  <div className="h5-mystats earned">150 <em>Earned</em></div>
-                  <div className="clearfix"></div>
-                  <div style={{marginTop: '20px'}}>
-                      <input className="btn btn-primary" value="Submit Recognition"/>
-                      <input className="btn btn-success" value="Spend" style={{width: '80px', marginLeft: '10px'}}/>
-                  </div>
-              </div>
-          </span>
-        );
-    };
 
     return (
         <div className="container-fluid h5-stats">
@@ -103,7 +79,7 @@ export const Recognitions = (props) => {
                     </div>
                     <div className="h5-stats-content">
                         <div className="h5-stats-graph" style={{left: '-80px'}}>
-                            <Chart chartData={chartData}/>
+                            <Chart chartData={recognitions.toDate}/>
                             <div className="h5-stats-graph-value">4096 <em>To Date</em>
                             </div>
                         </div>
@@ -124,22 +100,17 @@ export const Recognitions = (props) => {
                         </div>
 
                         <div className="h5-stats-legend">
-    <span
-        className="h5-squaredot h5-stats-color-excellence"></span>
-                            Excellence
-                            <span
-                                className="h5-squaredot h5-stats-color-accountability"></span>Accountability
-                            <span
-                                className="h5-squaredot h5-stats-color-initiative"></span>Initiative
-                            <span className="h5-squaredot h5-stats-color-teamwork"></span>Teamwork
-                            <span
-                                className="h5-squaredot h5-stats-color-empowerment"></span>Empowerment
+                            <span className="h5-squaredot h5-stats-color-excellence"> </span>Excellence
+                            <span className="h5-squaredot h5-stats-color-accountability"> </span>Accountability
+                            <span className="h5-squaredot h5-stats-color-initiative"> </span>Initiative
+                            <span className="h5-squaredot h5-stats-color-teamwork"> </span>Teamwork
+                            <span className="h5-squaredot h5-stats-color-empowerment"> </span>Empowerment
                         </div>
                     </div>
                 </div>
 
                 <div className="col-lg-3">
-                    { loggedIn ? getMyRewardActivities() : null }
+                    { loggedIn ? <MyRewardActivities /> : null }
                 </div>
 
             </div>
@@ -148,15 +119,6 @@ export const Recognitions = (props) => {
 };
 
 Recognitions.propTypes = {
-    loggedIn: PropTypes.object
+    loggedIn: PropTypes.bool,
+    recognitions: PropTypes.object
 };
-
-/* istanbul ignore next */
-const mapStateToProps = (state) => state;
-
-/* istanbul ignore next */
-const mapDispatchToProps = (dispatch) => (
-    bindActionCreators({...RecognitionActions, ...RecognitionEpics}, dispatch)
-);
-
-export default connect(mapStateToProps, mapDispatchToProps)(Recognitions);
