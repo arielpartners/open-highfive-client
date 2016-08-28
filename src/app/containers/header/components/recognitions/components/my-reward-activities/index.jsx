@@ -13,8 +13,13 @@ export const MyRewardActivities = () => {
                   <div className="h5-mystats earned">150 <em>Earned</em></div>
                   <div className="clearfix"></div>
                   <div style={{marginTop: '20px'}}>
-                      <input className="btn btn-primary" readOnly value="Submit Recognition"/>
-                      <input className="btn btn-success" readOnly value="Spend" style={{width: '80px', marginLeft: '10px'}}/>
+                      <input className="btn btn-primary"
+                             readOnly
+                             value="Submit Recognition"/>
+                      <input className="btn btn-success"
+                             readOnly
+                             value="Spend"
+                             style={{width: '80px', marginLeft: '10px'}}/>
                   </div>
               </div>
           </span>
