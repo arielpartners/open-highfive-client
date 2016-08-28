@@ -12,7 +12,7 @@ import {Home} from './containers/home';
 
 const store = configureStore();
 
-persistStore(store, { blacklist : ['error','routing']});
+persistStore(store, { blacklist : ['error', 'routing']});
 
 /* istanbul ignore next */
 if (__WEBPACK__) {
