@@ -4,6 +4,7 @@
 import {Observable} from 'rxjs';
 import {combineEpics, ActionsObservable} from 'redux-observable';
 import {ajax} from 'rxjs/observable/dom/ajax';
+import {push} from 'react-router-redux';
 
 import * as ActionTypes from '../../../action-types';
 import * as Actions from '../actions';
@@ -29,6 +30,9 @@ const storeAuthToken = payload => {
     XMLHttpRequest.setBearerToken(payload.response.token);
 };
 /* storeAuthToken will be called from signup also, in future */
+const loggedInEpic = action$ =>
+    action$.ofType(ActionTypes.LOGIN_PENDING)
+        .map(() => push('/home'));
 
 const loginEpic = action$ =>
     action$.ofType(ActionTypes.LOGIN_PENDING)
@@ -78,6 +82,7 @@ const logoutEpic = action$ =>
         .map(Actions.userLoggedOut);
 
 export default combineEpics(
+    loggedInEpic,
     loginEpic,
     changeEmailEpic,
     changePasswordEpic,
