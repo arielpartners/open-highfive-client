@@ -11,8 +11,8 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 
-var npmConfig = require("./package.json").config;
-var hotMiddleWarePort = npmConfig.clientPort;
+var config = require("./config");
+var hotMiddleWarePort = config.hostPort;
 
 
 var DEFAULT_TARGET = 'app';

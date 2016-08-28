@@ -8,36 +8,38 @@ let express = require('express'),
     serveStatic = require('serve-static'),
     path = require('path'),
     app = express(),
+    config = require('./config'),
     mock = require('./json-server/mock-redirect'),
-    packageJson = require('./package.json'),
-    proxyDomain = process.env.HIGHFIVE_API_SERVER || packageJson.config.serverEndpoint;
+    packageJson = require('./package.json');
 
 //use mocks where appropriate, then fall back to real thing if mocks aren't there
-mock(app);
+if (config.enableMocks) mock(app);
 
 //proxy /api locally to the designated endpoint that should be passed in as an environment variable
-app.use('/api', proxy(proxyDomain, {
-    decorateRequest: (proxyReq, originalReq) => {
-        //FIXME: if we allow gzip compress, IIS in Azure sitting in front of Node is blowing up on a 502
-        //I think this needs a fix to web.config to handle this, may need a web.config here to override
-        delete proxyReq.headers['accept-encoding'];
-        return proxyReq;
-    },
-    intercept: (rsp, data, req, res, callback) => {
-        if (res._headers['set-cookie']) {
-            //fix any set cookie headers specific to the proxied domain back to the local domain
-            let localDomain = req.headers.host.substr(0, req.headers.host.indexOf(':') || req.headers.length);
-            res._headers['set-cookie'] = JSON.parse(JSON.stringify(res._headers['set-cookie']).replace(proxyDomain, localDomain));
+if (config.enableProxy) {
+    app.use('/api', proxy(config.proxyDomain, {
+        decorateRequest: (proxyReq, originalReq) => {
+            //FIXME: if we allow gzip compress, IIS in Azure sitting in front of Node is blowing up on a 502
+            //I think this needs a fix to web.config to handle this, may need a web.config here to override
+            delete proxyReq.headers['accept-encoding'];
+            return proxyReq;
+        },
+        intercept: (rsp, data, req, res, callback) => {
+            if (res._headers['set-cookie']) {
+                //fix any set cookie headers specific to the proxied domain back to the local domain
+                let localDomain = req.headers.host.substr(0, req.headers.host.indexOf(':') || req.headers.length);
+                res._headers['set-cookie'] = JSON.parse(JSON.stringify(res._headers['set-cookie']).replace(config.proxyDomain, localDomain));
+            }
+            callback(null, data);
+        },
+        forwardPath: (req) => {
+            //forward to proxy with same url including the prefix
+            return `/api${url.parse(req.url).path}`;
         }
-        callback(null, data);
-    },
-    forwardPath: (req) => {
-        //forward to proxy with same url including the prefix
-        return `/api${url.parse(req.url).path}`;
-    }
-}));
+    }));
+}
 
-app.set('port', process.env.PORT || packageJson.config.clientPort);
+app.set('port', config.hostPort);
 app.use(compression());
 app.use(serveStatic('dist'));//compiled
 app.use(serveStatic('public'));//raw fallback

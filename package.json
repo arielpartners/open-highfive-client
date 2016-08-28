@@ -13,7 +13,7 @@
     "coverage": "babel-node node_modules/babel-istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha ./test/index.jsx",
     "coverage-clean": "npm run rimraf -- test-artifacts/coverage",
     "coverage-open": "open coverage/index.html",
-    "delayed-open": "sleep 5 && open http://localhost:$npm_package_config_clientPort",
+    "delayed-open": "sleep 5 && open http://localhost:2368",
     "deploy": "npm run build",
     "e2e": "node \"node_modules/protractor/bin/protractor\" protractor.conf.js",
     "e2e-test-server": "concurrently --kill-others \"npm run server\" \"webpack-dev-server \"",
@@ -138,11 +138,5 @@
     "webpack-hot-middleware": "2.10.0",
     "webpack-load-plugins": "0.1.2",
     "yargs": "4.7.1"
-  },
-  "config": {
-    "clientPort": "2368",
-    "serverEndpoint": "arielflash-server.azurewebsites.net",
-    "apiPort": "3000",
-    "baseURL": "/api/"
   }
 }
