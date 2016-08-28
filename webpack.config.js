@@ -346,8 +346,8 @@ module.exports = (function makeWebpackConfig() {
         historyApiFallback: true,
         stats: 'minimal', // none (or false), errors-only, minimal, normal (or true) and verbose
         proxy: [
-            {path: npmConfig.baseURL + '*', target:'http://localhost:' + npmConfig.apiPort},
-            {path:'/api/login', target:'http://localhost:' + npmConfig.apiPort + '/login'}
+            {path: npmConfig.baseURL + '*', target:npmConfig.apiHost + npmConfig.apiPort},
+            {path:'/api/login', target:npmConfig.apiHost + npmConfig.apiPort + '/login'}
         ]
     };
 
