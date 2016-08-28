@@ -10,9 +10,6 @@ if (__WEBPACK__) {
 
 export const Recognitions = ({loggedIn, recognitions}) => {
 
-    /* eslint-disable no-console */
-    console.log('recognitions', recognitions);
-
     let chartData = [
         {
             value: 1440,

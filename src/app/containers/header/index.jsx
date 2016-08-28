@@ -31,10 +31,6 @@ class Header extends React.Component {
         }
     }
 
-    shouldComponentUpdate (nextProps, nextState) {
-        return nextProps.recognitions !== this.props.recognitions;
-    }
-
     render() {
         const {
             recognitions,
