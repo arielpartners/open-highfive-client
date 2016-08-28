@@ -137,8 +137,8 @@
   },
   "config": {
     "apiHost": "http://localhost:",
-    "apiPort": "3000",
+    "apiPort": "3030",
     "baseURL": "/api/",
-    "clientPort": "2368"
+    "clientPort": "2370"
   }
 }

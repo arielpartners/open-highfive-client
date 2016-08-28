@@ -1,131 +1,91 @@
 {
   "recognitions": {
-    "toDate":  [
+    "toDate": [
       {
-        "value": 1440,
-        "color": "#FF9900",
-        "highlight": "#FF5A5E",
-        "label": "Excellence"
+        "companyValue": "Excellence",
+        "count": 1440
       },
       {
-        "value": 650,
-        "color": "#CC3300",
-        "highlightv": "#5AD3D1",
-        "label": "Accountability"
+        "companyValue": "Integrity",
+        "count": 650
       },
       {
-        "value": 400,
-        "color": "#990000",
-        "highlight": "#FFC870",
-        "label": "Initiative"
+        "companyValue": "Respect",
+        "count": 400
       },
       {
-        "value": 1387,
-        "color": "#0033CC",
-        "highlight": "#A8B3C5",
-        "label": "Teamwork"
+        "companyValue": "Teamwork",
+        "count": 1387
       },
       {
-        "value": 888,
-        "color": "#4D5360",
-        "highlight": "#616774",
-        "label": "Empowerment"
+        "companyValue": "Vigilance",
+        "count": 888
       }
     ],
     "year": [
       {
-        "value": 1440,
-        "color": "#FF9900",
-        "highlight": "#FF5A5E",
-        "label": "Excellence"
+        "companyValue": "Excellence",
+        "count": 1440
       },
       {
-        "value": 650,
-        "color": "#CC3300",
-        "highlightv": "#5AD3D1",
-        "label": "Accountability"
+        "companyValue": "Integrity",
+        "count": 650
       },
       {
-        "value": 400,
-        "color": "#990000",
-        "highlight": "#FFC870",
-        "label": "Initiative"
+        "companyValue": "Respect",
+        "count": 400
       },
       {
-        "value": 1387,
-        "color": "#0033CC",
-        "highlight": "#A8B3C5",
-        "label": "Teamwork"
+        "companyValue": "Teamwork",
+        "count": 1387
       },
       {
-        "value": 888,
-        "color": "#4D5360",
-        "highlight": "#616774",
-        "label": "Empowerment"
+        "companyValue": "Vigilance",
+        "count": 888
       }
     ],
     "month": [
       {
-        "value": 1440,
-        "color": "#FF9900",
-        "highlight": "#FF5A5E",
-        "label": "Excellence"
+        "companyValue": "Excellence",
+        "count": 120
       },
       {
-        "value": 650,
-        "color": "#CC3300",
-        "highlightv": "#5AD3D1",
-        "label": "Accountability"
+        "companyValue": "Integrity",
+        "count": 54
       },
       {
-        "value": 400,
-        "color": "#990000",
-        "highlight": "#FFC870",
-        "label": "Initiative"
+        "companyValue": "Respect",
+        "count": 33
       },
       {
-        "value": 1387,
-        "color": "#0033CC",
-        "highlight": "#A8B3C5",
-        "label": "Teamwork"
+        "companyValue": "Teamwork",
+        "count": 116
       },
       {
-        "value": 888,
-        "color": "#4D5360",
-        "highlight": "#616774",
-        "label": "Empowerment"
+        "companyValue": "Vigilance",
+        "count": 74
       }
     ],
     "week": [
       {
-        "value": 1440,
-        "color": "#FF9900",
-        "highlight": "#FF5A5E",
-        "label": "Excellence"
+        "companyValue": "Excellence",
+        "count": 30
       },
       {
-        "value": 650,
-        "color": "#CC3300",
-        "highlightv": "#5AD3D1",
-        "label": "Accountability"
+        "companyValue": "Integrity",
+        "count": 13
       },
       {
-        "value": 400,
-        "color": "#990000",
-        "highlight": "#FFC870",
-        "label": "Initiative"
+        "companyValue": "Respect",
+        "count": 8
       },
       {
-        "value": 1387,
-        "color": "#0033CC",
-        "highlight": "#A8B3C5",
-        "label": "Teamwork"
+        "companyValue": "Teamwork",
+        "count": 29
       },
       {
-        "value": 888,
-        "color": "#4D5360",
-        "highlight": "#616774",
-        "label": "Empowerment"
+        "companyValue": "Vigilance",
+        "count": 18
       }
     ]
   },

@@ -8,8 +8,35 @@ if (__WEBPACK__) {
     //require('!style!css!sass!./style.scss');
 }
 
-export const Recognitions = ({loggedIn, recognitions}) => {
+const configColors = [
+  { color: '#FF9900', highlight: '#FF5A5E' },
+  { color: '#CC3300', highlight: '#5AD3D1' },
+  { color: '#990000', highlight: '#FFC870' },
+  { color: '#0033CC', highlight: '#A8B3C5' },
+  { color: '#4D5360', highlight: '#616774' }
+];
 
+const configureChip = (recognitions, key) => {
+  console.log('***recognitions:', recognitions)
+  debugger;
+  const recognitionsData = recognitions[key];
+  let chipTotal = 0;
+  const chipData = recognitionsData.map((companyValueData, index) => {
+    chipTotal += companyValueData.count;
+    return {
+      value: companyValueData.count,
+      color: configColors[index].color,
+      highlight:  configColors[index].highlight,
+      label: companyValueData.companyValue
+    }
+  });
+  return {
+    chipTotal,
+    chipData
+  }
+};
+
+export const Recognitions = ({loggedIn, recognitions}) => {
     return (
         <div className="container-fluid h5-stats">
             <div className="row">
@@ -43,24 +70,24 @@ export const Recognitions = ({loggedIn, recognitions}) => {
                     </div>
                     <div className="h5-stats-content">
                         <div className="h5-stats-graph" style={{left: '-80px'}}>
-                            <Chart chartData={recognitions.toDate}/>
+                            <Chart chartData={configureChip(recognitions, 'week').chipData}/>
                             <div className="h5-stats-graph-value">4096 <em>To Date</em>
                             </div>
                         </div>
                         <div className="h5-stats-graph" style={{left: '80px'}}>
                             <div className="h5-stats-graph-value">693 <em>This Year</em>
                             </div>
-                            <Chart chartData={recognitions.year}/>
+                            <Chart chartData={configureChip(recognitions, 'month').chipData}/>
                         </div>
                         <div className="h5-stats-graph" style={{left: '240px'}}>
                             <div className="h5-stats-graph-value">158 <em>This Month</em>
                             </div>
-                            <Chart chartData={recognitions.month}/>
+                            <Chart chartData={configureChip(recognitions, 'year').chipData}/>
                         </div>
                         <div className="h5-stats-graph" style={{left: '400px'}}>
                             <div className="h5-stats-graph-value">75 <em>This Week</em>
                             </div>
-                            <Chart chartData={recognitions.week}/>
+                            <Chart chartData={configureChip(recognitions, 'toDate').chipData}/>
                         </div>
 
                         <div className="h5-stats-legend">
