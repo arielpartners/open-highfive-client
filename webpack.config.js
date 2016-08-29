@@ -11,8 +11,8 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 
-var npmConfig = require("./package.json").config;
-var hotMiddleWarePort = npmConfig.clientPort;
+var config = require("./config");
+var hotMiddleWarePort = config.hostPort;
 
 
 var DEFAULT_TARGET = 'app';
@@ -80,7 +80,7 @@ module.exports = (function makeWebpackConfig() {
             ]
         }:
         [
-            'webpack-dev-server/client?http://localhost:' + hotMiddleWarePort,
+            //'webpack-dev-server/client?http://localhost:' + hotMiddleWarePort,
             './src/vendor.js',
             './src/app/index.jsx'
         ];
@@ -339,7 +339,7 @@ module.exports = (function makeWebpackConfig() {
      * Dev server configuration
      * Reference: http://webpack.github.io/docs/configuration.html#devserver
      * Reference: http://webpack.github.io/docs/webpack-dev-server.html
-     */
+
     config.devServer = {
         port: hotMiddleWarePort,
         contentBase: './public',
@@ -349,7 +349,7 @@ module.exports = (function makeWebpackConfig() {
             {path: npmConfig.baseURL + '*', target:npmConfig.apiHost + npmConfig.apiPort},
             {path:'/api/login', target:npmConfig.apiHost + npmConfig.apiPort + '/login'}
         ]
-    };
+    };*/
 
     return config;
 }());

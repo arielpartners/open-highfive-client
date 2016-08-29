@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
 /* istanbul ignore next */
@@ -14,11 +13,15 @@ export class Home extends Component {
     }
 
     componentDidMount() {
+        /* eslint-disable no-undef */
         componentHandler.upgradeDom();
+        /* eslint-enable no-undef */
     }
 
     componentDidUpdate() {
+        /* eslint-disable no-undef */
         componentHandler.upgradeDom();
+        /* eslint-enable no-undef */
     }
 
     render() {
