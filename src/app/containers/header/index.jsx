@@ -36,8 +36,7 @@ class Header extends React.Component {
     render() {
         const {
             recognitions,
-            loggedIn,
-            logout
+            loggedIn
         } = this.props;
 
         return (
@@ -50,7 +49,7 @@ class Header extends React.Component {
                     </div>
                 </div>
                 {
-                    (loggedIn) ? <Menu logout={logout}/> : null
+                    (loggedIn) ? <Menu logout={this.props.logout}/> : null
                 }
                 <Recognitions loggedIn={loggedIn} recognitions={recognitions}/>
             </div>
