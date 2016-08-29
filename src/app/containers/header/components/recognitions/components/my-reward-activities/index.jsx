@@ -18,7 +18,7 @@ export const MyRewardActivities = () => {
                 </div>
 
                 <div className="pull-left"
-                     style={{margin: '0 20px', width: '100px', position: 'relative', height: '170px'}}>
+                     style={{margin: '0 20px', position: 'relative', height: '170px'}}>
                   You were recognized for
                   <span className="h5-recognized-value">Teamwork</span> by
                     <a href="#" className="h5-recognized-by">Julie Doe</a>

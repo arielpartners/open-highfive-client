@@ -41,7 +41,7 @@ class Header extends React.Component {
         } = this.props;
 
         return (
-            <div>
+            <div className="header-wrapper">
                 <div className="container-fluid h5-hdr header-component">
                     <div className="row">
                         <div className="col-lg-12 h5-logo">
@@ -59,8 +59,7 @@ class Header extends React.Component {
 }
 
 Header.propTypes = {
-    recognitions: PropTypes.object,
-    logout: PropTypes.object
+    recognitions: PropTypes.object
 };
 
 export default connect(
