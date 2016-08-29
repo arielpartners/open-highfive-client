@@ -5,7 +5,9 @@
 
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import * as RecognitionActions from './actions';
+import {logout} from '../login/actions';
 
 import {Menu} from './components/menu';
 import {Recognitions} from './components/recognitions';
@@ -34,7 +36,8 @@ class Header extends React.Component {
     render() {
         const {
             recognitions,
-            loggedIn
+            loggedIn,
+            logout
         } = this.props;
 
         return (
@@ -46,7 +49,7 @@ class Header extends React.Component {
                         </div>
                     </div>
                 </div>
-                <Menu />
+                <Menu logout={logout}/>
                 <Recognitions loggedIn={loggedIn} recognitions={recognitions}/>
             </div>
         );
@@ -54,13 +57,14 @@ class Header extends React.Component {
 }
 
 Header.propTypes = {
-    recognitions: PropTypes.object
+    recognitions: PropTypes.object,
+    logout: PropTypes.object
 };
 
 export default connect(
     // Map State to Props (Reducers)
     (state) => state,
     //Map DispatchToProps (Actions)
-    {...RecognitionActions}
+    (dispatch) => (bindActionCreators({...RecognitionActions, logout}, dispatch))
 )(Header);
 

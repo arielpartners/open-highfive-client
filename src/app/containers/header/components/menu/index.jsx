@@ -1,11 +1,12 @@
 import React, {PropTypes} from 'react';
+import {Link} from 'react-router';
 
 /* istanbul ignore next */
 if (__WEBPACK__) {
     require('!style!css!sass!./style.scss');
 }
 
-export const Menu = () => {
+export const Menu = ({logout}) => {
     return (
         <nav className="navbar navbar-default">
             <div className="container-fluid">
@@ -36,7 +37,9 @@ export const Menu = () => {
                     <ul className="nav navbar-nav navbar-right">
                         <li><a href="#">Settings</a></li>
                         <li><a href="#">Admin</a></li>
-                        <li><a href="#">Logout</a></li>
+                        <li>
+                            <Link to="/login" onClick={logout}>Logout</Link>
+                        </li>
                     </ul>
                 </div>
             </div>
