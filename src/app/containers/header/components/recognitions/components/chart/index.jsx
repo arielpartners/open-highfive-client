@@ -8,6 +8,6 @@ export const DoughnutChart = ({chartData}) => {
         responsive: true
     };
     return (
-        <Doughnut data={chartData} options={chartOptions} height="150"/>
+        <Doughnut data={chartData} options={chartOptions} height="100"/>
     );
 };

@@ -5,7 +5,9 @@
 
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import * as RecognitionActions from './actions';
+import {logout} from '../login/actions';
 
 import {Menu} from './components/menu';
 import {Recognitions} from './components/recognitions';
@@ -38,7 +40,7 @@ class Header extends React.Component {
         } = this.props;
 
         return (
-            <div>
+            <div className="header-wrapper">
                 <div className="container-fluid h5-hdr header-component">
                     <div className="row">
                         <div className="col-lg-12 h5-logo">
@@ -46,7 +48,9 @@ class Header extends React.Component {
                         </div>
                     </div>
                 </div>
-                <Menu />
+                {
+                    (loggedIn) ? <Menu logout={this.props.logout}/> : null
+                }
                 <Recognitions loggedIn={loggedIn} recognitions={recognitions}/>
             </div>
         );
@@ -61,6 +65,6 @@ export default connect(
     // Map State to Props (Reducers)
     (state) => state,
     //Map DispatchToProps (Actions)
-    {...RecognitionActions}
+    (dispatch) => (bindActionCreators({...RecognitionActions, logout}, dispatch))
 )(Header);
 

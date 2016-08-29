@@ -1,38 +1,47 @@
-.header-component {
-  height: 100px;
+ .header-wrapper {
 
-  .header-content {
-    background: black;
-    position: relative;
-  }
+   .header-component {
+     height: 100px;
 
-  .title {
-    display: inline-block;
-    vertical-align: middle;
-    margin: 0;
-    color: white;
-  }
+     .header-content {
+       background: black;
+       position: relative;
+     }
 
-  .logo {
-    display: inline-block;
-    vertical-align: middle;
-    background-image: url('img/logoHighFive.png');
-    background-repeat: no-repeat;
-    width: 187px;
-    min-height: 40px;
-    background-size: 100% auto;
-    font-weight: normal;
-  }
+     .title {
+       display: inline-block;
+       vertical-align: middle;
+       margin: 0;
+       color: white;
+     }
 
-  .logout-btn {
-    position: absolute;
-    right: 1em;
-    top: 1em;
-    color: lightgrey;
-    &:hover {
-      color: white;
-    }
-  }
+     .logo {
+       display: inline-block;
+       vertical-align: middle;
+       background-image: url('img/logoHighFive.png');
+       background-repeat: no-repeat;
+       width: 187px;
+       min-height: 40px;
+       background-size: 100% auto;
+       font-weight: normal;
+     }
 
+     .logout-btn {
+       position: absolute;
+       right: 1em;
+       top: 1em;
+       color: lightgrey;
+       &:hover {
+         color: white;
+       }
+     }
+   }
 
-}
+   .h5-stats-content {
+     zoom: .9;
+   }
+
+   .container-fluid .row {
+     max-width: 1420px;
+   }
+ }

@@ -74,7 +74,7 @@ export const Recognitions = ({loggedIn, recognitions}) => {
                     </div>
                 </div>
 
-                <div className="col-lg-6 h5-stats-display" style={{
+                <div className="col-lg-5 h5-mobilehidden" style={{
                     borderLeft: 'solid 1px #DBDEE1',
                     borderRight: 'solid 1px #DBDEE1'
                 }}>
@@ -97,7 +97,7 @@ export const Recognitions = ({loggedIn, recognitions}) => {
                     </div>
                 </div>
 
-                <div className="col-lg-3">
+                <div className="col-lg-4" style={{background: '#BFEFFF', marginRight: '-10px'}}>
                     { loggedIn ? <MyRewardActivities /> : null }
                 </div>
 
