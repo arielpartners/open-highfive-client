@@ -9,7 +9,7 @@ import {push} from 'react-router-redux';
 import * as ActionTypes from '../../../action-types';
 import * as Actions from '../actions';
 
-const BASE_URL = '/api/login';
+const BASE_URL = '/api/auth';
 const CHANGE_USER_URL = '/users';
 const HEADER = {'Content-Type': 'application/json'};
 

@@ -129,7 +129,7 @@
       }
     ]
   },
-  "login": {
+  "auth": {
     "email": "charles.fulnecky@hbo.com",
     "userpass": "tewrert"
   },
