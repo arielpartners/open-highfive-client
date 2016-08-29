@@ -49,7 +49,9 @@ class Header extends React.Component {
                         </div>
                     </div>
                 </div>
-                <Menu logout={logout}/>
+                {
+                    (loggedIn) ? <Menu logout={logout}/> : null
+                }
                 <Recognitions loggedIn={loggedIn} recognitions={recognitions}/>
             </div>
         );
