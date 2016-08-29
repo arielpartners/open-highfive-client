@@ -14,10 +14,7 @@ module.exports = function (app) {
         jsonRouter = jsonServer.router(path.join(__dirname, 'db.json'));
 
     app.use((req, res, next) => {
-        let isApi = req.url.match(/^\/api/),
-            isMock = req.url.match(/^\/mock/);
-
-        if (isApi && !isMock && (!config.enableProxy && mockMatches.find(match => match(req)))) {
+        if (!req.url.match(/^\/mock/) && mockMatches.find(match => match(req))) {
             console.log(`redirecting request ${req.url} to /mock${req.url} on mock json server`);
             res.redirect(`/mock${req.url}`);
         }

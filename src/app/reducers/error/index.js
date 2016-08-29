@@ -1,4 +1,4 @@
-import {LOGIN_ERROR} from '../../containers/login/actions';
+import {LOGIN_ERROR} from '../../action-types';
 
 //-------------------------------------------------------------------
 // Error STORE
