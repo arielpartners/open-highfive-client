@@ -40,7 +40,7 @@ const loginEpic = action$ =>
             ajax.post(BASE_URL, JSON.stringify(action.payload), HEADER)
                 .do(storeAuthToken)
                 .map(Actions.userAuthenticated)
-                .catch(error => Observable.of({type: ActionTypes.LOGIN_ERROR, payload: error.xhr.response}))
+                .catch(error => Observable.of({type: ActionTypes.LOGIN_ERROR, payload: error}))
         );
 
 const changeEmailEpic = action$ =>
