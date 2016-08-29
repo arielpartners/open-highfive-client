@@ -5,7 +5,7 @@ let config = require('../config');
 const mockMatches = [
     req => req.url.includes('/api/recognitions'),
     req => req.url.includes('/api/sampleUser'),
-    req => req.url.includes('/api/login')
+    req => req.url.includes('/api/auth')
 ];
 
 module.exports = function (app) {

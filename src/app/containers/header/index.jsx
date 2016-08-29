@@ -14,7 +14,7 @@ import {Recognitions} from './components/recognitions';
 
 /* istanbul ignore next */
 if (__WEBPACK__) {
-    require('!style!css!sass!./style.scss');
+    require('./style.scss');
 }
 
 class Header extends React.Component {

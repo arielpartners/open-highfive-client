@@ -62,7 +62,7 @@ module.exports = (function makeWebpackConfig() {
     } else if (ENV === 'build') {
         config.devtool = false;
     } else {
-        config.devtool = 'cheap-module-eval-source-map';
+        config.devtool = 'inline-source-map';
     }
 
     // add debug messages
@@ -131,7 +131,7 @@ module.exports = (function makeWebpackConfig() {
             },
             {
                 test: /\.scss/,
-                loader: 'style-loader!css-loader!postcss-loader!sass-loader'
+                loader: 'style-loader!css-loader?sourceMap!postcss-loader?sourceMap!sass-loader?sourceMap'
             },
             {
                 test: /\.json$/,

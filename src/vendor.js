@@ -10,7 +10,7 @@ import 'material-design-lite/src/textfield/textfield';
 import 'rxjs';
 /* istanbul ignore next  */
 if (__WEBPACK__) {
-    require('!style!css!sass!./style.scss');
+    require('./style.scss');
 }
 
 // IIFE used to assign bearer token for all ajax requests at the application's top level
