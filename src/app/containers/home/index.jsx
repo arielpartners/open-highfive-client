@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 
 /* istanbul ignore next */
 if (__WEBPACK__) {
-    //require('!style!css!sass!./style.scss');
+    //require('./style.scss');
 }
 
 export class Home extends Component {

@@ -5,7 +5,7 @@ import {MyRewardActivities} from './components/my-reward-activities';
 
 /* istanbul ignore next */
 if (__WEBPACK__) {
-    //require('!style!css!sass!./style.scss');
+    //require('./style.scss');
 }
 
 const configColors = [

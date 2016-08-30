@@ -6,7 +6,7 @@ import * as LoginActions from './actions';
 
 /* istanbul ignore next  */
 if (__WEBPACK__) {
-    require('!style!css!sass!./style.scss');
+    require('./style.scss');
 }
 
 /*global componentHandler*/
@@ -179,8 +179,9 @@ export class Login extends Component {
                     <div className="mdl-card__actions">
                         <button onClick={()=>this.onSubmit(form, inputs)}
                                 type="submit"
-                                className="mdl-button mdl-button--colored mdl-js-button
-                                               mdl-js-ripple-effect">{this.state.submitButtonLabel}
+                                className="mdl-button mdl-button--colored
+                                           mdl-js-button
+                                           mdl-js-ripple-effect">{this.state.submitButtonLabel}
                         </button>
                         {
                             (error) ?
