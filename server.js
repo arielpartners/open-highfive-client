@@ -9,8 +9,7 @@ let express = require('express'),
     path = require('path'),
     app = express(),
     config = require('./config'),
-    mock = require('./json-server/mock-redirect'),
-    packageJson = require('./package.json');
+    mock = require('./json-server/mock-redirect');
 
 //use mocks where appropriate, then fall back to real thing if mocks aren't there
 if (config.enableMocks) mock(app);
@@ -41,17 +40,44 @@ if (config.enableProxy) {
 
 app.set('port', config.hostPort);
 app.use(compression());
-app.use(serveStatic('dist'));//compiled
-app.use(serveStatic('public'));//raw fallback
-app.get('*', (request, response, next) => {
-    if (request.method === 'GET') {
-        response.sendFile(path.join(__dirname, 'dist/index.html'));
+
+//primary - resolve from statically compiled files
+app.use(serveStatic('dist'));
+
+//secondary - resolve from dynamically compiled files on-demand
+try {
+    let webpack = require('webpack'),
+        webpackConfig = require('./webpack.config'),
+        webpackHot = require('webpack-hot-middleware'),
+        webpackMiddleware = require('webpack-dev-middleware'),
+        compiler = webpack(webpackConfig);
+
+    app.use(webpackMiddleware(compiler, {
+        noInfo: true,
+        publicPath: webpackConfig.output.publicPath,
+        stats: {
+            colors: true
+        }
+    }));
+
+    app.use(webpackHot(compiler));
+}
+catch(e) {
+    console.log('webpack development tools for on-demand compilation disabled');
+}
+
+//fallback - resolve from raw source files
+app.use(serveStatic('public'));
+
+//404 resolution back to index.html for html5 push state
+app.get('*', (req, res, next) => {
+    if (req.method === 'GET' && req.headers.accept.includes('html')) {
+        res.sendFile(path.join(__dirname, 'dist/index.html'));
     }
     else {
         next();
     }
 });
-
 
 let server = http.createServer(app);
 server.listen(app.get('port'), () => {
