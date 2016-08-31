@@ -6,6 +6,7 @@ let express = require('express'),
     http = require('http'),
     url = require('url'),
     serveStatic = require('serve-static'),
+    fs = require('fs'),
     path = require('path'),
     app = express(),
     config = require('./config'),
@@ -70,9 +71,10 @@ catch(e) {
 app.use(serveStatic('public'));
 
 //404 resolution back to index.html for html5 push state
+let request = require('request');
 app.get('*', (req, res, next) => {
     if (req.method === 'GET' && req.headers.accept.includes('html')) {
-        res.sendFile(path.join(__dirname, 'dist/index.html'));
+        req.pipe(request(`${req.protocol}://${req.get('host')}/index.html`)).pipe(res);
     }
     else {
         next();
