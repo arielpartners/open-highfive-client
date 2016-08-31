@@ -305,7 +305,7 @@ module.exports = (function makeWebpackConfig() {
     }
 
     //default dev build options for hot loads
-    if (ENV === 'start') {
+    if (ENV === 'server') {
         config.plugins.push(
             new webpack.optimize.OccurenceOrderPlugin(),
             new webpack.HotModuleReplacementPlugin(),
