@@ -1,0 +1,2 @@
+# don't copy anything for dev to the container instead we will map guest to host
+**/*
