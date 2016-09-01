@@ -80,7 +80,7 @@ module.exports = (function makeWebpackConfig() {
             ]
         }:
         [
-            //'webpack-dev-server/client?http://localhost:' + hotMiddleWarePort,
+            'webpack-hot-middleware/client?reload=true',
             './src/vendor.js',
             './src/app/index.jsx'
         ];
@@ -301,6 +301,15 @@ module.exports = (function makeWebpackConfig() {
             new CopyWebpackPlugin([{
                 from: root('public')
             }])
+        );
+    }
+
+    //default dev build options for hot loads
+    if (ENV === 'server') {
+        config.plugins.push(
+            new webpack.optimize.OccurenceOrderPlugin(),
+            new webpack.HotModuleReplacementPlugin(),
+            new webpack.NoErrorsPlugin()
         );
     }
 
