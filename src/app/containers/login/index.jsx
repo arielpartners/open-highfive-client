@@ -56,7 +56,8 @@ export class Login extends Component {
     }
 
     /*eslint-disable max-statements, complexity, max-depth */
-    onSubmit(form, inputs) {
+    onSubmit(form, inputs, event) {
+        event.preventDefault();
         form.classList.remove('invalid');
         if (!this.isValid(form)) {
             form.classList.add('invalid');
@@ -103,17 +104,19 @@ export class Login extends Component {
         let form;
 
         return (
-            <div className="login-container">
+            <form onSubmit={(event)=>this.onSubmit(form, inputs, event)}
+
+                  noValidate
+                  ref={(ref)=> {
+                            form = ref;
+                  }}
+                  className="login-container">
                 <a className="hiddenanchor" id="tochange-email">foo</a>
                 <a className="hiddenanchor" id="tochange-password">foo</a>
                 <div className="login-component">
                     <h1>Welcome to HighFive!</h1>
                     <div className="mdl-card__supporting-text">
-                        <form ref={(ref)=> {
-                            form = ref;
-                        }}
-                              className="mdl-card__supporting-text"
-                              noValidate>
+                        <div className="mdl-card__supporting-text">
                             <div className={fieldSetClass}>
                                 <input ref={addInput}
                                        className={inputClass}
@@ -176,11 +179,10 @@ export class Login extends Component {
                                     <span className={errorClass}>Password required, must match above</span>
                                 </div>
                             </div>
-                        </form>
+                        </div>
                     </div>
                     <div className="mdl-card__actions">
-                        <button onClick={()=>this.onSubmit(form, inputs)}
-                                type="submit"
+                        <button type="submit"
                                 tabIndex={3}
                                 className="mdl-button mdl-button--colored
                                            mdl-js-button
@@ -198,7 +200,7 @@ export class Login extends Component {
                         </p>
                     </div>
                 </div>
-            </div>
+            </form>
         );
     }
 }
