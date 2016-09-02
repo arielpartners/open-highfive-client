@@ -56,8 +56,7 @@ export class Login extends Component {
     }
 
     /*eslint-disable max-statements, complexity, max-depth */
-    onSubmit(form, inputs, event) {
-        event.preventDefault();
+    onSubmit(form, inputs) {
         form.classList.remove('invalid');
         if (!this.isValid(form)) {
             form.classList.add('invalid');
@@ -104,11 +103,10 @@ export class Login extends Component {
         let form;
 
         return (
-            <form onSubmit={(event)=>this.onSubmit(form, inputs, event)}
-
+            <form onSubmit={(event) => event.preventDefault() & this.onSubmit(form, inputs)}
                   noValidate
                   ref={(ref)=> {
-                            form = ref;
+                      form = ref;
                   }}
                   className="login-container">
                 <a className="hiddenanchor" id="tochange-email">foo</a>
