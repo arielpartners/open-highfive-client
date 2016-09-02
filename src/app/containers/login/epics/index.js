@@ -29,7 +29,9 @@ const storeAuthToken = payload => {
     // Save JWT authentication Token so we send it on all future requests
     XMLHttpRequest.setBearerToken(payload.response.token);
 };
+
 /* storeAuthToken will be called from signup also, in future */
+
 const loggedInEpic = action$ =>
     action$.ofType(ActionTypes.LOGIN)
         .map(() => push('/home'));
@@ -81,11 +83,17 @@ const logoutEpic = action$ =>
         })
         .map(Actions.userLoggedOut);
 
+const redirectToLoginEpic = action$ =>
+    action$.ofType('persist/REHYDRATE')
+        .filter(state => !state.payload.loggedIn)
+        .map(() => push('/login'));
+
 export default combineEpics(
     loggedInEpic,
     loginEpic,
     changeEmailEpic,
     changePasswordEpic,
-    logoutEpic
+    logoutEpic,
+    redirectToLoginEpic
 );
 
