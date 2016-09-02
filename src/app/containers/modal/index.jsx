@@ -4,6 +4,7 @@
 
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
+import cx from 'classnames';
 
 import {closeModal} from '../../actions';
 
@@ -25,12 +26,28 @@ class Modal extends React.Component {
     render() {
         const {modalDisplayed} = this.props;
 
+        const backDropClass = cx(
+            'h5-modal-backdrop',
+            'fade',
+            modalDisplayed ? 'in' : ''
+        );
+
+        const dialogClass = cx(
+            'modal',
+            'fade',
+            modalDisplayed ? 'in' : ''
+        );
+
+        const displayStyle = {
+            display: (modalDisplayed ? 'block' : 'none')
+        };
+
         return (
-          <div className={ 'h5-modal-backdrop fade' + (modalDisplayed ? 'in' : '') }
-               style={{display: (modalDisplayed ? 'block' : 'none')}}>
+          <div className={ backDropClass }
+               style={displayStyle}>
             <div role="dialog"
-                 className={ 'modal fade ' + (modalDisplayed ? 'in' : '') }
-                 style={{display: (modalDisplayed ? 'block' : 'none')}}
+                 className={ dialogClass }
+                 style={displayStyle}
                  onClick={()=>this.closeModal()}>
               <div className="modal-dialog">
                 <div className="modal-content">
