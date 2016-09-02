@@ -74,7 +74,7 @@ app.use(serveStatic('public'));
 let request = require('request');
 app.get('*', (req, res, next) => {
     if (req.method === 'GET' && req.headers.accept.includes('html')) {
-        req.pipe(request(`${req.protocol}://${req.get('host')}/index.html`)).pipe(res);
+        req.pipe(request(`${req.protocol}://${req.get('host')}/`)).pipe(res);
     }
     else {
         next();
