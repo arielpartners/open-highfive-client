@@ -51,7 +51,7 @@ export const Recognitions = ({loggedIn, recognitions}) => {
     /* eslint-enable max-params, react/no-multi-comp */
 
     return (
-        <div className="container-fluid h5-stats">
+        <div className="container-fluid h5-stats h5-mobilehidden">
             <div className="row">
                 <div className="col-lg-3">
                     <div className="h5-stats-title">

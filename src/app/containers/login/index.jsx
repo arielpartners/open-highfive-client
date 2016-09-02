@@ -118,6 +118,7 @@ export class Login extends Component {
                                 <input ref={addInput}
                                        className={inputClass}
                                        required={true}
+                                       tabIndex={1}
                                        type="email" id="email"/>
                                 <label className={labelClass} htmlFor="email">Email</label>
                                 <span className={errorClass}>Valid email address is required</span>
@@ -127,6 +128,7 @@ export class Login extends Component {
                                        className={inputClass}
                                        type="password"
                                        required={true}
+                                       tabIndex={2}
                                        id="password"/>
                                 <label className={labelClass} htmlFor="password">Password</label>
                                 <span className={errorClass}>Password is required</span>
@@ -179,6 +181,7 @@ export class Login extends Component {
                     <div className="mdl-card__actions">
                         <button onClick={()=>this.onSubmit(form, inputs)}
                                 type="submit"
+                                tabIndex={3}
                                 className="mdl-button mdl-button--colored
                                            mdl-js-button
                                            mdl-js-ripple-effect">{this.state.submitButtonLabel}
