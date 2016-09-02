@@ -17,7 +17,7 @@ const configColors = [
 ];
 
 const configureChip = (recognitions, k) => {
-    const recognitionsData = recognitions[k] || [];
+    const recognitionsData = (recognitions || {})[k] || [];
     let chipTotal = 0;
     const chipData = recognitionsData.map((companyValueData, index) => {
         chipTotal += companyValueData.count;
