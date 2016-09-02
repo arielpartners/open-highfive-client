@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 
 import {DoughnutChart as Chart} from './components/chart';
-import {MyRewardActivities} from './components/my-reward-activities';
+import MyRewardActivities from './components/my-reward-activities';
 
 /* istanbul ignore next */
 if (__WEBPACK__) {
