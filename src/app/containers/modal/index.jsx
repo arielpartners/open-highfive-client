@@ -5,6 +5,8 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 
+import {closeModal} from '../../actions';
+
 /* istanbul ignore next */
 if (__WEBPACK__) {
   //require('!style!css!sass!./style.scss');
@@ -17,20 +19,24 @@ class Modal extends React.Component {
     }
 
     closeModal() {
-      // TODO: dispatch close modal action
+        this.props.closeModal();
     }
 
     render() {
+        const {modalDisplayed} = this.props;
+
         return (
-          <div className={ 'h5-modal-backdrop fade' + (this.props.in ? 'in' : '') }>
+          <div className={ 'h5-modal-backdrop fade' + (modalDisplayed ? 'in' : '') }
+               style={{display: (modalDisplayed ? 'block' : 'none')}}>
             <div role="dialog"
-                 className={ 'modal fade ' + (this.props.in ? 'in' : '') }
-                 style={{display: (this.props.in ? 'block' : 'none')}}
-                 onClick={ this.closeModal }>
+                 className={ 'modal fade ' + (modalDisplayed ? 'in' : '') }
+                 style={{display: (modalDisplayed ? 'block' : 'none')}}
+                 onClick={()=>this.closeModal()}>
               <div className="modal-dialog">
                 <div className="modal-content">
                   <div className="modal-header">
-                    <button type="button" className="close" data-dismiss="modal">×</button>
+                    <button onClick={()=>this.closeModal()}
+                      type="button" className="close" data-dismiss="modal">×</button>
                     <h4 className="modal-title">Congratulations!</h4>
                   </div>
                   <div className="modal-body text-center">
@@ -45,7 +51,8 @@ class Modal extends React.Component {
                     <h3><span className="glyphicon glyphicon-thumbs-up"></span> Say Thank You</h3>
                   </div>
                   <div className="modal-footer">
-                    <button type="reset" className="btn btn-default" data-dismiss="modal">Close</button>
+                    <button onClick={()=>this.closeModal()}
+                      type="reset" className="btn btn-default" data-dismiss="modal">Close</button>
                   </div>
                 </div>
               </div>
@@ -56,10 +63,12 @@ class Modal extends React.Component {
 }
 
 Modal.propTypes = {
-    in: PropTypes.bool
+    modalDisplayed: PropTypes.bool
 };
 
 export default connect(
   // Map State to Props (Reducers)
   (state) => state,
+  //Map DispatchToProps (Actions)
+  {closeModal}
 )(Modal);
