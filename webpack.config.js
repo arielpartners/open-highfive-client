@@ -117,6 +117,7 @@ module.exports = (function makeWebpackConfig() {
      * List: http://webpack.github.io/docs/list-of-loaders.html
      * This handles most of the magic responsible for converting modules
      */
+    let cssSourceMap = ENV === 'build' ? '' : 'sourceMap';
     config.module = {
         preLoaders: isTestEnv || isE2ETestEnv ? [] : [{test: /\.js$/, loader: 'eslint'}],
         exprContextCritical : false,
@@ -131,7 +132,7 @@ module.exports = (function makeWebpackConfig() {
             },
             {
                 test: /\.scss/,
-                loader: 'style-loader!css-loader?sourceMap!postcss-loader?sourceMap!sass-loader?sourceMap'
+                loader: `style-loader!css-loader?${cssSourceMap}!postcss-loader?${cssSourceMap}!sass-loader?${cssSourceMap}`
             },
             {
                 test: /\.json$/,
