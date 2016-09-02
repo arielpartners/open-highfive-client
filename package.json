@@ -44,10 +44,11 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "json-server": "0.8.14",
     "compression": "^1.6.2",
     "express": "^4.14.0",
     "express-http-proxy": "^0.6.0",
+    "json-server": "0.8.14",
+    "request": "^2.74.0",
     "serve-static": "^1.11.1"
   },
   "devDependencies": {
