@@ -3,5 +3,5 @@ import * as ActionTypes from '../../../action-types';
 //
 // action creators / action factories
 //
-export const recieveRecognitions = payload => ({type: ActionTypes.RECIEVED_RECOGNITIONS, payload});
-export const requestRecognitions = () => ({type: ActionTypes.REQUEST_RECOGNITIONS});
+export const receiveMetrics = payload => ({type: ActionTypes.RECEIVED_METRICS, payload});
+export const requestMetrics = () => ({type: ActionTypes.REQUEST_METRICS});

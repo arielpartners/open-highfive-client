@@ -5,11 +5,16 @@
     "version": "1.2",
     "datestamp": "2016-09-03T14:23:00.000Z"
   },
-  "recognitions": {
+  "recognitions": [
+    {"receiver": "Julie Doe", "sender": "John Doe", "date": "01/01/2016", "points": 20, "corporateValue": "Excellence"},
+    {"receiver": "Julie Doe", "sender": "John Doe", "date": "01/01/2016", "points": 20, "corporateValue": "Excellence"},
+    {"receiver": "Julie Doe", "sender": "John Doe", "date": "01/01/2016", "points": 20, "corporateValue": "Excellence"}
+  ],
+  "metrics": {
     "week": [
       {
         "companyValue": "Excellence",
-        "count": 8
+        "count": 100
       },
       {
         "companyValue": "Integrity",
@@ -95,9 +100,10 @@
       }
     ]
   },
+
   "auth": {
-    "email": "charles.fulnecky@hbo.com",
-    "userpass": "tewrert"
+    "email": "test.user@email.com",
+    "userpass": "password"
   },
   "sampleUser": {
     "roleId": "b71b0f63-199e-46e2-a64e-a453216b7dc8",
