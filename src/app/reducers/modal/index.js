@@ -4,13 +4,13 @@ import * as ActionTypes from '../../action-types';
 // MODAL REDUCER
 //-------------------------------------------------------------------
 /* eslint-disable indent, complexity */
-export const modalDisplayed = (state = false, {type}) => {
+export const modalDisplayed = (state = {show: false}, {type, payload}) => {
 
     switch (type) {
         case ActionTypes.OPEN_MODAL:
-            return true;
+            return { show: true, config: payload};
         case ActionTypes.CLOSE_MODAL:
-            return false;
+            return { show: false};
         default:
             return state;
     }

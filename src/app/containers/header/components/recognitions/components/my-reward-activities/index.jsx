@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import {openModal} from '../../../../../../actions';
+import {MyRecognitions, MyRecognitionsFooter} from '../../../../../modal/myRecognitions';
+import {RecognizePeer, RecognizePeerFooter} from '../../../../../modal/recognizePeer';
 
 export class MyRewardActivities extends Component {
 
@@ -10,7 +12,19 @@ export class MyRewardActivities extends Component {
     }
 
     viewMyRecognition() {
-        this.props.openModal();
+        this.props.openModal({
+            component: MyRecognitions,
+            footer: MyRecognitionsFooter,
+            header: 'Congratulations!'
+        });
+    }
+
+    recognizePeer() {
+        this.props.openModal({
+            component: RecognizePeer,
+            footer: RecognizePeerFooter,
+            header: 'Submit a Recognition'
+        });
     }
 
     render() {
@@ -25,7 +39,8 @@ export class MyRewardActivities extends Component {
                   <div className="h5-mystats">20 <em>Given</em></div>
                   <div className="h5-mystats">80 <em>Remaining</em></div>
                   <div className="clearfix"></div>
-                  <button type="button" className="btn btn-primary"
+                  <button onClick={()=>this.recognizePeer()}
+                          type="button" className="btn btn-primary"
                           data-toggle="modal" data-target="#recognitionForm"
                           style={{ position: 'absolute', bottom: '10px' }}>Recognize a Peer
                   </button>
