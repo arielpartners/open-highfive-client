@@ -12,9 +12,6 @@ if (__WEBPACK__) {
 /*global componentHandler*/
 
 const LOGIN = 'Login';
-const CHANGE_PASSWORD = 'Change Password';
-const CHANGE_EMAIL = 'Change Email';
-export const emailRegExStr = '^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$';
 
 /* eslint-disable no-shadow, max-len*/
 export class Login extends Component {
@@ -39,14 +36,6 @@ export class Login extends Component {
         /* eslint-enable no-undef */
     }
 
-    isChangePassword() {
-        return this.state.submitButtonLabel === CHANGE_PASSWORD;
-    }
-
-    isChangeEmail() {
-        return this.state.submitButtonLabel === CHANGE_EMAIL;
-    }
-
     setFormState(newLabel) {
         this.setState({submitButtonLabel: newLabel});
     }
@@ -61,32 +50,10 @@ export class Login extends Component {
         if (!this.isValid(form)) {
             form.classList.add('invalid');
         } else {
-            if (this.isChangeEmail()) {
-                if (inputs[2].value !== inputs[3].value) {
-                    // emails must match
-                    inputs[2].parentNode.classList.add('is-invalid');
-                    inputs[3].parentNode.classList.add('is-invalid');
-                    form.classList.add('invalid');
-                } else {
-                    const toOmit = ['userpass_new', 'userpass_new_confirm', 'email_new_confirm'];
-                    this.props.changeEmail(getFormData(inputs, toOmit));
-                }
-            } else if (this.isChangePassword()) {
-                if (inputs[4].value !== inputs[5].value) {
-                    // passwords must match
-                    inputs[4].parentNode.classList.add('is-invalid');
-                    inputs[5].parentNode.classList.add('is-invalid');
-                    form.classList.add('invalid');
-                } else {
-                    const toOmit = ['email_new', 'email_new_confirm', 'userpass_new_confirm'];
-                    this.props.changePassword(getFormData(inputs, toOmit));
-                }
-            }
-            else {
-                this.props.login(getFormData(inputs));
-            }
+            this.props.login(getFormData(inputs));
         }
     }
+
     /*eslint-enable max-statements */
 
     render() {
@@ -134,49 +101,6 @@ export class Login extends Component {
                                 <label className={labelClass} htmlFor="password">Password</label>
                                 <span className={errorClass}>Password is required</span>
                             </div>
-                            <div className="change-email">
-                                <div className={fieldSetClass}>
-                                    <input ref={addInput}
-                                           className={inputClass}
-                                           type="email"
-                                           required={this.isChangeEmail()}
-                                           id="email_new"/>
-                                    <label className={labelClass} htmlFor="email_new">New Email</label>
-                                    <span
-                                        className={errorClass}>Email address must be valid and match confirmation</span>
-                                </div>
-                                <div className={fieldSetClass}>
-                                    <input ref={addInput}
-                                           className={inputClass}
-                                           type="email"
-                                           required={this.isChangeEmail()}
-                                           id="email_new_confirm"/>
-                                    <label className={labelClass} htmlFor="email_new_confirm">Confirm New
-                                        Email</label>
-                                    <span className={errorClass}>Email address must be valid and match above</span>
-                                </div>
-                            </div>
-                            <div className="change-password">
-                                <div className={fieldSetClass}>
-                                    <input ref={addInput}
-                                           className={inputClass}
-                                           type="password"
-                                           required={this.isChangePassword()}
-                                           id="userpass_new"/>
-                                    <label className={labelClass} htmlFor="userpass_new">New Password</label>
-                                    <span className={errorClass}>Password required, must match confirmation</span>
-                                </div>
-                                <div className={fieldSetClass}>
-                                    <input ref={addInput}
-                                           className={inputClass}
-                                           type="password"
-                                           required={this.isChangePassword()}
-                                           id="userpass_new_confirm"/>
-                                    <label className={labelClass} htmlFor="userpass_new_confirm">Confirm New
-                                        Password</label>
-                                    <span className={errorClass}>Password required, must match above</span>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div className="mdl-card__actions">
@@ -190,12 +114,6 @@ export class Login extends Component {
                             (error) ?
                                 <p className="mdl-color-text--red">{error.message}</p> : null
                         }
-                    </div>
-                    <div className="tochange-email change-links">
-                        <p className="change-link">
-                            <a onClick={()=>this.setFormState(CHANGE_EMAIL)}
-                               href="#tochange-email">Sign up for new account</a>
-                        </p>
                     </div>
                 </div>
             </form>
