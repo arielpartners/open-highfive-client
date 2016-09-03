@@ -102,8 +102,8 @@ export class Home extends Component {
                         <input type="submit"
                                className="btn btn-primary"
                                value="High Five!"
-                               onClick={ this.props.getRecentRecognition } />
-                        <button onClick={ this.props.getRecentRecognition } value="Debug"/>
+                               onClick={ () => this.props.requestRecognitions() } />
+                        <button onClick={ () => this.props.requestRecognitions() } value="Debug"/>
                         <input type="reset" className="btn btn-danger" value="Maybe Not"/>
 
                     </div>
