@@ -23,14 +23,6 @@ class Modal extends React.Component {
         this.props.closeModal();
     }
 
-    getBackDropClass(show) {
-        return cx(
-          'h5-modal-backdrop',
-          'fade',
-          show ? 'in' : ''
-        );
-    }
-
     render() {
         const {modalDisplayed} = this.props;
         if (!modalDisplayed.show || !modalDisplayed.config.component) {
