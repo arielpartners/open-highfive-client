@@ -12,36 +12,3 @@ import 'rxjs';
 if (__WEBPACK__) {
     require('./style.scss');
 }
-
-// IIFE used to assign bearer token for all ajax requests at the application's top level
-(function(open) {
-    var bearerToken;
-
-    /* istanbul ignore else  */
-    if (!XMLHttpRequest.hasOwnProperty('setBearerToken')) {
-        /* istanbul ignore next  */
-        XMLHttpRequest.prototype.open = function() {
-            open.apply(this, arguments);
-            if (bearerToken) {
-                this.setRequestHeader('Authorization', 'Bearer ' + bearerToken);
-            }
-        };
-
-        XMLHttpRequest.setBearerToken = function(token) {
-            bearerToken = token;
-        };
-        XMLHttpRequest.clearBearerToken = function() {
-            bearerToken = null;
-        };
-    }
-})(XMLHttpRequest.prototype.open);
-
-// If we have a bearer token in local storage use it to set http header
-var user = localStorage.getItem('reduxPersist:user');
-if (user) {
-    let token = JSON.parse(user).token;
-    XMLHttpRequest.setBearerToken(token);
-} else {
-    // clear out any previous tokens
-    XMLHttpRequest.clearBearerToken();
-}
