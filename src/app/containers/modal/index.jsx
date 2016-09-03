@@ -27,7 +27,7 @@ class Modal extends React.Component {
         return cx(
           'h5-modal-backdrop',
           'fade',
-          'in': show
+          show ? 'in' : ''
         );
     }
 
@@ -35,7 +35,7 @@ class Modal extends React.Component {
         return cx(
           'modal',
           'fade',
-          'in': show
+          show ? 'in' : ''
         );
     }
 
