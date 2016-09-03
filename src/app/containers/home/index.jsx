@@ -28,7 +28,6 @@ export class Home extends Component {
     }
 
     render() {
-        let {getRecentRecognition} = this.props;
 
         return (
             <div className="container-fluid">
@@ -100,8 +99,11 @@ export class Home extends Component {
                             </select>
                         </div>
 
-                        <input type="submit" className="btn btn-primary" value="High Five!" onClick={() => getRecentRecognition()} />
-                        <button onClick={() => getRecentRecognition()} value="Debug"/>
+                        <input type="submit"
+                               className="btn btn-primary"
+                               value="High Five!"
+                               onClick={ this.props.getRecentRecognition } />
+                        <button onClick={ this.props.getRecentRecognition } value="Debug"/>
                         <input type="reset" className="btn btn-danger" value="Maybe Not"/>
 
                     </div>

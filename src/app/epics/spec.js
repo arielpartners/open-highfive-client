@@ -39,7 +39,7 @@ describe('unAuthorizedEpic', () => {
         const store = createStore(reducer, applyMiddleware(middleware, routerMiddleware(browserHistory)));
         const expected = JSON.stringify('Unauthorized Error');
 
-        store.dispatch(Actions.requestRecognitions());
+        store.dispatch(Actions.requestMetrics());
 
         MockXMLHttpRequest.mostRecent.respondWith({
             status: 401,

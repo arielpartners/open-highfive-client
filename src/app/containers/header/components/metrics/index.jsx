@@ -34,11 +34,11 @@ const configureChip = (recognitions, k) => {
     };
 };
 
-export const Metrics = ({loggedIn, recognitions}) => {
+export const Metrics = ({loggedIn, metrics}) => {
 
     /* eslint-disable max-params, react/no-multi-comp */
     const getRecognitionsCategory = (caption, period, left) => {
-        const categoryData = configureChip(recognitions, period);
+        const categoryData = configureChip(metrics, period);
 
         return (
             <div className="h5-stats-graph" style={{left: left}}>
@@ -108,5 +108,5 @@ export const Metrics = ({loggedIn, recognitions}) => {
 
 Metrics.propTypes = {
     loggedIn: PropTypes.bool,
-    recognitions: PropTypes.object
+    metrics: PropTypes.object
 };
