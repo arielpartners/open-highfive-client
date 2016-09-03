@@ -25,9 +25,6 @@ export class Home extends Component {
     }
 
     render() {
-        /* eslint-disable no-console */
-        console.log('home props', this.props);
-
         return (
             <div className="container-fluid">
                 <div className="row">

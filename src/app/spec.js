@@ -9,6 +9,9 @@ describe('App suite', () => {
         it('TODO: consider moving main into its own component');
     });
 
+    // epics
+    require('./epics/spec');
+
     // stores
     require('./store/spec');
 
