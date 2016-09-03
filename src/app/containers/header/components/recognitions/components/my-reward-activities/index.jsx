@@ -2,8 +2,10 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import {openModal} from '../../../../../../actions';
-import {MyRecognitions, MyRecognitionsFooter} from '../../../../../modal/myRecognitions';
-import {RecognizePeer, RecognizePeerFooter} from '../../../../../modal/recognizePeer';
+import {MyRecognitions} from '../../../../../modal/myRecognitions';
+import {MyRecognitionsFooter} from '../../../../../modal/myRecognitionsFooter';
+import {RecognizePeer} from '../../../../../modal/recognizePeer';
+import {RecognizePeerFooter} from '../../../../../modal/recognizePeerFooter';
 
 export class MyRewardActivities extends Component {
 
