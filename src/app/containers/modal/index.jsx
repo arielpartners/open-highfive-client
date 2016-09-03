@@ -4,6 +4,7 @@
 
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
+import cx from 'classnames';
 
 import {closeModal} from '../../actions';
 
@@ -24,35 +25,34 @@ class Modal extends React.Component {
 
     render() {
         const {modalDisplayed} = this.props;
+        if (!modalDisplayed.show || !modalDisplayed.config.component) {
+            return null;
+        }
+        const Content = modalDisplayed.config.component;
+        const Footer = modalDisplayed.config.footer;
+
+        const displayStyle = {
+            display: (modalDisplayed.show ? 'block' : 'none')
+        };
 
         return (
-          <div className={ 'h5-modal-backdrop fade' + (modalDisplayed ? 'in' : '') }
-               style={{display: (modalDisplayed ? 'block' : 'none')}}>
+          <div className={ cx('h5-modal-backdrop', 'fade', {in: modalDisplayed.show}) }
+               style={displayStyle}>
             <div role="dialog"
-                 className={ 'modal fade ' + (modalDisplayed ? 'in' : '') }
-                 style={{display: (modalDisplayed ? 'block' : 'none')}}
-                 onClick={()=>this.closeModal()}>
+                 className= { cx('modal', 'fade', {in: modalDisplayed.show}) }
+                 style={displayStyle}>
               <div className="modal-dialog">
                 <div className="modal-content">
                   <div className="modal-header">
                     <button onClick={()=>this.closeModal()}
                       type="button" className="close" data-dismiss="modal">×</button>
-                    <h4 className="modal-title">Congratulations!</h4>
+                    <h4 className="modal-title">{modalDisplayed.config.header}</h4>
                   </div>
                   <div className="modal-body text-center">
-
-                    <img src="https://github.com/arielpartners/highfive-client/raw/master/dev/img/headshot.jpg"
-                         className="roundheadshot" alt="Julie Doe"/>
-                    <p><a href="#">Julie Doe</a></p>
-                    <p>just recognized you for
-                    </p><h2>Teamwork</h2>
-                    <span className="h5-recognized-pts">20 pts</span><p></p>
-
-                    <h3><span className="glyphicon glyphicon-thumbs-up"></span> Say Thank You</h3>
+                    <Content />
                   </div>
                   <div className="modal-footer">
-                    <button onClick={()=>this.closeModal()}
-                      type="reset" className="btn btn-default" data-dismiss="modal">Close</button>
+                    <Footer onClick={()=>this.closeModal()} />
                   </div>
                 </div>
               </div>
@@ -63,7 +63,7 @@ class Modal extends React.Component {
 }
 
 Modal.propTypes = {
-    modalDisplayed: PropTypes.bool
+    modalDisplayed: PropTypes.object
 };
 
 export default connect(
