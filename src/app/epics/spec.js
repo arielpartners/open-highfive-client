@@ -61,7 +61,7 @@ describe('unAuthorizedEpic', () => {
 
         const expected = JSON.stringify(error);
 
-        store.dispatch(Actions.requestRecognitions());
+        store.dispatch(Actions.requestMetrics());
 
         MockXMLHttpRequest.mostRecent.respondWith({
             status: 500,
