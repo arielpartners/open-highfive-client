@@ -4,6 +4,7 @@ import {ajax} from 'rxjs/observable/dom/ajax';
 // import {push} from 'react-router-redux';
 
 import * as ActionTypes from '../../../action-types';
+import * as Actions from '../actions';
 
 const BASE_URL = '/api/recognitions';
 const HEADER = {'Content-Type': 'application/json'};
