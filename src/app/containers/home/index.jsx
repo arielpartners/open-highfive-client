@@ -114,7 +114,7 @@ export class Home extends Component {
 
                         {
                             this.props.recognitions.map(function(recognition) {
-                                return <RecognitionCard {...recognition} />
+                                return <RecognitionCard {...recognition} />;
                             })
                         }
 

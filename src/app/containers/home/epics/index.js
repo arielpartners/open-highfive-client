@@ -1,8 +1,6 @@
 import {Observable} from 'rxjs';
 import {combineEpics} from 'redux-observable';
 import {ajax} from 'rxjs/observable/dom/ajax';
-// import {push} from 'react-router-redux';
-
 import * as ActionTypes from '../../../action-types';
 import * as Actions from '../actions';
 
@@ -16,7 +14,6 @@ const getRecentRecognitionEpic = action$ =>
                 .map(Actions.receiveRecognitions)
                 .catch(error => Observable.of({type: ActionTypes.RECOGNITIONS_ERROR, payload: error}))
         );
-
 
 export default combineEpics(
     getRecentRecognitionEpic
