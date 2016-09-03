@@ -74,7 +74,7 @@ const logoutEpic = action$ =>
         .mergeMap(() =>
             ajax.delete(BASE_URL, HEADER)
                 .map(Actions.userLoggedOut)
-                .catch(error => Observable.of({type: ActionTypes.LOGIN_ERROR, payload: error}))
+                .catch(Actions.loginError)
         );
 
 const redirectToLoginEpic = action$ =>

@@ -2,6 +2,7 @@ import * as ActionTypes from '../../../action-types';
 
 export const loggingIn = () => ({type: ActionTypes.LOGGING_IN});
 export const login = credentials => ({type: ActionTypes.LOGIN_PENDING, payload: credentials});
+export const loginError = error => ({type: ActionTypes.LOGIN_ERROR, payload: error});
 export const userAuthenticated = payload => ({type: ActionTypes.LOGIN, payload: payload.response});
 export const logout = () => ({type: ActionTypes.LOGOUT_PENDING});
 export const userLoggedOut = () => ({type: ActionTypes.LOGOUT});
