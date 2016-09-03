@@ -3,6 +3,7 @@ import {push} from 'react-router-redux';
 
 import LoginEpics from '../containers/login/epics';
 import RecognitionsEpics from '../containers/header/epics';
+import {loginError} from '../containers/login/actions';
 //import * as ActionTypes from '../action-types';
 
 /**
@@ -18,6 +19,7 @@ import RecognitionsEpics from '../containers/header/epics';
 export const unAuthorizedEpic = action$ =>
     action$.filter(action =>
         (
+            window.location.pathname !== '/login' &&
             action.payload &&
             action.payload.status === 401 &&
             (
@@ -28,6 +30,7 @@ export const unAuthorizedEpic = action$ =>
             )
         )
     )
+        .map(loginError)
         .map(() => push('/login'));
 
 export default combineEpics(LoginEpics, RecognitionsEpics, unAuthorizedEpic);
