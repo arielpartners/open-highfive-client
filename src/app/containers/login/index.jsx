@@ -38,15 +38,6 @@ export class Login extends Component {
         componentHandler.upgradeDom();
         /* eslint-enable no-undef */
     }
-
-    isChangePassword() {
-        return this.state.submitButtonLabel === CHANGE_PASSWORD;
-    }
-
-    isChangeEmail() {
-        return this.state.submitButtonLabel === CHANGE_EMAIL;
-    }
-
     setFormState(newLabel) {
         this.setState({submitButtonLabel: newLabel});
     }
