@@ -17,6 +17,7 @@ const getRecentRecognitionEpic = action$ =>
                 .catch(error => Observable.of({type: ActionTypes.RECOGNITIONS_ERROR, payload: error}))
         );
 
+
 export default combineEpics(
     getRecentRecognitionEpic
 );

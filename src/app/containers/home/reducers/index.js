@@ -10,7 +10,7 @@ export const recognitions = (state = [], {type, payload}) => {
         case ActionTypes.REQUEST_RECOGNITIONS:
             return state;
         case ActionTypes.RECEIVED_RECOGNITIONS:
-            return state;
+            return payload;
         default:
             return payload && /(401|403)/.test(payload.status) ? false : state;
     }

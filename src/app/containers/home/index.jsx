@@ -112,19 +112,11 @@ export class Home extends Component {
 
                         <h2>Recent Recognitions</h2>
 
-                        <RecognitionCard receiver="Julie Doe"
-                                         points="20"
-                                         sender="John Doe"
-                                         corporateValue="Excellence"
-                                         date="1/1/2016"/>
-                        <RecognitionCard receiver="Julie Doe"
-                                         points="20"
-                                         sender="John Doe"
-                                         corporateValue="Excellence"
-                                         date="1/1/2016"/>
-                        <RecognitionCard receiver="Julie Doe"
-                                         points="20" sender="John Doe"
-                                         corporateValue="Excellence" date="1/1/2016"/>
+                        {
+                            this.props.recognitions.map(function(recognition) {
+                                return <RecognitionCard {...recognition} />
+                            })
+                        }
 
                         <div className="clearfix"></div>
                     </div>
