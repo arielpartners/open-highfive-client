@@ -6,11 +6,11 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as RecognitionActions from './actions';
+import * as MetricActions from './actions';
 import {logout} from '../login/actions';
 
 import {Menu} from './components/menu';
-import {Recognitions} from './components/recognitions';
+import {Metrics} from './components/metrics';
 
 /* istanbul ignore next */
 if (__WEBPACK__) {
@@ -24,19 +24,20 @@ class Header extends React.Component {
     }
 
     componentDidMount() {
-        this.props.requestRecognitions();
+        this.props.requestMetrics();
     }
 
     componentWillReceiveProps(nextProps) {
-        if (this.props.recognitions !== nextProps.recognitions) {
-            //this.props.requestRecognitions();
+        if (this.props.metrics !== nextProps.metrics) {
+            //this.props.requestMetrics();
         }
     }
-
+    /* eslint-disable no-shadow */
     render() {
         const {
-            recognitions,
-            loggedIn
+            metrics,
+            loggedIn,
+            logout,
         } = this.props;
 
         return (
@@ -49,22 +50,22 @@ class Header extends React.Component {
                     </div>
                 </div>
                 {
-                    (loggedIn) ? <Menu logout={this.props.logout}/> : null
+                    (loggedIn) ? <Menu logout={logout}/> : null
                 }
-                <Recognitions loggedIn={loggedIn} recognitions={recognitions}/>
+                <Metrics loggedIn={loggedIn} metrics={metrics}/>
             </div>
         );
     }
 }
 
 Header.propTypes = {
-    recognitions: PropTypes.object
+    metrics: PropTypes.object
 };
 
 export default connect(
     // Map State to Props (Reducers)
     (state) => state,
     //Map DispatchToProps (Actions)
-    (dispatch) => (bindActionCreators({...RecognitionActions, logout}, dispatch))
+    (dispatch) => (bindActionCreators({...MetricActions, logout}, dispatch))
 )(Header);
 

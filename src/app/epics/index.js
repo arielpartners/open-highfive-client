@@ -3,6 +3,7 @@ import {push} from 'react-router-redux';
 
 import LoginEpics from '../containers/login/epics';
 import RecognitionsEpics from '../containers/header/epics';
+import HomeEpics from '../containers/home/epics';
 import {loginError} from '../containers/login/actions';
 //import * as ActionTypes from '../action-types';
 
@@ -33,4 +34,4 @@ export const unAuthorizedEpic = action$ =>
         .map(loginError)
         .map(() => push('/login'));
 
-export default combineEpics(LoginEpics, RecognitionsEpics, unAuthorizedEpic);
+export default combineEpics(LoginEpics, RecognitionsEpics, HomeEpics, unAuthorizedEpic);

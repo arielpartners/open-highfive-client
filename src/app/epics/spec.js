@@ -39,7 +39,7 @@ describe('unAuthorizedEpic', () => {
         const store = createStore(reducer, applyMiddleware(middleware, routerMiddleware(browserHistory)));
         const expected = JSON.stringify('Unauthorized Error');
 
-        store.dispatch(Actions.requestRecognitions());
+        store.dispatch(Actions.requestMetrics());
 
         MockXMLHttpRequest.mostRecent.respondWith({
             status: 401,
@@ -49,8 +49,8 @@ describe('unAuthorizedEpic', () => {
 
         store.getState().should.deep.equal([
             {type: '@@redux/INIT'},
-            {type: ActionTypes.REQUEST_RECOGNITIONS},
-            {type: ActionTypes.RECOGNITIONS_ERROR, payload: 'ajax error 401'},
+            {type: ActionTypes.REQUEST_METRICS},
+            {type: ActionTypes.METRICS_ERROR, payload: 'ajax error 401'},
         ]);
     });
 
@@ -61,7 +61,7 @@ describe('unAuthorizedEpic', () => {
 
         const expected = JSON.stringify(error);
 
-        store.dispatch(Actions.requestRecognitions());
+        store.dispatch(Actions.requestMetrics());
 
         MockXMLHttpRequest.mostRecent.respondWith({
             status: 500,
@@ -72,8 +72,8 @@ describe('unAuthorizedEpic', () => {
         const state = store.getState();
         console.log('state 500', state);
         state[0].should.deep.equal({type: '@@redux/INIT'});
-        state[1].should.deep.equal({type: ActionTypes.REQUEST_RECOGNITIONS});
-        state[2].type.should.equal(ActionTypes.RECOGNITIONS_ERROR);
+        state[1].should.deep.equal({type: ActionTypes.REQUEST_METRICS});
+        state[2].type.should.equal(ActionTypes.METRICS_ERROR);
         state[2].payload.should.deep.equal(error);
     });
 });
