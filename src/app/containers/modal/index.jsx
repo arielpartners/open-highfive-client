@@ -31,14 +31,6 @@ class Modal extends React.Component {
         );
     }
 
-    getDialogClass(show) {
-        return cx(
-          'modal',
-          'fade',
-          show ? 'in' : ''
-        );
-    }
-
     render() {
         const {modalDisplayed} = this.props;
         if (!modalDisplayed.show || !modalDisplayed.config.component) {
@@ -52,10 +44,10 @@ class Modal extends React.Component {
         };
 
         return (
-          <div className={ this.getBackDropClass(modalDisplayed.show) }
+          <div className={ cx('h5-modal-backdrop', 'fade', {in: modalDisplayed.show}) }
                style={displayStyle}>
             <div role="dialog"
-                 className={ this.getDialogClass(modalDisplayed.show) }
+                 className= { cx('modal', 'fade', {in: modalDisplayed.show}) }
                  style={displayStyle}>
               <div className="modal-dialog">
                 <div className="modal-content">
