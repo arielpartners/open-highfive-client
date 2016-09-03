@@ -25,11 +25,6 @@ const spawnEpic = (epicFactory, ...actions) => {
 };
 
 // Epics
-const storeAuthToken = payload => {
-    // Save JWT authentication Token so we send it on all future requests
-    XMLHttpRequest.setBearerToken(payload.response.token);
-};
-
 /* storeAuthToken will be called from signup also, in future */
 
 const loggedInEpic = action$ =>
@@ -40,7 +35,6 @@ const loginEpic = action$ =>
     action$.ofType(ActionTypes.LOGIN_PENDING)
         .mergeMap(action =>
             ajax.post(BASE_URL, JSON.stringify(action.payload), HEADER)
-                .do(storeAuthToken)
                 .map(Actions.userAuthenticated)
                 .catch(error => Observable.of({type: ActionTypes.LOGIN_ERROR, payload: error}))
         );
@@ -77,14 +71,14 @@ const changePasswordEpic = action$ =>
 
 const logoutEpic = action$ =>
     action$.ofType(ActionTypes.LOGOUT_PENDING)
-        .do(() => {
-            // remove JWT token so user is unauthorized
-            XMLHttpRequest.clearBearerToken();
-        })
-        .map(Actions.userLoggedOut);
+        .mergeMap(() =>
+            ajax.delete(BASE_URL, HEADER)
+                .map(Actions.userLoggedOut)
+                .catch(error => Observable.of({type: ActionTypes.LOGIN_ERROR, payload: error}))
+        );
 
 const redirectToLoginEpic = action$ =>
-    action$.ofType('persist/REHYDRATE')
+    action$.ofType(ActionTypes.REHYDRATE)
         .filter(state => !state.payload.loggedIn)
         .map(() => push('/login'));
 
