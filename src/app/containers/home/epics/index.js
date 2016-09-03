@@ -12,6 +12,7 @@ const getRecentRecognitionEpic = action$ =>
     action$.ofType(ActionTypes.REQUEST_RECOGNITIONS)
         .mergeMap(action =>
             ajax.post(BASE_URL, JSON.stringify(action.payload), HEADER)
+                .map(Actions.receiveRecognitions)
                 .catch(error => Observable.of({type: ActionTypes.RECOGNITIONS_ERROR, payload: error}))
         );
 
