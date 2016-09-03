@@ -19,6 +19,7 @@ export class Home extends Component {
         /* eslint-disable no-undef */
         componentHandler.upgradeDom();
         /* eslint-enable no-undef */
+        this.props.requestRecognitions();
     }
 
     componentDidUpdate() {
