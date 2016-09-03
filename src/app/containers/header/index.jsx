@@ -10,7 +10,7 @@ import * as RecognitionActions from './actions';
 import {logout} from '../login/actions';
 
 import {Menu} from './components/menu';
-import {Recognitions} from './components/recognitions';
+import {Metrics} from './components/metrics';
 
 /* istanbul ignore next */
 if (__WEBPACK__) {
@@ -51,7 +51,7 @@ class Header extends React.Component {
                 {
                     (loggedIn) ? <Menu logout={this.props.logout}/> : null
                 }
-                <Recognitions loggedIn={loggedIn} recognitions={recognitions}/>
+                <Metrics loggedIn={loggedIn} recognitions={recognitions}/>
             </div>
         );
     }

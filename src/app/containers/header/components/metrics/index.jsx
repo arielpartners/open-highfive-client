@@ -34,7 +34,7 @@ const configureChip = (recognitions, k) => {
     };
 };
 
-export const Recognitions = ({loggedIn, recognitions}) => {
+export const Metrics = ({loggedIn, recognitions}) => {
 
     /* eslint-disable max-params, react/no-multi-comp */
     const getRecognitionsCategory = (caption, period, left) => {
@@ -106,7 +106,7 @@ export const Recognitions = ({loggedIn, recognitions}) => {
     );
 };
 
-Recognitions.propTypes = {
+Metrics.propTypes = {
     loggedIn: PropTypes.bool,
     recognitions: PropTypes.object
 };

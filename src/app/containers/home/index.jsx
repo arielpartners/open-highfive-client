@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {RecognitionCard} from './components/recognition-card';
+import {bindActionCreators} from 'redux';
+import * as HomeActions from './actions';
 
 /* istanbul ignore next */
 if (__WEBPACK__) {
@@ -25,6 +28,8 @@ export class Home extends Component {
     }
 
     render() {
+        let {getRecentRecognition} = this.props;
+
         return (
             <div className="container-fluid">
                 <div className="row">
@@ -95,7 +100,8 @@ export class Home extends Component {
                             </select>
                         </div>
 
-                        <input type="submit" className="btn btn-primary" value="High Five!"/>
+                        <input type="submit" className="btn btn-primary" value="High Five!" onClick={() => getRecentRecognition()} />
+                        <button onClick={() => getRecentRecognition()} value="Debug"/>
                         <input type="reset" className="btn btn-danger" value="Maybe Not"/>
 
                     </div>
@@ -103,82 +109,20 @@ export class Home extends Component {
                     <div className="col-lg-6 h5-mobilehidden">
 
                         <h2>Recent Recognitions</h2>
-                        <div className="h5-recognition-card h5-empowerment">
-                            <img src="https://github.com/arielpartners/highfive-client/raw/master/dev/img/headshot.jpg"
-                                 alt="Julie Doe"/>
-                            <a href="#" className="h5-recognized-person">Julie Doe</a> was recognized for
-                            <span className="h5-recognized-value">Empowerment</span> by
-                            <a href="#" className="h5-recognized-by">Jack Johnson</a>
-                            <span className="h5-recognized-date">8/16/2016</span>
-                            <span className="h5-recognized-pts">20 pts / 300 pts total</span>
-                            <div className="clearfix"></div>
-                        </div>
 
-                        <div className="h5-recognition-card h5-empowerment">
-                            <img src="https://github.com/arielpartners/highfive-client/raw/master/dev/img/headshot.jpg"
-                                 alt="Julie Doe"/>
-                            <a href="#" className="h5-recognized-person">Julie Doe</a> was recognized for
-                            <span className="h5-recognized-value">Empowerment</span> by
-                            <a href="#" className="h5-recognized-by">Jack Johnson</a>
-                            <span className="h5-recognized-date">8/16/2016</span>
-                            <span className="h5-recognized-pts">20 pts / 300 pts total</span>
-                            <div className="clearfix"></div>
-                        </div>
-
-                        <div className="h5-recognition-card h5-empowerment">
-                            <img src="https://github.com/arielpartners/highfive-client/raw/master/dev/img/headshot.jpg"
-                                 alt="Julie Doe"/>
-                            <a href="#" className="h5-recognized-person">Julie Doe</a> was recognized for
-                            <span className="h5-recognized-value">Empowerment</span> by
-                            <a href="#" className="h5-recognized-by">Jack Johnson</a>
-                            <span className="h5-recognized-date">8/16/2016</span>
-                            <span className="h5-recognized-pts">20 pts / 300 pts total</span>
-                            <div className="clearfix"></div>
-                        </div>
-
-                        <div className="h5-recognition-card h5-empowerment">
-                            <img src="https://github.com/arielpartners/highfive-client/raw/master/dev/img/headshot.jpg"
-                                 alt="Julie Doe"/>
-                            <a href="#" className="h5-recognized-person">Julie Doe</a> was recognized for
-                            <span className="h5-recognized-value">Empowerment</span> by
-                            <a href="#" className="h5-recognized-by">Jack Johnson</a>
-                            <span className="h5-recognized-date">8/16/2016</span>
-                            <span className="h5-recognized-pts">20 pts / 300 pts total</span>
-                            <div className="clearfix"></div>
-                        </div>
-
-                        <div className="h5-recognition-card h5-empowerment">
-                            <img src="https://github.com/arielpartners/highfive-client/raw/master/dev/img/headshot.jpg"
-                                 alt="Julie Doe"/>
-                            <a href="#" className="h5-recognized-person">Julie Doe</a> was recognized for
-                            <span className="h5-recognized-value">Empowerment</span> by
-                            <a href="#" className="h5-recognized-by">Jack Johnson</a>
-                            <span className="h5-recognized-date">8/16/2016</span>
-                            <span className="h5-recognized-pts">20 pts / 300 pts total</span>
-                            <div className="clearfix"></div>
-                        </div>
-
-                        <div className="h5-recognition-card h5-empowerment">
-                            <img src="https://github.com/arielpartners/highfive-client/raw/master/dev/img/headshot.jpg"
-                                 alt="Julie Doe"/>
-                            <a href="#" className="h5-recognized-person">Julie Doe</a> was recognized for
-                            <span className="h5-recognized-value">Empowerment</span> by
-                            <a href="#" className="h5-recognized-by">Jack Johnson</a>
-                            <span className="h5-recognized-date">8/16/2016</span>
-                            <span className="h5-recognized-pts">20 pts / 300 pts total</span>
-                            <div className="clearfix"></div>
-                        </div>
-
-                        <div className="h5-recognition-card h5-empowerment">
-                            <img src="https://github.com/arielpartners/highfive-client/raw/master/dev/img/headshot.jpg"
-                                 alt="Julie Doe"/>
-                            <a href="#" className="h5-recognized-person">Julie Doe</a> was recognized for
-                            <span className="h5-recognized-value">Empowerment</span> by
-                            <a href="#" className="h5-recognized-by">Jack Johnson</a>
-                            <span className="h5-recognized-date">8/16/2016</span>
-                            <span className="h5-recognized-pts">20 pts / 300 pts total</span>
-                            <div className="clearfix"></div>
-                        </div>
+                        <RecognitionCard receiver="Julie Doe"
+                                         points="20"
+                                         sender="John Doe"
+                                         corporateValue="Excellence"
+                                         date="1/1/2016"/>
+                        <RecognitionCard receiver="Julie Doe"
+                                         points="20"
+                                         sender="John Doe"
+                                         corporateValue="Excellence"
+                                         date="1/1/2016"/>
+                        <RecognitionCard receiver="Julie Doe"
+                                         points="20" sender="John Doe"
+                                         corporateValue="Excellence" date="1/1/2016"/>
 
                         <div className="clearfix"></div>
                     </div>
@@ -235,6 +179,11 @@ export class Home extends Component {
 }
 
 /* istanbul ignore next */
-const mapStateToProps = (state) => state;
-
-export default connect(mapStateToProps)(Home);
+// export default connect(mapStateToProps)(Home);
+export default connect(
+    // Map State to Props (Reducers)
+    (state) => state,
+    //Map DispatchToProps (Actions)
+    (dispatch) => (bindActionCreators({...HomeActions}, dispatch))
+    // {...HomeActions}
+)(Home);
