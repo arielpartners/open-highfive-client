@@ -36,4 +36,15 @@ describe('RecognitionCard', () => {
             expect(wrapper.find('span.h5-recognized-pts')).to.have.length(1);
         });
     });
+
+    describe('Data Population', () => {
+        it('should have have correct data written', () => {
+            expect(wrapper.find('a.h5-recognized-person').text()).to.eql('tester');
+            expect(wrapper.find('a.h5-recognized-by').text()).to.eql('test');
+            expect(wrapper.find('span.h5-recognized-value').text()).to.eql('Teamwork');
+            expect(wrapper.find('span.h5-recognized-date').text()).to.eql('01/01/2001');
+            // @todo we are going to have to rewrite this one in the bottom when we are actually passing total points
+            expect(wrapper.find('span.h5-recognized-pts').text()).to.eql('10 pts / 300 pts total');
+        });
+    });
 });
