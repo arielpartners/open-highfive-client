@@ -18,7 +18,7 @@ const getRecentRecognitionEpic = action$ =>
 const getUsersEpic = action$ =>
     action$.ofType(ActionTypes.REQUEST_USERS)
         .mergeMap(action =>
-            ajax.get(BASE_URL, JSON.stringify(action.payload), HEADER)
+            ajax.get(BASE_URL + 'users', JSON.stringify(action.payload), HEADER)
                 .map(Actions.receiveUsers)
                 .catch(error => Observable.of({type: ActionTypes.USERS_ERROR, payload: error}))
         );
