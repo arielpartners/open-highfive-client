@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 /* istanbul ignore next */
 if (__WEBPACK__) {
-    require('./style.scss');
+    // require('./style.scss');
 }
 
 export class RecognitionCard extends Component {
@@ -24,8 +24,8 @@ export class RecognitionCard extends Component {
     }
 
     render() {
-        let {receiverName, senderName, dateCreated, points, corporateValueName, description} = this.props;
-        
+        let {receiverName, senderName, points, corporateValueName, description} = this.props;
+
         return (
             <div className="h5-recognition-card h5-vigilance">
                 <h3><i></i>{corporateValueName}</h3>

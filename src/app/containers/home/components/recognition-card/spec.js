@@ -20,7 +20,6 @@ describe('RecognitionCard', () => {
         wrapper = shallow(<RecognitionCard {...props}/>);
     });
 
-
     describe('UI Structure', () => {
         it('should have an image for the user', () => {
             expect(wrapper.find('img')).to.have.length(1);
