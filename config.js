@@ -1,5 +1,5 @@
 const CONFIG = {
-    proxyDomain: process.env.HIGHFIVE_API_SERVER || 'arielflash-server.azurewebsites.net',
+    proxyDomain: process.env.HIGHFIVE_API_SERVER || 'arielflash-server-dev.azurewebsites.net',
     hostPort: process.env.PORT || '2368',
     enableMocks: true,
     enableProxy: true
@@ -19,7 +19,7 @@ const TARGET_CONFIG = {
 
     },
     development: {
-        proxyDomain: 'arielflash-server.azurewebsites.net',
+        proxyDomain: 'arielflash-server-dev.azurewebsites.net',
         enableMocks: false,
         enableProxy: true
     },

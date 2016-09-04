@@ -25,7 +25,7 @@ export class RecognitionCard extends Component {
     }
 
     render() {
-        let {receiverName, senderName, points, corporateValueName, description} = this.props;
+        let {receiverName, senderName, points, corporateValueName = '', description} = this.props;
 
         return (
             <div className={ cx('h5-recognition-card', 'h5-' + corporateValueName.toLowerCase()) }>
