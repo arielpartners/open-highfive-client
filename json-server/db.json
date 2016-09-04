@@ -6,9 +6,9 @@
     "datestamp": "2016-09-03T14:23:00.000Z"
   },
   "recognitions": [
-    {"id": 1, "receiverEmail": "test.user@email.com", "receiverName": "Test User", "senderEmail": "john.doe@email.com", "senderName": "John Doe", "date": "2016-08-02T20:00:09", "points": 10, "corporateValue": "Excellence", "description":"Great!"},
-    {"id": 2, "receiverEmail": "jane.doe@email.com", "receiverName": "Jane Doe", "senderEmail": "mathew.anderson@email.com", "senderName": "Mathew Anderson", "date": "2016-08-02T20:00:09", "points": 20, "corporateValue": "Honesty","description":"Fantastic!"},
-    {"id": 3, "receiverEmail": "john.doe@email.com", "receiverName": "John Doe", "senderEmail": "sue.ellen@email.com", "senderName": "Sue Ellen", "date": "2016-08-02T20:00:09", "points": 30, "corporateValue": "Integrity","description":"Wow!"}
+    {"id": 1, "receiverEmail": "test.user@email.com", "receiverName": "Test User", "senderEmail": "john.doe@email.com", "senderName": "John Doe", "date": "2016-08-02T20:00:09", "points": 10, "corporateValueName": "Excellence", "description":"Great!"},
+    {"id": 2, "receiverEmail": "jane.doe@email.com", "receiverName": "Jane Doe", "senderEmail": "mathew.anderson@email.com", "senderName": "Mathew Anderson", "date": "2016-08-02T20:00:09", "points": 20, "corporateValueName": "Honesty","description":"Fantastic!"},
+    {"id": 3, "receiverEmail": "john.doe@email.com", "receiverName": "John Doe", "senderEmail": "sue.ellen@email.com", "senderName": "Sue Ellen", "date": "2016-08-02T20:00:09", "points": 30, "corporateValueName": "Integrity","description":"Wow!"}
   ],
   "metrics": {
     "week": [
