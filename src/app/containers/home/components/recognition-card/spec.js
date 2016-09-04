@@ -4,7 +4,6 @@ import {expect} from 'chai';
 import {RecognitionCard} from './index';
 // import sinon from 'sinon';
 
-
 /* global describe, beforeEach, it */
 describe('RecognitionCard', () => {
     let props, wrapper;
