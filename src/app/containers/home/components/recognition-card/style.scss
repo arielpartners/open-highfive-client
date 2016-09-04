@@ -1,0 +1,162 @@
+
+/* ----------------------- Recognition Display ------------------------ */
+
+.h5-recognition-card {
+  position: relative;
+  border-top: solid 30px #D6D7D9;
+  padding: 10px;
+  background: #F1F1F1;
+  margin: 5px 5px 5px 0;
+  line-height: 130%;
+  float: left;
+  width: 300px;
+  border-radius: 7px;
+}
+
+.h5-recognition-card h3 {
+  text-transform: uppercase;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  padding-left: 45px;
+  padding-bottom: 0;
+  font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+  margin: -30px -10px 10px -10px;
+}
+
+.h5-recognition-card blockquote {
+  /*
+  background: url(../images/iconQuote.png) no-repeat left top;
+  */
+  font-size: 14px;
+  font-style: italic;
+  padding: 15px 10px;
+  margin: 20px 0 0 0;
+  width: 160px;
+}
+
+.h5-recognition-card blockquote span {
+  display: block;
+  margin-top: 10px;
+  font-style: normal;
+}
+
+.h5-recognition-card.h5-integrity h3 {
+  border-color: #FF6600;
+  color: #FF6600;
+}
+
+.h5-recognition-card.h5-integrity h3 i {
+  display: inline-block;
+  /*
+  background: url(../images/iconIntegrity.png) no-repeat left top;
+  */
+  width: 30px;
+  height: 30px;
+  margin: 0 5px -15px -35px;
+}
+
+.h5-recognition-card.h5-vigilance h3 {
+  border-color: #990000;
+  color: #990000;
+}
+
+.h5-recognition-card.h5-vigilance h3 i {
+  display: inline-block;
+  /*
+  background: url(../images/iconVigilance.png) no-repeat left top;
+  */
+  width: 30px;
+  height: 30px;
+  margin: 0 5px -15px -35px;
+}
+
+.h5-recognition-card.h5-respect h3 {
+  border-color: #00578C;
+  color: #00578C;
+}
+
+.h5-recognition-card.h5-respect h3 i {
+  display: inline-block;
+  /*
+  background: url(../images/iconRespect.png) no-repeat left top;
+  */
+  width: 30px;
+  height: 30px;
+  margin: 0 5px -15px -35px;
+}
+
+.h5-recognition-card.h5-excellence h3 {
+  border-color: #330099;
+  color: #330099;
+}
+
+.h5-recognition-card.h5-excellence h3 i {
+  display: inline-block;
+  /*
+  background: url(../images/iconExcellence.png) no-repeat left top;
+  */
+  width: 30px;
+  height: 30px;
+  margin: 0 5px -15px -35px;
+}
+
+.h5-recognition-card.h5-accountability h3 {
+  border-color: #007700;
+  color: #007700;
+}
+
+.h5-recognition-card.h5-accountability h3 i {
+  display: inline-block;
+  /*
+  background: url(../images/iconAccountability.png) no-repeat left top;
+  */
+  width: 30px;
+  height: 30px;
+  margin: 0 5px -15px -35px;
+}
+
+.h5-recognized-person {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-family: "Merriweather", Georgia, Times, "Times New Roman", serif;
+  color: #C22A37;
+  font-size: 1.1em;
+  line-height: 120%;
+  width: 100px;
+  text-align: center;
+}
+
+.h5-recognized-person img {
+  width: 60px;
+  height: auto;
+  max-height: 90px;
+  overflow: hidden;
+  border-radius: 50%;
+  border: solid 1px #aaa;
+  margin: 10px 20px 0 -90px;
+  width: 70px;
+  height: auto;
+  max-height: 90px;
+  overflow: hidden;
+  border-radius: 50%;
+  border: solid 1px #aaa;
+  margin: 10px auto;
+}
+
+.h5-recognized-person a {
+  display: block;
+  color: #00578d;
+}
+
+.h5-recognized-value {
+  color: #264363;
+  font-size: 1.1em;
+  text-transform: uppercase;
+  font-weight: bold;
+  display: block;
+}
+
+.h5-recognized-date {
+  display: block;
+}

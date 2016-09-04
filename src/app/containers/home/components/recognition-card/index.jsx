@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 /* istanbul ignore next */
 if (__WEBPACK__) {
-    //require('./style.scss');
+    require('./style.scss');
 }
 
 export class RecognitionCard extends Component {
@@ -24,17 +24,21 @@ export class RecognitionCard extends Component {
     }
 
     render() {
-        let {receiver, sender, date, points, corporateValue} = this.props;
+        let {receiverName, senderName, dateCreated, points, corporateValueName, description} = this.props;
+        
         return (
-            <div className="h5-recognition-card h5-empowerment">
-                <img src="https://github.com/arielpartners/highfive-client/raw/master/dev/img/headshot.jpg"
-                     alt="Julie Doe"/>
-                <a href="#" className="h5-recognized-person">{receiver}</a> was recognized for
-                <span className="h5-recognized-value">{corporateValue}</span> by
-                <a href="#" className="h5-recognized-by">{sender}</a>
-                <span className="h5-recognized-date">{date}</span>
-                <span className="h5-recognized-pts">{points} pts / 300 pts total</span>
-                <div className="clearfix"></div>
+            <div className="h5-recognition-card h5-vigilance">
+                <h3><i></i>{corporateValueName}</h3>
+                <blockquote>
+                    {description}
+                    <span>{points} Points from {senderName}</span>
+                </blockquote>
+
+                <div className="h5-recognized-person">
+                    <img src="https://github.com/arielpartners/highfive-client/raw/master/dev/img/headshot.jpg"
+                         onerror="this.src='images/avatar.png';" alt={receiverName}/>
+                    <a href="#">{receiverName}</a>
+                </div>
             </div>
         );
     }
