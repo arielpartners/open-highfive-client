@@ -30,6 +30,8 @@ export class Home extends Component {
 
     render() {
 
+        const recognitions = this.props.recognitions || [];
+
         return (
             <div className="container-fluid">
                 <div className="row">
@@ -113,7 +115,7 @@ export class Home extends Component {
                         <h2>Recent Recognitions</h2>
 
                         {
-                            this.props.recognitions.map(function(recognition) {
+                            recognitions.map(function(recognition) {
                                 return <RecognitionCard key={'recognition-' + recognition.id} {...recognition} />;
                             })
                         }
