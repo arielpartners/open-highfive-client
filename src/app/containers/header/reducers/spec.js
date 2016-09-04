@@ -1,6 +1,3 @@
-/**
- * Created by Alan on 9/4/2016.
- */
 import {expect} from 'chai';
 import {metrics} from './index.js';
 import * as ActionTypes from '../../../action-types';
