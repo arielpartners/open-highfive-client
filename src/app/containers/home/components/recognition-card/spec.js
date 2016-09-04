@@ -10,11 +10,11 @@ describe('RecognitionCard', () => {
 
     beforeEach(() => {
         props = {
-            receiver: 'tester',
-            sender: 'test',
-            date: '01/01/2001',
+            receiverName: 'tester',
+            senderName: 'test',
+            dateCreated: '01/01/2001',
             points: 10,
-            corporateValue: 'Teamwork'
+            corporateValueName: 'Teamwork'
         };
 
         wrapper = shallow(<RecognitionCard {...props}/>);
@@ -26,25 +26,20 @@ describe('RecognitionCard', () => {
         });
 
         it('should have links for the reciever and sender', () => {
-            expect(wrapper.find('a.h5-recognized-person')).to.have.length(1);
-            expect(wrapper.find('a.h5-recognized-by')).to.have.length(1);
+            expect(wrapper.find('.h5-recognized-person a')).to.have.length(1);
         });
 
-        it('should have spans for date, points, and corporateValue', () => {
-            expect(wrapper.find('span.h5-recognized-value')).to.have.length(1);
-            expect(wrapper.find('span.h5-recognized-date')).to.have.length(1);
-            expect(wrapper.find('span.h5-recognized-pts')).to.have.length(1);
+        it('should have places for points, and corporateValue', () => {
+            expect(wrapper.find('h3')).to.have.length(1);
+            expect(wrapper.find('blockquote span')).to.have.length(1);
         });
     });
 
     describe('Data Population', () => {
         it('should have have correct data written', () => {
-            expect(wrapper.find('a.h5-recognized-person').text()).to.eql('tester');
-            expect(wrapper.find('a.h5-recognized-by').text()).to.eql('test');
-            expect(wrapper.find('span.h5-recognized-value').text()).to.eql('Teamwork');
-            expect(wrapper.find('span.h5-recognized-date').text()).to.eql('01/01/2001');
-            // @todo we are going to have to rewrite this one in the bottom when we are actually passing total points
-            expect(wrapper.find('span.h5-recognized-pts').text()).to.eql('10 pts / 300 pts total');
+            expect(wrapper.find('.h5-recognized-person a').text()).to.eql(props.receiverName);
+            expect(wrapper.find('blockquote span').text()).to.eql(props.points + ' Points from ' + props.senderName);
+            expect(wrapper.find('h3').text()).to.eql(props.corporateValueName);
         });
     });
 });
