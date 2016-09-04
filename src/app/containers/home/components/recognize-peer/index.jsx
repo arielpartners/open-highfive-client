@@ -5,8 +5,8 @@ if (__WEBPACK__) {
     require('./style.scss');
 }
 
-export const RecognizePeer = () => {
-
+export const RecognizePeer = ({users}) => {
+    let userList = users || [];
     return (
         <div className="col-lg-3 recognize-peer">
 
@@ -15,6 +15,14 @@ export const RecognizePeer = () => {
             <div className="form-group h5-margintop20">
                 <select id="staffName" name="staffName" className="form-control">
                     <option value="">Select an Employee</option>
+                    {
+                        userList.map(
+                            (user)=>(
+                                <option
+                                    value={user.email} key={user.email}>{user.firstName + ' ' + user.lastName}</option>
+                            )
+                        )
+                    }
                 </select>
             </div>
 

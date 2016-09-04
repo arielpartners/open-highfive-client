@@ -15,3 +15,15 @@ export const recognitions = (state = [], {type, payload}) => {
             return payload && /(401|403)/.test(payload.status) ? false : state;
     }
 };
+
+export const users = (state = [], {type, payload}) => {
+
+    switch (type) {
+        case ActionTypes.REQUEST_USERS:
+            return state;
+        case ActionTypes.RECEIVED_USERS:
+            return payload;
+        default:
+            return payload && /(401|403)/.test(payload.status) ? false : state;
+    }
+};

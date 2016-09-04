@@ -21,6 +21,7 @@ export class Home extends Component {
         componentHandler.upgradeDom();
         /* eslint-enable no-undef */
         this.props.requestRecognitions();
+        this.props.requestUsers();
     }
 
     componentDidUpdate() {
@@ -31,12 +32,12 @@ export class Home extends Component {
 
     render() {
 
-        const recognitions = this.props.recognitions || [];
+        const {recognitions = [], users = []} = this.props;
 
         return (
             <div className="container-fluid">
                 <div className="row">
-                    <RecognizePeer/>
+                    <RecognizePeer users={users}/>
 
                     <div className="col-lg-6 h5-mobilehidden">
 
