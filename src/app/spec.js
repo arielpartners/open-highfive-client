@@ -12,6 +12,9 @@ describe('App suite', () => {
     // actions
     require('./actions/spec');
 
+    // reducers
+    require('./reducers/spec');
+
     // epics
     require('./epics/spec');
 
@@ -20,6 +23,6 @@ describe('App suite', () => {
 
     // components
     describe('Components', () => {
-
+        require('./containers/home/components/recognition-card/spec');
     });
 });
