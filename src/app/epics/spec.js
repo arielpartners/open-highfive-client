@@ -70,7 +70,6 @@ describe('unAuthorizedEpic', () => {
         });
 
         const state = store.getState();
-        console.log('state 500', state);
         state[0].should.deep.equal({type: '@@redux/INIT'});
         state[1].should.deep.equal({type: ActionTypes.REQUEST_METRICS});
         state[2].type.should.equal(ActionTypes.METRICS_ERROR);

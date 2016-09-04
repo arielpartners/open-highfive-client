@@ -39,6 +39,7 @@
     "server": "\"node_modules/.bin/nodemon\" --watch package.json --watch webpack.config.js --watch server.js server.js",
     "server:windows": "node_modules/.bin/nodemon --watch package.json --watch webpack.config.js --watch server.js server.js",
     "test": "mocha ./test/index.jsx --compilers js:babel-core/register",
+    "test-dirty": "mocha ./test/index.jsx --compilers js:babel-core/register",
     "test-ci": "mocha ./test/index.jsx --compilers js:babel-core/register --reporter mocha-junit-reporter --reporter-options mochaFile=./test-artifacts/junit.mocha.xml"
   },
   "repository": {
@@ -84,6 +85,7 @@
     "copy-webpack-plugin": "3.0.1",
     "css-loader": "0.23.1",
     "cucumber": "1.2.0",
+    "cucumber-html-report": "^0.4.4",
     "deep-freeze": "0.0.1",
     "enzyme": "2.3.0",
     "eslint": "2.11.1",
