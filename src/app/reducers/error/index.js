@@ -1,7 +1,9 @@
 import {LOGIN_ERROR, LOGIN_PENDING} from '../../action-types';
 
-const LOGIN_ERROR_MSG = 'Email and/or password not recognized. Please try again';
-const BAD_THINGS_HAPPENED = 'The server is experiencing technical difficulties, please contact your administrator';
+/* eslint-disable max-len */
+export const LOGIN_ERROR_MSG = 'Email and/or password not recognized. Please try again';
+export const BAD_THINGS_HAPPENED = 'The server is experiencing technical difficulties, please contact your administrator';
+/* eslint-enable max-len */
 //-------------------------------------------------------------------
 // Error STORE
 //-------------------------------------------------------------------

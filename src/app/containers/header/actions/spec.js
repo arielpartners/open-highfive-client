@@ -7,7 +7,7 @@ import * as ActionTypes from '../../../action-types';
 should(should);
 
 /* global describe, it */
-describe('Home', () => {
+describe('Header', () => {
     let reducer = (state = [], action) => state.concat(action), store;
 
     beforeEach(() => {

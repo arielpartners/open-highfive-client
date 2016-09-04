@@ -17,6 +17,7 @@ if (config.enableMocks) mock(app);
 
 //proxy /api locally to the designated endpoint that should be passed in as an environment variable
 if (config.enableProxy) {
+    
     app.use('/api', proxy(config.proxyDomain, {
         decorateRequest: (proxyReq, originalReq) => {
             //FIXME: if we allow gzip compress, IIS in Azure sitting in front of Node is blowing up on a 502

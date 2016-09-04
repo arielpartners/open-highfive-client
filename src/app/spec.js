@@ -24,5 +24,6 @@ describe('App suite', () => {
     // components
     describe('Components', () => {
         require('./containers/home/components/recognition-card/spec');
+        require('./containers/header/components/menu/spec');
     });
 });

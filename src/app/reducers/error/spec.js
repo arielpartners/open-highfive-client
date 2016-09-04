@@ -1,23 +1,19 @@
-
-/* global describe, it */
+/* global describe, it, beforeEach */
 import {expect} from 'chai';
-import {error} from './index';
-import {LOGIN_ERROR} from '../../containers/login/actions';
-import {ITEM_ERROR} from '../../actions';
+import {error, LOGIN_ERROR_MSG} from './index';
+import * as ActionTypes from '../../action-types.js';
 
 describe('Error Reducer', () => {
-    const payload = {foo: 'bar'};
-    const state = {};
+    let state = {}, payload = {foo: 'bar'};
 
-    describe('LOGIN_ERROR', ()=> {
-        it('should set payload as state', ()=> {
-            expect(error(state, {type: LOGIN_ERROR, payload: payload})).to.eql(payload);
-        });
+    beforeEach(()=> {
+        state = {};
+        payload = {status: 401, foo: 'bar'};
     });
 
-    describe('ITEM_ERROR', ()=> {
-        it('should set payload as state', ()=> {
-            expect(error(state, {type: ITEM_ERROR, payload: payload})).to.eql(payload);
+    describe('LOGIN_ERROR', ()=> {
+        it('should return an error message as a payload', ()=> {
+            expect(error(state, {type: ActionTypes.LOGIN_ERROR, payload: payload})).to.eql({message: LOGIN_ERROR_MSG});
         });
     });
 
