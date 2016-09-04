@@ -10,7 +10,7 @@ import * as MetricActions from './actions';
 import {logout} from '../login/actions';
 
 import {Menu} from './components/menu';
-import {Metrics} from './components/metrics';
+//import {Metrics} from './components/metrics';
 
 import pjson from '../../../../package.json';
 
@@ -37,7 +37,7 @@ class Header extends React.Component {
     /* eslint-disable no-shadow */
     render() {
         const {
-            metrics,
+            //metrics,
             loggedIn,
             logout,
             healthCheck,
@@ -66,7 +66,6 @@ class Header extends React.Component {
                 {
                     (loggedIn) ? <Menu logout={logout}/> : null
                 }
-                <Metrics loggedIn={loggedIn} metrics={metrics}/>
             </div>
         );
     }
