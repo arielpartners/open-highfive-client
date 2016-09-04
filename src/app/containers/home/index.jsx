@@ -32,12 +32,13 @@ export class Home extends Component {
 
     render() {
 
-        const {recognitions = [], users = []} = this.props;
+        const {recognitions = [], users = [], user = {}} = this.props;
+        const filteredUsers = users.filter((current) => current.email !== user.email);
 
         return (
             <div className="container-fluid">
                 <div className="row">
-                    <RecognizePeer users={users}/>
+                    <RecognizePeer users={filteredUsers}/>
 
                     <div className="col-lg-6 h5-mobilehidden">
 
