@@ -21,6 +21,7 @@ export class Home extends Component {
         componentHandler.upgradeDom();
         /* eslint-enable no-undef */
         this.props.requestRecognitions();
+        this.props.requestUsers();
     }
 
     componentDidUpdate() {
