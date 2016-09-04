@@ -3,10 +3,10 @@ let config = require('../config');
 //write a function that takes a request input and returns true if it should be mocked to json server otherwise fall through
 //if config.enableProxy is disabled and we hit local api, we will mock everything
 const mockMatches = [
-    req => req.url.includes('/api/recognitions'),
-    req => req.url.includes('/api/metrics')
-    //req => req.url.includes('/api/healthcheck')
-    //req => req.url.includes('/api/auth')
+    // req => req.url.includes('/api/recognitions'),
+    req => req.url.includes('/api/metrics'),
+    // req => req.url.includes('/api/healthcheck'),
+    // req => req.url.includes('/api/auth')
 ];
 
 module.exports = function (app) {
