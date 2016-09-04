@@ -107,12 +107,12 @@ form {
 
 .navbar-default .navbar-collapse {
   border: none;
-  max-width: 1340px;
+  /*max-width: 1340px;*/
   margin: 0 auto;
 }
 
 .container-fluid .row {
-  max-width: 1340px;
+  /*max-width: 1340px;*/
   margin: 0 auto;
 }
 
@@ -139,10 +139,22 @@ h2 {
   font-size: 1.65em;
 }
 
+h2.h5-sectionhdr em {
+  display: block;
+  font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+  font-size: 80%;
+  font-style: normal;
+  font-weight: normal;
+}
+
 h3 {
   font-family: "Merriweather", Georgia, Times, "Times New Roman", serif;
   color: #264363;
   font-size: 1.25em;
+}
+
+.h5-margintop20 {
+  margin-top: 20px;;
 }
 
 .h5-hdr {
@@ -155,65 +167,169 @@ h3 {
   border-bottom: #677682
 }
 
-/*
+/* ----------------------- Recognition Display ------------------------ */
+
 .h5-recognition-card {
-  border-width: 1px;
-  border-style: solid;
-  border-top-width: 10px;
-  padding: 15px 20px 20px 20px;
-  background: #FFF;
-  margin: 0 10px 10px 0;
-  padding-left: 130px;
+  position: relative;
+  border-top: solid 30px #D6D7D9;
+  padding: 10px;
+  background: #F1F1F1;
+  margin: 5px 5px 5px 0;
   line-height: 130%;
   float: left;
+  width: 300px;
+  border-radius: 7px;
 }
 
-.h5-recognition-card.h5-excellence {
-  border-color: #FF9900;
+.h5-recognition-card h3 {
+  text-transform: uppercase;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  padding-left: 45px;
+  padding-bottom: 0;
+  font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+  margin: -30px -10px 10px -10px;
 }
 
-.h5-recognition-card.h5-accountability {
-  border-color: #CC3300;
+.h5-recognition-card blockquote {
+  background: url(./img/iconQuote.png) no-repeat left top;
+  font-size: 14px;
+  font-style: italic;
+  padding: 15px 10px;
+  margin: 20px 0 0 0;
+  width: 160px;
 }
 
-.h5-recognition-card.h5-initiative {
+.h5-recognition-card blockquote span {
+  display: block;
+  margin-top: 10px;
+  font-style: normal;
+}
+
+.h5-recognition-card.h5-integrity h3 {
+  border-color: #FF6600;
+  color: #FF6600;
+}
+
+.h5-recognition-card.h5-integrity h3 i {
+  display: inline-block;
+  background: url(./img/iconIntegrity.png) no-repeat left top;
+  width: 30px;
+  height: 30px;
+  margin: 0 5px -15px -35px;
+}
+
+.h5-recognition-card.h5-vigilance h3 {
   border-color: #990000;
+  color: #990000;
+}
+
+.h5-recognition-card.h5-vigilance h3 i {
+  display: inline-block;
+  background: url(./img/iconVigilance.png) no-repeat left top;
+  width: 30px;
+  height: 30px;
+  margin: 0 5px -15px -35px;
+}
+
+.h5-recognition-card.h5-respect h3 {
+  border-color: #00578C;
+  color: #00578C;
+}
+
+.h5-recognition-card.h5-respect h3 i {
+  display: inline-block;
+  background: url(./img/iconRespect.png) no-repeat left top;
+  width: 30px;
+  height: 30px;
+  margin: 0 5px -15px -35px;
+}
+
+.h5-recognition-card.h5-excellence h3 {
+  border-color: #330099;
+  color: #330099;
+}
+
+.h5-recognition-card.h5-excellence h3 i {
+  display: inline-block;
+  background: url(./img/iconExcellence.png) no-repeat left top;
+  width: 30px;
+  height: 30px;
+  margin: 0 5px -15px -35px;
+}
+
+.h5-recognition-card.h5-accountability h3 {
+  border-color: #007700;
+  color: #007700;
+}
+
+.h5-recognition-card.h5-accountability h3 i {
+  display: inline-block;
+  background: url(./img/iconAccountability.png) no-repeat left top;
+  width: 30px;
+  height: 30px;
+  margin: 0 5px -15px -35px;
+}
+
+
+
+/*.h5-recognition-card.h5-excellence {
+	border-color: #FF9900;
+}
+
+.h5-recognition-card.h5-integrity {
+	border-color: #CC3300;
+}
+
+.h5-recognition-card.h5-respect {
+	border-color: #990000;
 }
 
 .h5-recognition-card.h5-teamwork {
-  border-color: #6633CC;
+	border-color: #6633CC;
 }
 
-.h5-recognition-card.h5-empowerment {
-  border-color: #0033CC;
+.h5-recognition-card.h5-vigilance {
+	border-color: #0033CC;
+}*/
+
+.h5-recognized-person {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-family: "Merriweather", Georgia, Times, "Times New Roman", serif;
+  color: #C22A37;
+  font-size: 1.1em;
+  line-height: 120%;
+  width: 100px;
+  text-align: center;
 }
 
-
-.h5-recognition-card img {
-  float: left;
-  width: 90px;
+.h5-recognized-person img {
+  width: 60px;
   height: auto;
   max-height: 90px;
   overflow: hidden;
   border-radius: 50%;
   border: solid 1px #aaa;
-  margin: 10px 20px 0 -110px;
+  margin: 10px 20px 0 -90px;
+  width: 70px;
+  height: auto;
+  max-height: 90px;
+  overflow: hidden;
+  border-radius: 50%;
+  border: solid 1px #aaa;
+  margin: 10px auto;
 }
-*/
 
-/*
-.h5-recognized-person {
-  font-family: "Merriweather", Georgia, Times, "Times New Roman", serif;
-  color: #C22A37;
-  font-size: 1.5em;
+.h5-recognized-person a {
   display: block;
-  line-height: 140%;
+  color: #00578d;
 }
-*/
 
 .h5-recognized-value {
   color: #264363;
-  font-size: 1.6em;
+  font-size: 1.1em;
   text-transform: uppercase;
   font-weight: bold;
   display: block;
@@ -222,6 +338,9 @@ h3 {
 .h5-recognized-date {
   display: block;
 }
+
+
+
 
 .h5-stats {
   background: #ECEEEF;
@@ -235,13 +354,12 @@ h3 {
 }
 
 .h5-stats-content {
-  padding: 5px;
   position: relative;
-  height: 200px;
+  height: 170px;
 }
 
 .h5-stats-graph {
-  max-width: 300px;
+  max-width: 220px;
   position: absolute;
 }
 
@@ -276,25 +394,26 @@ h3 {
   margin: 0 15px;
 }
 
-.h5-stats-color-excellence {
-  background: #FF9900;
+.h5-stats-color-integrity {
+  background: #FF6600;
 }
 
-.h5-stats-color-accountability {
-  background: #CC3300;
-}
-
-.h5-stats-color-initiative {
+.h5-stats-color-vigilance {
   background: #990000;
 }
 
-.h5-stats-color-teamwork {
-  background: #6633CC;
+.h5-stats-color-respect {
+  background: #00578C;
 }
 
-.h5-stats-color-empowerment {
-  background: #616774;
+.h5-stats-color-excellence {
+  background: #330099;
 }
+
+.h5-stats-color-accountability {
+  background: #007700;
+}
+
 
 .h5-mystats {
   font-family: "Merriweather", Georgia, Times, "Times New Roman", serif;
@@ -321,13 +440,7 @@ h3 {
   margin-right: 10px;
 }
 
-.h5-modal-backdrop {
-  background-color: rgba(0,0,0,0.7);
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-}
+
 
 @media (max-width: 768px) {
   .h5-stats-display {
@@ -338,7 +451,6 @@ h3 {
     display: none;
   }
 }
-
 // End H5 styles
 
 // Support for Bootstrap menus without Javascript
