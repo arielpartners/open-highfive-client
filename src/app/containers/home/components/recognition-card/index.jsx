@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import cx from 'classnames';
 
 /* istanbul ignore next */
 if (__WEBPACK__) {
@@ -27,7 +28,7 @@ export class RecognitionCard extends Component {
         let {receiverName, senderName, points, corporateValueName, description} = this.props;
 
         return (
-            <div className="h5-recognition-card h5-vigilance">
+            <div className={ cx('h5-recognition-card', 'h5-' + corporateValueName.toLowerCase()) }>
                 <h3><i></i>{corporateValueName}</h3>
                 <blockquote>
                     {description}
