@@ -12,6 +12,8 @@ import {logout} from '../login/actions';
 import {Menu} from './components/menu';
 import {Metrics} from './components/metrics';
 
+import pjson from '../../../../package.json';
+
 /* istanbul ignore next */
 if (__WEBPACK__) {
     require('./style.scss');
@@ -38,6 +40,7 @@ class Header extends React.Component {
             metrics,
             loggedIn,
             logout,
+            healthCheck,
         } = this.props;
 
         return (
@@ -46,6 +49,17 @@ class Header extends React.Component {
                     <div className="row">
                         <div className="col-lg-12 h5-logo">
                             <a href="#" className="logo"/>
+                            {
+                                (loggedIn) ?
+                                    null
+                                :
+                                  <span>
+                                    <a href="/version.txt"
+                                       className="version client">Client: v.{pjson.version}</a>
+                                    <a href="/api/healthcheck"
+                                       className="version server">Server: v.{healthCheck.version}</a>
+                                  </span>
+                            }
                         </div>
                     </div>
                 </div>

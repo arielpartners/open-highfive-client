@@ -44,4 +44,18 @@
    .container-fluid .row {
      max-width: 1420px;
    }
+
+   .version {
+     position: absolute;
+
+     right: 0;
+
+     &.client {
+       top: 49px;
+     }
+
+     &.server {
+       top: 69px;
+     }
+   }
  }

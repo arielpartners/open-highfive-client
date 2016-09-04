@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 
 import {getFormData} from '../../index';
 import * as LoginActions from './actions';
+import {requestHealthCheck} from '../../actions';
 
 /* istanbul ignore next  */
 if (__WEBPACK__) {
@@ -28,6 +29,7 @@ export class Login extends Component {
         if (email) {
             email.focus();
         }
+        this.props.requestHealthCheck();
     }
 
     componentDidUpdate() {
@@ -123,8 +125,6 @@ export class Login extends Component {
 
 Login.propTypes = {
     login: React.PropTypes.func.isRequired,
-    changeEmail: React.PropTypes.func.isRequired,
-    changePassword: React.PropTypes.func.isRequired,
     error: React.PropTypes.object
 };
 
@@ -132,6 +132,6 @@ export default connect(
     // Map State to Props (Reducers)
     (state) => state,
     //Map DispatchToProps (Actions)
-    {...LoginActions}
+    {...LoginActions, requestHealthCheck}
 )(Login);
 
