@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {openModal} from '../../../../../../actions';
 import {MyRecognitions} from '../../../../../modal/myRecognitions';
 import {MyRecognitionsFooter} from '../../../../../modal/myRecognitionsFooter';
-import {RecognizePeer} from '../../../../../modal/recognizePeer';
+import {RecognizePeer} from '../../../../../modal/component/recognize-peer';
 import {RecognizePeerFooter} from '../../../../../modal/recognizePeerFooter';
 
 export class MyRewardActivities extends Component {
