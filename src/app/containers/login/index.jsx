@@ -5,6 +5,8 @@ import {getFormData} from '../../index';
 import * as LoginActions from './actions';
 import {requestHealthCheck} from '../../actions';
 
+import cx from 'classnames';
+
 /* istanbul ignore next  */
 if (__WEBPACK__) {
     require('./style.scss');
@@ -67,7 +69,8 @@ export class Login extends Component {
             labelClass = 'mdl-textfield__label',
             inputClass = 'mdl-textfield__input',
             errorClass = 'mdl-textfield__error',
-            fieldSetClass = 'mdl-textfield mdl-js-textfield mdl-textfield--floating-label extrawide';
+            fieldSetClass = 'mdl-textfield mdl-js-textfield mdl-textfield--floating-label extrawide',
+            LOGGING_IN = error && error.message === 'Logging in ...';
 
         let form;
 
@@ -114,7 +117,10 @@ export class Login extends Component {
                         </button>
                         {
                             (error) ?
-                                <p className="mdl-color-text--red">{error.message}</p> : null
+                                <p className={ cx({
+                                    'mdl-color-text--red': !LOGGING_IN,
+                                    blink: LOGGING_IN
+                                }) }>{error.message}</p> : null
                         }
                     </div>
                 </div>
