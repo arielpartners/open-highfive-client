@@ -30,7 +30,7 @@ export class RecognitionCard extends Component {
         return (
             <div className={ cx('h5-recognition-card',
             {'h5-vigilance': corporateValueName === 'Vigilance'},
-            {'h5-integrity': corporateValueName === 'INTEGRITY'},
+            {'h5-integrity': corporateValueName === 'Integrity'},
             {'h5-respect': corporateValueName === 'Respect'},
             {'h5-excellence': corporateValueName === 'Excellence'},
             {'h5-accountability': corporateValueName === 'Accountability'})}>
