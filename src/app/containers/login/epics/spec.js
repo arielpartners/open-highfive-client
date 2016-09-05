@@ -13,7 +13,7 @@
 import {createStore, applyMiddleware} from 'redux';
 import {createEpicMiddleware} from 'redux-observable';
 import root from 'rxjs/util/root';
-import {MockXMLHttpRequest} from 'ajax-helper';
+import {MockXMLHttpRequest} from '../../../../../test/helpers/ajax-helper';
 import {should} from 'chai'; // You can use any testing library
 import {LOGIN, LOGIN_PENDING, LOGIN_ERROR, LOGOUT, LOGOUT_PENDING, login, logout} from './';
 import {CHANGE_EMAIL, CHANGE_EMAIL_PENDING, CHANGE_EMAIL_ERROR, changeEmail} from './';

@@ -3,7 +3,7 @@
 import {createStore, applyMiddleware} from 'redux';
 import {createEpicMiddleware} from 'redux-observable';
 import root from 'rxjs/util/root';
-import {MockXMLHttpRequest} from 'ajax-helper';
+import {MockXMLHttpRequest} from '../../../test/helpers/ajax-helper';
 import {browserHistory} from 'react-router';
 import {routerMiddleware} from 'react-router-redux';
 import {should} from 'chai'; // You can use any testing library
