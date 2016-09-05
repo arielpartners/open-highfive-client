@@ -23,6 +23,14 @@ const getRecentRecognitionEpic = action$ =>
                 .catch(error => Observable.of({type: ActionTypes.RECOGNITIONS_ERROR, payload: error}))
         );
 
+const getMyRecentRecognitionEpic = action$ =>
+    action$.ofType(ActionTypes.REQUEST_MY_RECOGNITIONS)
+        .mergeMap(action =>
+            ajax.get(BASE_URL + 'recognitions', JSON.stringify(action.payload), HEADER)
+                .map(Actions.receiveMyRecognitions)
+                .catch(error => Observable.of({type: ActionTypes.MY_RECOGNITIONS_ERROR, payload: error}))
+        );
+
 const getUsersEpic = action$ =>
     action$.ofType(ActionTypes.REQUEST_USERS)
         .mergeMap(action =>
@@ -33,6 +41,7 @@ const getUsersEpic = action$ =>
 
 export default combineEpics(
     createRecognitionEpic,
+    getMyRecentRecognitionEpic,
     getRecentRecognitionEpic,
     getUsersEpic
 );
