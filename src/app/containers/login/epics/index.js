@@ -74,12 +74,14 @@ const logoutEpic = action$ =>
         .mergeMap(() =>
             ajax.delete(BASE_URL, HEADER)
                 .map(Actions.userLoggedOut)
+                .do(() => { localStorage.clear(); })
                 .catch(Actions.loginError)
         );
 
 const redirectToLoginEpic = action$ =>
     action$.ofType(ActionTypes.REHYDRATE)
         .filter(state => !state.payload.loggedIn)
+        .map(Actions.logout)
         .map(() => push('/login'));
 
 export default combineEpics(
