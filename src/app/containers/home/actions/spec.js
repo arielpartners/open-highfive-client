@@ -1,7 +1,3 @@
-/**
- * Created by Alan on 9/3/2016.
- */
-
 /* global describe, it, beforeEach */
 import {createStore} from 'redux';
 import {should} from 'chai';

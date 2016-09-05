@@ -20,21 +20,22 @@ const reducer = (state = [], action) => state.concat(action), middleware = creat
 
 let gXHR, rXHR;
 
-beforeEach(() => {
-    gXHR = global.XMLHttpRequest;
-    rXHR = root.XMLHttpRequest;
-    global.XMLHttpRequest = MockXMLHttpRequest;
-    root.XMLHttpRequest = MockXMLHttpRequest;
-});
-
-afterEach(() => {
-    MockXMLHttpRequest.clearRequest();
-    global.XMLHttpRequest = gXHR;
-    root.XMLHttpRequest = rXHR;
-});
-
 /* eslint-disable no-console */
 describe('unAuthorizedEpic', () => {
+
+    beforeEach(() => {
+        gXHR = global.XMLHttpRequest;
+        rXHR = root.XMLHttpRequest;
+        global.XMLHttpRequest = MockXMLHttpRequest;
+        root.XMLHttpRequest = MockXMLHttpRequest;
+    });
+
+    afterEach(() => {
+        MockXMLHttpRequest.clearRequest();
+        global.XMLHttpRequest = gXHR;
+        root.XMLHttpRequest = rXHR;
+    });
+
     it('triggers a redirect to /login when a 401 is detected', () => {
         const store = createStore(reducer, applyMiddleware(middleware, routerMiddleware(browserHistory)));
         const expected = JSON.stringify('Unauthorized Error');
@@ -75,4 +76,5 @@ describe('unAuthorizedEpic', () => {
         state[2].type.should.equal(ActionTypes.METRICS_ERROR);
         state[2].payload.should.deep.equal(error);
     });
+
 });
