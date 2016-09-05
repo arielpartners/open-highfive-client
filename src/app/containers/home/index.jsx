@@ -41,6 +41,10 @@ export class Home extends Component {
             } = this.props;
         const filteredUsers = users.filter((current) => current.email !== user.email);
 
+        if (!this.props.loggedIn) {
+            return null;
+        }
+
         return (
             <div className="container-fluid">
                 <div className="row">
@@ -51,14 +55,11 @@ export class Home extends Component {
                         <h2>Recent Recognitions</h2>
 
                         {
-                            recognitions.map(function(recognition) {
-                                return (<RecognitionCard key={'recognition-' + recognition.id}
-                                    {...recognition}
-                                    openModal={openRecognitionCardModal}
-                                    closeModal={closeRecognitionCardModal}
-                                />);
+                            recognitions.map(recognition => {
+                                return <RecognitionCard key={'recognition-' + recognition.id} {...recognition} />;
                             })
                         }
+
                         <div className="clearfix"></div>
                     </div>
 
@@ -119,11 +120,18 @@ export class Home extends Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    return Object.assign({}, state, {
+        recognitions : state.recognitions || [],
+        users : state.users || []
+    });
+};
+
 /* istanbul ignore next */
 // export default connect(mapStateToProps)(Home);
 export default connect(
     // Map State to Props (Reducers)
-    (state) => state,
+    mapStateToProps,
     //Map DispatchToProps (Actions)
     (dispatch) => (bindActionCreators({...HomeActions, ...RecognitionCardActions}, dispatch))
     // {...HomeActions}
