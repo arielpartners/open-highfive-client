@@ -44,3 +44,6 @@ test-artifacts
 
 # Static build output
 dist
+
+#mocks
+mock-redirect.js

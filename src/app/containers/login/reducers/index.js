@@ -19,3 +19,14 @@ export const loggedIn = (state = false, {type, payload}) => {
             return payload && /(401|403)/.test(payload.status) ? false : state;
     }
 };
+
+export const user = (state = false, {type, payload}) => {
+
+    switch (type) {
+        case ActionTypes.LOGIN:
+            return payload;
+
+        default:
+            return payload && /(401|403)/.test(payload.status) ? false : state;
+    }
+};
