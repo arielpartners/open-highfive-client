@@ -30,13 +30,13 @@ export const Menu = ({logout}) => {
                         <li className="active">
                             <a href="#">Home <span className="sr-only">(current)</span></a>
                         </li>
-                        <li><a href="#">Spot Recognition</a></li>
-                        <li><a href="#">Annual Evaluation</a></li>
-                        <li><a href="#">Organization</a></li>
+                        {/*<li><a href="#">Spot Recognition</a></li>*/}
+                        {/*<li><a href="#">Annual Evaluation</a></li>*/}
+                        {/*<li><a href="#">Organization</a></li>*/}
                     </ul>
                     <ul className="nav navbar-nav navbar-right">
-                        <li><a href="#">Settings</a></li>
-                        <li><a href="#">Admin</a></li>
+                        {/*<li><a href="#">Settings</a></li>*/}
+                        {/*<li><a href="#">Admin</a></li>*/}
                         <li>
                             <Link to="/login" onClick={logout}>Logout</Link>
                         </li>
