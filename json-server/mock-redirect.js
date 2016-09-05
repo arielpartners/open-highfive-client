@@ -4,7 +4,7 @@ let config = require('../config');
 //if config.enableProxy is disabled and we hit local api, we will mock everything
 const mockMatches = [
     //req => req.url.includes('/api/recognitions'),
-    req => req.url.includes('/api/metrics')
+    //req => req.url.includes('/api/metrics')
     //req => req.url.includes('/api/healthcheck'),
     //req => req.url.includes('/api/auth'),
     //req => req.url.includes('/api/users')
