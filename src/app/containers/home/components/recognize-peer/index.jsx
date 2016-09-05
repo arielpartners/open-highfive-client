@@ -52,7 +52,7 @@ export const RecognizePeer = ({users, createRecognition}) => {
 
             <div className="form-group h5-margintop20">
                 <select name="receiverEmail" className="form-control" required ref={addInput}>
-                    <option value="" disabled selected hidden>Select an Employee</option>
+                    <option value="" disabled selected="selected" hidden>Select an Employee</option>
                     {
                         userList.map(
                             (user)=>(
@@ -67,7 +67,7 @@ export const RecognizePeer = ({users, createRecognition}) => {
             <div className="form-group">
                 <textarea ref={addInput}
                           className="form-control"
-
+                          required
                           placeholder="Write a few words about what they did or why it was memorable" id="occurrence"
                           name="occurrence"></textarea>
             </div>
@@ -108,7 +108,7 @@ export const RecognizePeer = ({users, createRecognition}) => {
 
             <div className="form-group">
                 <select name="points" className="form-control" required ref={addInput}>
-                    <option value="" disabled selected hidden>Select a Recognition Level</option>
+                    <option value="" disabled selected="selected" hidden>Select a Recognition Level</option>
                     <option value="50">50</option>
                     <option value="40">40</option>
                     <option value="30">30</option>
