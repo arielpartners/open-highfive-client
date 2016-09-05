@@ -47,7 +47,7 @@ class Header extends React.Component {
             <div className="header-wrapper">
                 <div className="container-fluid h5-hdr header-component">
                     <div className="row">
-                        <div className="col-lg-12 h5-logo">
+                        <div className="col-lg-10 h5-logo">
                             <a href="#" className="logo"/>
                             {
                                 (loggedIn) ?
@@ -61,11 +61,17 @@ class Header extends React.Component {
                                   </span>
                             }
                         </div>
+                        <div className="col-lg-2 h5-contact-support">
+                            <a href="mailto:ggarno@arielpartners.com">
+                                Feedback, Questions, Comments
+                            </a>
+                        </div>
                     </div>
                 </div>
                 {
                     (loggedIn) ? <Menu logout={logout}/> : null
                 }
+
             </div>
         );
     }
