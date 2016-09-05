@@ -18,6 +18,7 @@ if (config.enableMocks) mock(app);
 //proxy /api locally to the designated endpoint that should be passed in as an environment variable
 if (config.enableProxy) {
 
+    app.enable('trust proxy');
     app.use('/api', proxy(config.proxyDomain, {
         //preserveHostHdr: true,
         reqBodyEncoding: 'UTF-8',
