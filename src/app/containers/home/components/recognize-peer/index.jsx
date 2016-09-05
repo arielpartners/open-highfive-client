@@ -6,7 +6,7 @@ if (__WEBPACK__) {
     require('./style.scss');
 }
 
-export const RecognizePeer = ({users}) => {
+export const RecognizePeer = ({users, }) => {
     let userList = users || [];
     return (
         <div className="col-lg-3 recognize-peer">
