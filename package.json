@@ -29,7 +29,7 @@
     "precoverage": "npm run coverage-clean",
     "prebuild": "npm prune && npm install && npm run clean",
     "pree2e": "node \"node_modules/protractor/bin/webdriver-manager\" update && npm run coverage-clean",
-    "preinstall": "npm link test/helpers/ajax-helper || cp -r test/helpers/ajax-helper node_modules",
+    "preinstall": "npm prune && npm link test/helpers/ajax-helper || cp -r test/helpers/ajax-helper node_modules",
     "prestart": "npm install",
     "pretest": "npm run clean",
     "clean": "npm prune && npm run rimraf -- dist test-artifacts",
