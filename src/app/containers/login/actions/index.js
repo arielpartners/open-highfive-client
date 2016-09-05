@@ -10,4 +10,4 @@ export const userLoggedOut = () => ({type: ActionTypes.LOGOUT});
 // export const passwordChanged = payload => ({type: ActionTypes.CHANGE_PASSWORD, payload: payload.response});
 // export const changeEmail = credentials => ({type: ActionTypes.CHANGE_EMAIL_PENDING, payload: credentials});
 // export const emailChanged = payload => ({type: ActionTypes.CHANGE_EMAIL, payload: payload.response});
-// export const sessionDeleted = () => ({type: ActionTypes.DELETE_SESSION});
+export const sessionDeleted = () => ({type: ActionTypes.DELETE_SESSION});
