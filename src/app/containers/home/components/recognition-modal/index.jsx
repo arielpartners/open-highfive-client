@@ -25,31 +25,33 @@ export class RecognitionModal extends Component {
     }
 
     render() {
-        // let {close, visible} = this.props;
-        let {visible} = this.props;
-
+        // , senderName, receiverName, description
+        let {close, visible,
+            senderName, receiverName, corporateValueName, description, points, dateCreated} = this.props;
         return (
-            <div id="recognitionDetails" className="modal fade h5-recognitionDetails" role="dialog">
-                { /*
+            <div id="recognitionDetails"
+                 className="modal fade h5-recognitionDetails in" role="dialog"
+                 style={ visible ? {'display': 'block', 'padding-right': '15px;'} : {}}
+            >
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">
                             <button type="button" className="close" data-dismiss="modal">&times;</button>
-                            <h2>Teamwork</h2>
+                            <h2>{corporateValueName}</h2>
                         </div>
                         <div className="modal-body text-center">
 
                             <div className="container-fluid">
                                 <div className="row">
-                                    <div className="col-md-6 col-sm-12" style="margin-bottom: 20px;">
-                                        <img src="photos/headshot.jpg" className="h5-roundheadshot" alt="Julie Doe"/>
-                                        <h3><a href="#">Julie Doe</a></h3>
+                                    <div className="col-md-6 col-sm-12" style={{"margin-bottom": "20px"}}>
+                                        <img src="https://github.com/arielpartners/highfive-client/raw/master/dev/img/headshot.jpg"
+                                             className="h5-roundheadshot" alt="Julie Doe"/>
+                                        <h3><a href="#">{receiverName}</a></h3>
                                     </div>
                                     <div className="col-md-6 col-sm-12">
-                                        <h4>Recognized by Janice Haverton</h4>
-                                        <p><em>&quot;Thanks for pitching in and helping
-                                            our team recover from our recent setback...&quot;</em></p>
-                                        <p>20 pts / September 13, 2016</p>
+                                        <h4>Recognized by {senderName}</h4>
+                                        <p><em>&quot;{description}&quot;</em></p>
+                                        <p>{points} pts / {dateCreated}</p>
                                     </div>
                                 </div>
                             </div>
@@ -65,9 +67,6 @@ export class RecognitionModal extends Component {
                     </div>
 
                 </div>
-                */
-                }
-                <h1> {visible ? 'True' : 'False'} </h1>
             </div>
         );
     }

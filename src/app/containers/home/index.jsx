@@ -36,7 +36,7 @@ export class Home extends Component {
 
     render() {
 
-        const {recognitions = [], users = [], user = {}, modalDisplayed,
+        const {recognitions = [], users, user, modalDisplayed,
             openRecognitionCardModal, closeRecognitionCardModal,
             } = this.props;
         const filteredUsers = users.filter((current) => current.email !== user.email);
@@ -44,6 +44,8 @@ export class Home extends Component {
         if (!this.props.loggedIn) {
             return null;
         }
+
+        console.log(modalDisplayed);
 
         return (
             <div className="container-fluid">
@@ -56,7 +58,9 @@ export class Home extends Component {
 
                         {
                             recognitions.map(recognition => {
-                                return <RecognitionCard key={'recognition-' + recognition.id} {...recognition} />;
+                                return <RecognitionCard key={'recognition-' + recognition.id}
+                                                        {...recognition}
+                                                        openModal={() => openRecognitionCardModal(recognition)}/>;
                             })
                         }
 
@@ -110,11 +114,8 @@ export class Home extends Component {
 
                 </div>
 
-                <RecognitionModal close={closeRecognitionCardModal} visible={modalDisplayed.show}/>
-
-                { /*
-                <Modal modalDisplayed={MyRecognitions}/>
-                 */ }
+                <RecognitionModal close={closeRecognitionCardModal} visible={modalDisplayed.view}
+                                  {...modalDisplayed.recognition}/>
             </div>
         );
     }
@@ -123,7 +124,8 @@ export class Home extends Component {
 const mapStateToProps = (state) => {
     return Object.assign({}, state, {
         recognitions : state.recognitions || [],
-        users : state.users || []
+        users : state.users || [],
+        modalDisplay: state.modalDisplay || {view: false, recognition: {}}
     });
 };
 
