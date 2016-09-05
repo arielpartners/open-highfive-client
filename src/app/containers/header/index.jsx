@@ -60,12 +60,19 @@ class Header extends React.Component {
                                        className="version server">Server: v.{healthCheck.version}</a>
                                   </span>
                             }
+                            <span className="pull-right h5-contact-support">
+                                <a href="mailto:ggarno@arielpartners.com">
+                                    Feedback, Questions, Comments
+                                </a>
+                            </span>
+
                         </div>
                     </div>
                 </div>
                 {
                     (loggedIn) ? <Menu logout={logout}/> : null
                 }
+
             </div>
         );
     }
