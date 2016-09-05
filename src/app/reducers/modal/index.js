@@ -11,6 +11,11 @@ export const modalDisplayed = (state = {show: false}, {type, payload}) => {
             return { show: true, config: payload};
         case ActionTypes.CLOSE_MODAL:
             return { show: false};
+        case ActionTypes.OPEN_RECOGNITIONCARD_MODAL:
+            return { show: true, recognition: payload };
+        case ActionTypes.CLOSE_RECOGNITIONCARD_MODAL:
+            return { show: false };
+
         default:
             return state;
     }
