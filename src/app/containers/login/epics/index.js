@@ -74,6 +74,7 @@ const logoutEpic = action$ =>
         .mergeMap(() =>
             ajax.delete(BASE_URL, HEADER)
                 .map(Actions.userLoggedOut)
+                .do(() => { localStorage.clear(); })
                 .catch(Actions.loginError)
         );
 
