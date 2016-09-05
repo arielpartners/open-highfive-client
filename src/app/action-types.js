@@ -4,7 +4,6 @@ export const LOGIN_ERROR = 'LOGIN_ERROR';
 export const LOGOUT = 'LOGOUT';
 export const LOGOUT_PENDING = 'LOGOUT_PENDING';
 
-
 export const METRICS_ERROR = 'METRICS_ERROR';
 export const RECEIVED_METRICS = 'RECEIVED_METRICS';
 export const REQUEST_METRICS = 'REQUEST_METRICS';

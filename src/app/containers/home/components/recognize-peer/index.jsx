@@ -6,12 +6,13 @@ if (__WEBPACK__) {
     require('./style.scss');
 }
 
+const isValid = (form) => {
+    return form.querySelectorAll('*:invalid').length === 0;
+};
+
 /* eslint-disable max-params */
 const onSubmit = (form, getData, inputs, createRecognition, statics) => {
     form.classList.remove('invalid');
-
-    const data = getData(inputs);
-
 
     if (!isValid(form)) {
         form.classList.add('invalid');
@@ -20,10 +21,6 @@ const onSubmit = (form, getData, inputs, createRecognition, statics) => {
     }
 };
 /* eslint-enable max-params */
-
-const isValid = (form) =>  {
-    return form.querySelectorAll('*:invalid').length === 0;
-};
 
 export const RecognizePeer = ({users, createRecognition}) => {
     let form,
@@ -46,7 +43,6 @@ export const RecognizePeer = ({users, createRecognition}) => {
                   form = ref;
               }}
               className="col-lg-3 recognize-peer">
-
 
             <h2 className="h5-sectionhdr">Reward Someone <em>for a deed well done</em></h2>
 
