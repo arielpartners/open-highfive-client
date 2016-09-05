@@ -1,9 +1,13 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {RecognitionCard} from './components/recognition-card';
+import {RecognitionModal} from './components/recognition-modal';
+// import Modal from '../modal';
+// import {MyRecognitions} from '../modal/myRecognitions';
 import {RecognizePeer} from './components/recognize-peer';
 import {bindActionCreators} from 'redux';
 import * as HomeActions from './actions';
+import * as RecognitionCardActions from './actions/recognition-card';
 
 /* istanbul ignore next */
 if (__WEBPACK__) {
