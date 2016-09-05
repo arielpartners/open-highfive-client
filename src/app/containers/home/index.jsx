@@ -1,9 +1,13 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {RecognitionCard} from './components/recognition-card';
+import {RecognitionModal} from './components/recognition-modal';
+// import Modal from '../modal';
+// import {MyRecognitions} from '../modal/myRecognitions';
 import {RecognizePeer} from './components/recognize-peer';
 import {bindActionCreators} from 'redux';
 import * as HomeActions from './actions';
+import * as RecognitionCardActions from './actions/recognition-card';
 
 /* istanbul ignore next */
 if (__WEBPACK__) {
@@ -32,7 +36,9 @@ export class Home extends Component {
 
     render() {
 
-        const {recognitions = [], users = [], user = {}} = this.props;
+        const {recognitions = [], users = [], user = {}, modalDisplayed,
+            openRecognitionCardModal, closeRecognitionCardModal,
+            } = this.props;
         const filteredUsers = users.filter((current) => current.email !== user.email);
 
         return (
@@ -46,10 +52,13 @@ export class Home extends Component {
 
                         {
                             recognitions.map(function(recognition) {
-                                return <RecognitionCard key={'recognition-' + recognition.id} {...recognition} />;
+                                return (<RecognitionCard key={'recognition-' + recognition.id}
+                                    {...recognition}
+                                    openModal={openRecognitionCardModal}
+                                    closeModal={closeRecognitionCardModal}
+                                />);
                             })
                         }
-
                         <div className="clearfix"></div>
                     </div>
 
@@ -99,6 +108,12 @@ export class Home extends Component {
                     </div>
 
                 </div>
+
+                <RecognitionModal close={closeRecognitionCardModal} visible={modalDisplayed.show}/>
+
+                { /*
+                <Modal modalDisplayed={MyRecognitions}/>
+                 */ }
             </div>
         );
     }
@@ -110,6 +125,6 @@ export default connect(
     // Map State to Props (Reducers)
     (state) => state,
     //Map DispatchToProps (Actions)
-    (dispatch) => (bindActionCreators({...HomeActions}, dispatch))
+    (dispatch) => (bindActionCreators({...HomeActions, ...RecognitionCardActions}, dispatch))
     // {...HomeActions}
 )(Home);

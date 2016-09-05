@@ -25,7 +25,10 @@ export class RecognitionCard extends Component {
     }
 
     render() {
-        let {receiverName, senderName, points, corporateValueName = '', description} = this.props;
+        let {receiverName, senderName, points, corporateValueName = '', description,
+            openModal
+//            ,closeModal
+        } = this.props;
 
         return (
             <div className={ cx('h5-recognition-card', 'h5-' + corporateValueName.toLowerCase()) }>
@@ -39,6 +42,13 @@ export class RecognitionCard extends Component {
                     <img src="https://github.com/arielpartners/highfive-client/raw/master/dev/img/headshot.jpg"
                          onerror="this.src='images/avatar.png';" alt={receiverName}/>
                     <a href="#">{receiverName}</a>
+                </div>
+
+                <div className="h5-recognition-nav-panel">
+                    <a href="#" data-toggle="modal"
+                       data-target="#recognitionDetails"
+                       onClick={openModal}
+                    ><span className="glyphicon glyphicon-new-window"></span></a>
                 </div>
             </div>
         );

@@ -13,7 +13,7 @@ if (__WEBPACK__) {
   //require('!style!css!sass!./style.scss');
 }
 
-class Modal extends React.Component {
+export class Modal extends React.Component {
 
     constructor(props) {
         super(props);
