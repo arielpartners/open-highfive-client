@@ -48,7 +48,7 @@ export class Home extends Component {
         return (
             <div className="container-fluid">
                 <div className="row">
-                    <RecognizePeer users={filteredUsers} createRecognition={createRecognition}/>
+                    <div className="col-lg-3"></div>
 
                     <div className="col-lg-6 h5-mobilehidden">
 
@@ -65,50 +65,7 @@ export class Home extends Component {
                         <div className="clearfix"></div>
                     </div>
 
-                    <div className="col-lg-3">
-
-                        <h2>For Managers</h2>
-
-                        <ul className="list-unstyled list-group h5-quicklinks">
-                            <li className="list-group-item"><a href="#">
-                                <span className="glyphicon glyphicon-ok"></span> Approve Recognitions</a>
-                            </li>
-                            <li className="list-group-item"><a href="#">
-                                <span className="glyphicon glyphicon-list"></span> My Organization</a>
-                            </li>
-                            <li className="list-group-item"><a href="#">
-                                <span className="glyphicon glyphicon-user"></span> Manage Users</a>
-                            </li>
-                            <li className="list-group-item"><a href="#">
-                                <span className="glyphicon glyphicon-stats"></span> Program Reports</a>
-                            </li>
-                        </ul>
-
-                        <h2>For Administrators</h2>
-
-                        <ul className="list-unstyled list-group h5-quicklinks">
-                            <li className="list-group-item"><a href="#">
-                                <span className="glyphicon glyphicon-cog"></span> Manage Corporate Values</a>
-                            </li>
-                            <li className="list-group-item"><a href="#">
-                                <span className="glyphicon glyphicon-user"></span> Manage Users</a>
-                            </li>
-                            <li className="list-group-item">
-                                <a href="#"><span className="glyphicon glyphicon-shopping-cart"></span> Manage Reward
-                                    Store</a>
-                            </li>
-                            <li className="list-group-item">
-                                <a href="#"><span className="glyphicon glyphicon-ok"></span> Approve Recognitions</a>
-                            </li>
-                            <li className="list-group-item"><a href="#">
-                                <span className="glyphicon glyphicon-list"></span> My Organization</a>
-                            </li>
-                            <li className="list-group-item"><a href="#">
-                                <span className="glyphicon glyphicon-stats"></span> Program Reports</a>
-                            </li>
-                        </ul>
-
-                    </div>
+                    <RecognizePeer users={filteredUsers} createRecognition={createRecognition}/>
 
                 </div>
 
