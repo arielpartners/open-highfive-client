@@ -33,7 +33,7 @@ export class Home extends Component {
     render() {
 
         const {recognitions = [], users = [], user = {}} = this.props;
-        const filteredUsers = users.filter((current) => current.email !== user.email);
+        const filteredUsers = users ? users.filter((current) => current.email !== user.email) : [];
 
         return (
             <div className="container-fluid">

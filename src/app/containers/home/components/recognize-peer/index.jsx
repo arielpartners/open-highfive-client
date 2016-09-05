@@ -1,4 +1,5 @@
 import React from 'react';
+import {getFormData} from '../../../../index';
 
 /* istanbul ignore next */
 if (__WEBPACK__) {
