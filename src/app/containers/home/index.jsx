@@ -32,7 +32,7 @@ export class Home extends Component {
 
     render() {
 
-        const {recognitions, users, user} = this.props;
+        const {createRecognition, recognitions, users, user} = this.props;
         const filteredUsers = users.filter((current) => current.email !== user.email);
 
         if (!this.props.loggedIn) {
@@ -42,7 +42,7 @@ export class Home extends Component {
         return (
             <div className="container-fluid">
                 <div className="row">
-                    <RecognizePeer users={filteredUsers}/>
+                    <RecognizePeer users={filteredUsers} createRecognition={createRecognition}/>
 
                     <div className="col-lg-6 h5-mobilehidden">
 

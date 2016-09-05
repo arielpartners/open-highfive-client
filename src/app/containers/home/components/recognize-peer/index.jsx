@@ -6,16 +6,53 @@ if (__WEBPACK__) {
     require('./style.scss');
 }
 
-export const RecognizePeer = ({users, }) => {
-    let userList = users || [];
+/* eslint-disable max-params */
+const onSubmit = (form, getData, inputs, createRecognition, statics) => {
+    form.classList.remove('invalid');
+
+    const data = getData(inputs);
+
+
+    if (!isValid(form)) {
+        form.classList.add('invalid');
+    } else {
+        createRecognition(Object.assign(getData(inputs), ...statics));
+    }
+};
+/* eslint-enable max-params */
+
+const isValid = (form) =>  {
+    return form.querySelectorAll('*:invalid').length === 0;
+};
+
+export const RecognizePeer = ({users, createRecognition}) => {
+    let form,
+        statics = [
+            {senderEmail : 'test@test.com'},
+            {corporateValueName: 'Integrity'},
+            {organizationName: 'Ariel Partners'}
+        ],
+        inputs = [],
+        userList = users || [],
+        addInput = (input) => {
+            inputs.push(input);
+        };
+
     return (
-        <div className="col-lg-3 recognize-peer">
+        <form onSubmit={(event) => event.preventDefault() &
+                       onSubmit(form, getFormData, inputs, createRecognition, statics)}
+              noValidate
+              ref={(ref)=> {
+                  form = ref;
+              }}
+              className="col-lg-3 recognize-peer">
+
 
             <h2 className="h5-sectionhdr">Reward Someone <em>for a deed well done</em></h2>
 
             <div className="form-group h5-margintop20">
-                <select id="staffName" name="staffName" className="form-control">
-                    <option value="">Select an Employee</option>
+                <select name="receiverEmail" className="form-control" required ref={addInput}>
+                    <option value="" disabled selected hidden>Select an Employee</option>
                     {
                         userList.map(
                             (user)=>(
@@ -28,7 +65,9 @@ export const RecognizePeer = ({users, }) => {
             </div>
 
             <div className="form-group">
-                <textarea className="form-control"
+                <textarea ref={addInput}
+                          className="form-control"
+
                           placeholder="Write a few words about what they did or why it was memorable" id="occurrence"
                           name="occurrence"></textarea>
             </div>
@@ -68,8 +107,8 @@ export const RecognizePeer = ({users, }) => {
             {/*</fieldset>*/}
 
             <div className="form-group">
-                <select id="rewardPoints" name="rewardPoints" className="form-control">
-                    <option value="">Select a Recognition Level</option>
+                <select name="points" className="form-control" required ref={addInput}>
+                    <option value="" disabled selected hidden>Select a Recognition Level</option>
                     <option value="50">50</option>
                     <option value="40">40</option>
                     <option value="30">30</option>
@@ -83,6 +122,6 @@ export const RecognizePeer = ({users, }) => {
                 <input type="submit" className="btn btn-primary" value="Give your Reward" data-dismiss="modal"/>
                 <input type="reset" className="btn btn-danger" value="Start Over" data-dismiss="modal"/>
             </div>
-        </div>
+        </form>
     );
 };

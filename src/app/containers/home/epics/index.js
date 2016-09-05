@@ -10,8 +10,8 @@ const HEADER = {'Content-Type': 'application/json'};
 const createRecognitionEpic = action$ =>
     action$.ofType(ActionTypes.CREATE_RECOGNITION_PENDING)
         .mergeMap(action =>
-            ajax.post(BASE_URL, JSON.stringify(action.payload), HEADER)
-                .map(Actions.userAuthenticated)
+            ajax.post(BASE_URL + 'recognitions', JSON.stringify(action.payload), HEADER)
+                .map(Actions.receiveUsers)
                 .catch(error => Observable.of({type: ActionTypes.CREATE_RECOGNITION_ERROR, payload: error}))
         );
 
@@ -32,6 +32,7 @@ const getUsersEpic = action$ =>
         );
 
 export default combineEpics(
+    createRecognitionEpic,
     getRecentRecognitionEpic,
     getUsersEpic
 );
