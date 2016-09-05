@@ -81,6 +81,7 @@ const logoutEpic = action$ =>
 const redirectToLoginEpic = action$ =>
     action$.ofType(ActionTypes.REHYDRATE)
         .filter(state => !state.payload.loggedIn)
+        .map(Actions.logout)
         .map(() => push('/login'));
 
 export default combineEpics(
