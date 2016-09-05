@@ -32,7 +32,9 @@ export class Home extends Component {
 
     render() {
 
-        const {createRecognition, recognitions, users, user} = this.props;
+        const {createRecognition, recognitions, users, user, modalDisplayed,
+            openRecognitionCardModal, closeRecognitionCardModal,
+            } = this.props;
         const filteredUsers = users.filter((current) => current.email !== user.email);
 
         if (!this.props.loggedIn) {
@@ -50,7 +52,9 @@ export class Home extends Component {
 
                         {
                             recognitions.map(recognition => {
-                                return <RecognitionCard key={'recognition-' + recognition.id} {...recognition} />;
+                                return (<RecognitionCard key={'recognition-' + recognition.id}
+                                                        {...recognition}
+                                                        openModal={() => openRecognitionCardModal(recognition)}/>);
                             })
                         }
 
@@ -103,6 +107,9 @@ export class Home extends Component {
                     </div>
 
                 </div>
+
+                <RecognitionModal close={closeRecognitionCardModal} visible={modalDisplayed.view}
+                                  {...modalDisplayed.recognition}/>
             </div>
         );
     }
@@ -111,7 +118,8 @@ export class Home extends Component {
 const mapStateToProps = (state) => {
     return Object.assign({}, state, {
         recognitions : state.recognitions || [],
-        users : state.users || []
+        users : state.users || [],
+        modalDisplay: state.modalDisplay || {view: false, recognition: {}}
     });
 };
 
@@ -121,6 +129,6 @@ export default connect(
     // Map State to Props (Reducers)
     mapStateToProps,
     //Map DispatchToProps (Actions)
-    (dispatch) => (bindActionCreators({...HomeActions}, dispatch))
+    (dispatch) => (bindActionCreators({...HomeActions, ...RecognitionCardActions}, dispatch))
     // {...HomeActions}
 )(Home);

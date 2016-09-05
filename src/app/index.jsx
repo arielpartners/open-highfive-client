@@ -9,7 +9,7 @@ import {syncHistoryWithStore} from 'react-router-redux';
 import Header from './containers/header';
 import Login from './containers/login';
 import Home from './containers/home';
-import Modal from './containers/modal';
+// import Modal from './containers/modal';
 
 const store = configureStore();
 
@@ -37,7 +37,7 @@ export const App = ({children}) => {
         <div>
             <Header />
             {children}
-            <Modal />
+            { /* <Modal /> */}
         </div>
     );
 };
