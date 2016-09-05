@@ -7,6 +7,14 @@ import * as Actions from '../actions';
 const BASE_URL = '/api/';
 const HEADER = {'Content-Type': 'application/json'};
 
+const createRecognitionEpic = action$ =>
+    action$.ofType(ActionTypes.CREATE_RECOGNITION_PENDING)
+        .mergeMap(action =>
+            ajax.post(BASE_URL + 'recognitions', JSON.stringify(action.payload), HEADER)
+                .map(Actions.recognitionCreated)
+                .catch(error => Observable.of({type: ActionTypes.CREATE_RECOGNITION_ERROR, payload: error}))
+        );
+
 const getRecentRecognitionEpic = action$ =>
     action$.ofType(ActionTypes.REQUEST_RECOGNITIONS)
         .mergeMap(action =>
@@ -24,6 +32,7 @@ const getUsersEpic = action$ =>
         );
 
 export default combineEpics(
+    createRecognitionEpic,
     getRecentRecognitionEpic,
     getUsersEpic
 );

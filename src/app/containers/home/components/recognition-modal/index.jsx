@@ -44,7 +44,7 @@ export class RecognitionModal extends Component {
 
                             <div className="container-fluid">
                                 <div className="row">
-                                    <div className="col-md-6 col-sm-12" style={{'margin-bottom': '20px'}}>
+                                    <div className="col-md-6 col-sm-12" style={{margiBottom: '20px'}}>
                                         <img src="/images/headshot.jpg"
                                              className="h5-roundheadshot" alt="Julie Doe"/>
                                         <h3><a href="#">{receiverName}</a></h3>

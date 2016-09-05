@@ -22,17 +22,15 @@ if (__WEBPACK__) {
 
 const history = syncHistoryWithStore(browserHistory, store);
 
-export const getFormData = (inputs, toOmit = []) => {
-    var cb = (data, input) => {
-        const name = input.id;
-        const value = input.value;
-        if (toOmit.indexOf(name) === -1) {
-            data[name] = value === '' ? undefined : value;
-        }
+export const getFormData = (inputs) => (
+    inputs.reduce((data, input)=> {
+        const type = input.getAttribute('type');
+        const name = input.name;
+        const value = /(radio|checkbox)/i.test(type) ? input.checked : input.value;
+        data[name] = value === '' ? undefined : value;
         return data;
-    };
-    return inputs.reduce(cb, {});
-};
+    }, {})
+);
 
 export const App = ({children}) => {
     return (

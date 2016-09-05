@@ -92,7 +92,7 @@ export class Login extends Component {
                                        className={inputClass}
                                        required={true}
                                        tabIndex={1}
-                                       type="email" id="email"/>
+                                       type="email" name="email"/>
                                 <label className={labelClass} htmlFor="email">Email</label>
                                 <span className={errorClass}>Valid email address is required</span>
                             </div>
@@ -102,7 +102,7 @@ export class Login extends Component {
                                        type="password"
                                        required={true}
                                        tabIndex={2}
-                                       id="password"/>
+                                       name="password"/>
                                 <label className={labelClass} htmlFor="password">Password</label>
                                 <span className={errorClass}>Password is required</span>
                             </div>
