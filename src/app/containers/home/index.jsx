@@ -8,6 +8,7 @@ import {RecognizePeer} from './components/recognize-peer';
 import {bindActionCreators} from 'redux';
 import * as HomeActions from './actions';
 import * as RecognitionCardActions from './actions/recognition-card';
+import {Metrics} from '../header/components/metrics';
 
 /* istanbul ignore next */
 if (__WEBPACK__) {
@@ -36,7 +37,7 @@ export class Home extends Component {
 
     render() {
 
-        const {createRecognition, recognitions, users, user, modalDisplayed,
+        const {createRecognition, recognitions, users, user, metrics, modalDisplayed,
             openRecognitionCardModal, closeRecognitionCardModal,
             } = this.props;
         const filteredUsers = users.filter((current) => current.email !== user.email);
@@ -63,6 +64,9 @@ export class Home extends Component {
                         }
 
                         <div className="clearfix"></div>
+                        <hr/>
+                        <h3 class="h5-sectionhdr">See what's happening across your organization</h3>
+                        <Metrics loggedIn={true} metrics={metrics}/>
                     </div>
 
                     <RecognizePeer users={filteredUsers} createRecognition={createRecognition}/>
@@ -80,6 +84,7 @@ const mapStateToProps = (state) => {
     return Object.assign({}, state, {
         recognitions : state.recognitions || [],
         users : state.users || [],
+        metrics : state.metrics || [],
         modalDisplay: state.modalDisplay || {view: false, recognition: {}}
     });
 };

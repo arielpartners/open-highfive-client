@@ -51,7 +51,11 @@ class Header extends React.Component {
                             <a href="#" className="logo"/>
                             {
                                 (loggedIn) ?
-                                    null
+                                    <span className="pull-right h5-contact-support">
+                                        <a href="mailto:ggarno@arielpartners.com">
+                                            Feedback, Questions, Comments?
+                                        </a>
+                                    </span>
                                 :
                                   <span>
                                     <a href="/version.txt"
@@ -60,12 +64,6 @@ class Header extends React.Component {
                                        className="version server">Server: v.{healthCheck.version}</a>
                                   </span>
                             }
-                            <span className="pull-right h5-contact-support">
-                                <a href="mailto:ggarno@arielpartners.com">
-                                    Feedback, Questions, Comments
-                                </a>
-                            </span>
-
                         </div>
                     </div>
                 </div>

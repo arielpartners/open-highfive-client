@@ -377,7 +377,6 @@ h3 {
 }
 
 
-
 /* ------------------------- donut charts stuff -------------------------- */
 
 .h5-stats {
@@ -406,7 +405,8 @@ h3 {
   color: #C22A37;
   font-size: 1.8em;
   position: absolute;
-  width: 100%;
+  //width: 100%;
+  width: 300px;
   top: 30%;
   text-align: center;
 }
@@ -453,32 +453,35 @@ h3 {
 }
 
 
-.h5-mystats {
-  font-family: "Merriweather", Georgia, Times, "Times New Roman", serif;
-  color: #C22A37;
-  font-size: 2.6em;
-  display: inline-block;
+.h5-reports-content {
+  position: relative;
+  padding-bottom: 50px;
+  margin-top: 30px;
+}
+
+.h5-reports-graph {
+  max-width: 100%;
+}
+
+.h5-reports-legend {
+  position: absolute;
+  bottom: 10px;
   text-align: center;
+  width: 100%;
 }
 
-.h5-mystats.earned {
-  color: #080;
-  margin-left: 16px;
-}
 
-.h5-mystats em {
-  font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
-  color: black;
-  font-size: 40%;
-  display: block;
-  font-style: normal;
-}
+
 
 .h5-quicklinks .glyphicon {
   margin-right: 10px;
 }
 
-
+@media (min-width: 992px) {
+  .h5-shaded {
+    margin-left: -15px;
+  }
+}
 
 @media (max-width: 768px) {
   .h5-stats-display {
@@ -488,8 +491,13 @@ h3 {
   .h5-mobilehidden {
     display: none;
   }
-}
 
+  .h5-shaded {
+    min-height: inherit;
+    margin: 0 -15px;
+  }
+
+}
 // End H5 styles
 
 // Support for Bootstrap menus without Javascript
