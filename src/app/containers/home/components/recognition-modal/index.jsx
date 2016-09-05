@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import moment from 'moment';
 // import cx from 'classnames';
 
 /* istanbul ignore next */
@@ -52,7 +53,9 @@ export class RecognitionModal extends Component {
                                     <div className="col-md-6 col-sm-12">
                                         <h4>Recognized by {senderName}</h4>
                                         <p><em>&quot;{description}&quot;</em></p>
-                                        <p>{points} pts / {dateCreated}</p>
+                                        <p>{points} pts /&nbsp;
+                                            {dateCreated ? moment(dateCreated).format('MM-DD-YYYY') : ''}
+                                            </p>
                                     </div>
                                 </div>
                             </div>
