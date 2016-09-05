@@ -115,6 +115,16 @@ form {
   margin: 0 auto;
 }
 
+.h5-contact-support {
+  text-align: right;
+  padding-top: 10px;
+}
+
+.h5-contact-support a{
+  color: white;
+  font-size: 11pt;
+}
+
 /*.h5-stats .col-lg-6 {
 	padding-right: 0;
 	padding-left: 0;
@@ -521,7 +531,8 @@ h3 {
   color: #C22A37;
   font-size: 1.8em;
   position: absolute;
-  width: 100%;
+  //width: 100%;
+  width: 300px;
   top: 30%;
   text-align: center;
 }
@@ -584,6 +595,8 @@ h3 {
   text-align: center;
   width: 100%;
 }
+
+
 
 
 .h5-quicklinks .glyphicon {

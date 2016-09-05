@@ -7,6 +7,6 @@ export const DoughnutChart = ({chartData}) => {
         borderWidth: 0
     };
     return (
-        <Doughnut data={chartData} options={chartOptions}/>
+        <Doughnut data={chartData} options={chartOptions} height="120" width="300"/>
     );
 };

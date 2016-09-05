@@ -51,7 +51,11 @@ class Header extends React.Component {
                             <a href="#" className="logo"/>
                             {
                                 (loggedIn) ?
-                                    null
+                                    <span className="pull-right h5-contact-support">
+                                        <a href="mailto:ggarno@arielpartners.com">
+                                            Feedback, Questions, Comments?
+                                        </a>
+                                    </span>
                                 :
                                   <span>
                                     <a href="/version.txt"
@@ -66,6 +70,7 @@ class Header extends React.Component {
                 {
                     (loggedIn) ? <Menu logout={logout}/> : null
                 }
+
             </div>
         );
     }
