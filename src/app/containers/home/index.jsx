@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {Greeting} from './components/greeting';
+import {MyRecognitionCard} from './components/my-recognition-card';
 import {RecognitionCard} from './components/recognition-card';
 import {RecognitionModal} from './components/recognition-modal';
 // import Modal from '../modal';
@@ -29,6 +31,9 @@ export class Home extends Component {
     }
 
     componentDidUpdate() {
+        if(this.props.user && this.props.user.email) {
+            this.props.requestMyRecognitions();
+        }
         /* eslint-disable no-undef */
         componentHandler.upgradeDom();
         /* eslint-enable no-undef */
@@ -36,7 +41,7 @@ export class Home extends Component {
 
     render() {
 
-        const {createRecognition, recognitions, users, user, modalDisplayed,
+        const {createRecognition, myRecognitions, recognitions, users, user, modalDisplayed,
             openRecognitionCardModal, closeRecognitionCardModal,
             } = this.props;
         const filteredUsers = users.filter((current) => current.email !== user.email);
@@ -48,7 +53,14 @@ export class Home extends Component {
         return (
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-lg-3"></div>
+                    <div className="col-lg-3">
+                        <Greeting user={user} myRecognitions={myRecognitions} />
+                        { myRecognitions && myRecognitions.length > 0 ?
+                            <MyRecognitionCard key={'recognition-' + myRecognitions[0].id}
+                                             openModal={() => openRecognitionCardModal(myRecognitions[0])}
+                                             {...myRecognitions[0]} />
+                            : null }
+                    </div>
 
                     <div className="col-lg-6 h5-mobilehidden">
 
@@ -57,8 +69,8 @@ export class Home extends Component {
                         {
                             recognitions.map(recognition => {
                                 return (<RecognitionCard key={'recognition-' + recognition.id}
-                                                        {...recognition}
-                                                        openModal={() => openRecognitionCardModal(recognition)}/>);
+                                                         openModal={() => openRecognitionCardModal(recognition)}
+                                                         {...recognition} />);
                             })
                         }
 

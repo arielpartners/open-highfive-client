@@ -78,7 +78,6 @@ form {
 }
 
 // TODO:  H5 styles can be broken out into related components
-
 /* ---------------- bootstrap override ----------------  */
 
 .navbar {
@@ -171,6 +170,13 @@ h3 {
   border-radius: 50%;
 }
 
+.h5-shaded {
+  background: url(./img/bgLeftpanel.png) repeat left top;
+  border-right: solid 1px #D3D7DA;
+  min-height: 1000px;
+  padding-top: 10px;
+}
+
 /* ----------------------- Recognition Display ------------------------ */
 
 .h5-recognition-card {
@@ -178,12 +184,11 @@ h3 {
   border-top: solid 30px #D6D7D9;
   padding: 10px;
   background: #F1F1F1;
-  margin: 7px 7px 7px 0;
+  margin: 7px 10px 7px 0;
   line-height: 130%;
   float: left;
   width: 300px;
   border-radius: 7px;
-  min-height: 180px;
 }
 
 .h5-recognition-card:hover {
@@ -194,8 +199,7 @@ h3 {
 
 .h5-recognition-card h3 {
   text-transform: uppercase;
-  border-bottom-style: solid;
-  border-bottom-width: 1px;
+  border-bottom: solid 1px #BBB;
   padding-left: 45px;
   padding-bottom: 0;
   font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
@@ -219,7 +223,6 @@ h3 {
 }
 
 .h5-recognition-card.h5-integrity h3 {
-  border-color: #FF6600;
   color: #FF6600;
 }
 
@@ -232,7 +235,6 @@ h3 {
 }
 
 .h5-recognition-card.h5-vigilance h3 {
-  border-color: #990000;
   color: #990000;
 }
 
@@ -245,7 +247,6 @@ h3 {
 }
 
 .h5-recognition-card.h5-respect h3 {
-  border-color: #00578C;
   color: #00578C;
 }
 
@@ -258,7 +259,6 @@ h3 {
 }
 
 .h5-recognition-card.h5-excellence h3 {
-  border-color: #330099;
   color: #330099;
 }
 
@@ -271,7 +271,6 @@ h3 {
 }
 
 .h5-recognition-card.h5-accountability h3 {
-  border-color: #007700;
   color: #007700;
 }
 
@@ -329,7 +328,7 @@ h3 {
   display: block;
 }
 
-.h5-recognition-nav-panel {
+.h5-recognition-card .h5-recognition-nav-panel {
   position: absolute;
   top: 0;
   background: rgba(255, 255, 255, 0.70);
@@ -349,7 +348,7 @@ h3 {
   display: block;
 }
 
-.h5-recognition-nav-panel a {
+.h5-recognition-card .h5-recognition-nav-panel a {
   border: solid 1px #00578d;
   border-radius: 100%;
   padding: 13px 15px 7px 15px;
@@ -364,6 +363,132 @@ h3 {
   width: 150px;
   height: 150px;
   margin-bottom: 10px;
+}
+
+
+.h5-recognition-receipt {
+  padding: 0 15px 0 85px;
+  border-bottom: solid 1px #DDD;
+  position: relative;
+  margin: 0 -15px 0 -15px;
+  overflow: hidden;
+}
+
+.h5-recognition-receipt h2 {
+  padding-left: 70px;
+  min-height: 50px;
+  margin-left: -70px;
+}
+
+
+.h5-recognition-receipt.h5-integrity h2 {
+  background: url(./img/badgeIntegrity.png) no-repeat left top;
+}
+
+.h5-recognition-receipt.h5-vigilance h2 {
+  background: url(./img/badgeVigilance.png) no-repeat left top;
+}
+
+.h5-recognition-receipt.h5-respect h2 {
+  background: url(./img/badgeRespect.png) no-repeat left top;
+}
+
+.h5-recognition-receipt.h5-excellence h2 {
+  background: url(./img/badgeExcellence.png) no-repeat left top;
+}
+
+.h5-recognition-receipt.h5-accountability h2 {
+  background: url(./img/badgeAccountability.png) no-repeat left top;
+}
+
+
+.h5-recognition-receipt h2 span {
+  font-size: 80%;
+  font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+  display: block;
+  font-weight: normal;
+  color: #222;
+}
+
+.h5-recognition-receipt h2 span a {
+  display: block;
+}
+
+.h5-recognition-receipt blockquote {
+  background: url(./img/iconQuote.png) no-repeat left top;
+  font-size: 14px;
+  font-style: italic;
+  padding: 15px 10px;
+  margin: 0px 0 0 -10px;
+  border-left: none;
+}
+
+.h5-recognition-receipt blockquote span {
+  display: block;
+  font-style: normal;
+}
+
+.h5-recognition-receipt .h5-recognition-nav-panel {
+  background: rgba(255, 255, 255, 0.70);
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: none;
+  font-size: 200%;
+  padding: 65px 0;
+}
+
+.h5-recognition-receipt:hover .h5-recognition-nav-panel {
+  display: block;
+}
+
+.h5-recognition-receipt .h5-recognition-nav-panel a {
+  border: solid 1px #00578d;
+  border-radius: 100%;
+  padding: 13px 15px 7px 15px;
+  color: #00578d;
+}
+
+
+
+.h5-mystats {
+  background: url(./img/bgShopping.png) repeat-x left bottom;
+  min-height: 150px;
+  margin: 0px -15px 30px -15px;
+  padding: 15px 15px 15px 40px;
+  position: relative;
+}
+
+.h5-mystats h4.h5-earned {
+  display: inline-table;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.h5-mystats h3.h5-earned {
+  display: inline-table;
+  font-family: "Merriweather", Georgia, Times, "Times New Roman", serif;
+  color: #C22A37;
+}
+
+.h5-mystats em {
+  font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+  color: black;
+  font-size: 40%;
+  display: block;
+  font-style: normal;
+}
+
+.h5-mystats .h5-shoppingbag {
+  background: url(./img/shoppingBag.png) no-repeat left top;
+  width: 53px;
+  height: 72px;
+  position: absolute;
+  right: 20px;
+  bottom: 40px;
 }
 
 
@@ -443,32 +568,33 @@ h3 {
 }
 
 
-.h5-mystats {
-  font-family: "Merriweather", Georgia, Times, "Times New Roman", serif;
-  color: #C22A37;
-  font-size: 2.6em;
-  display: inline-block;
+.h5-reports-content {
+  position: relative;
+  padding-bottom: 50px;
+  margin-top: 30px;
+}
+
+.h5-reports-graph {
+  max-width: 100%;
+}
+
+.h5-reports-legend {
+  position: absolute;
+  bottom: 10px;
   text-align: center;
+  width: 100%;
 }
 
-.h5-mystats.earned {
-  color: #080;
-  margin-left: 16px;
-}
-
-.h5-mystats em {
-  font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
-  color: black;
-  font-size: 40%;
-  display: block;
-  font-style: normal;
-}
 
 .h5-quicklinks .glyphicon {
   margin-right: 10px;
 }
 
-
+@media (min-width: 992px) {
+  .h5-shaded {
+    margin-left: -15px;
+  }
+}
 
 @media (max-width: 768px) {
   .h5-stats-display {
@@ -478,8 +604,13 @@ h3 {
   .h5-mobilehidden {
     display: none;
   }
-}
 
+  .h5-shaded {
+    min-height: inherit;
+    margin: 0 -15px;
+  }
+
+}
 // End H5 styles
 
 // Support for Bootstrap menus without Javascript
