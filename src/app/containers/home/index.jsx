@@ -44,9 +44,6 @@ export class Home extends Component {
         if (!this.props.loggedIn) {
             return null;
         }
-
-        console.log(modalDisplayed);
-
         return (
             <div className="container-fluid">
                 <div className="row">
@@ -58,9 +55,9 @@ export class Home extends Component {
 
                         {
                             recognitions.map(recognition => {
-                                return <RecognitionCard key={'recognition-' + recognition.id}
+                                return (<RecognitionCard key={'recognition-' + recognition.id}
                                                         {...recognition}
-                                                        openModal={() => openRecognitionCardModal(recognition)}/>;
+                                                        openModal={() => openRecognitionCardModal(recognition)}/>);
                             })
                         }
 

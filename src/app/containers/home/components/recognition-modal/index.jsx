@@ -28,10 +28,11 @@ export class RecognitionModal extends Component {
         // , senderName, receiverName, description
         let {close, visible,
             senderName, receiverName, corporateValueName, description, points, dateCreated} = this.props;
+
         return (
             <div id="recognitionDetails"
                  className="modal fade h5-recognitionDetails in" role="dialog"
-                 style={ visible ? {'display': 'block', 'padding-right': '15px;'} : {}}
+                 style={ visible ? {display: 'block', 'padding-right': '15px;'} : {}}
             >
                 <div className="modal-dialog">
                     <div className="modal-content">
@@ -43,8 +44,8 @@ export class RecognitionModal extends Component {
 
                             <div className="container-fluid">
                                 <div className="row">
-                                    <div className="col-md-6 col-sm-12" style={{"margin-bottom": "20px"}}>
-                                        <img src="https://github.com/arielpartners/highfive-client/raw/master/dev/img/headshot.jpg"
+                                    <div className="col-md-6 col-sm-12" style={{'margin-bottom': '20px'}}>
+                                        <img src="/images/headshot.jpg"
                                              className="h5-roundheadshot" alt="Julie Doe"/>
                                         <h3><a href="#">{receiverName}</a></h3>
                                     </div>
