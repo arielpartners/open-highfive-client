@@ -11,7 +11,7 @@ export const Greeting = ({user, myRecognitions}) => {
 
     return (
         <h2 className="h5-sectionhdr" >
-            <span>Hello {user.firstName}!!</span>
+            <span>Hello {user.firstName}!</span>
             { haveRecognitions ? <em>You've been given a recognition</em> : null }
         </h2>
     );

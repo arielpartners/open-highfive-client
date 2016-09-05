@@ -199,6 +199,7 @@ h3 {
   float: left;
   width: 300px;
   border-radius: 7px;
+  min-height: 180px;
 }
 
 .h5-recognition-card:hover {
@@ -224,6 +225,7 @@ h3 {
   margin: 20px 0 0 10px;
   width: 160px;
   border-left: none;
+  min-height: 40px;
 }
 
 .h5-recognition-card blockquote span {
