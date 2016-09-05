@@ -8,9 +8,7 @@ export const loggedIn = (state = false, {type, payload}) => {
 
     switch (type) {
         case '@@router/LOCATION_CHANGE':
-            if(payload.pathname === '/login') {
-                return false;
-            }
+            return payload.pathname === '/login' ? false : state;
         case ActionTypes.LOGGING_IN:
             return false;
         case ActionTypes.LOGIN:
