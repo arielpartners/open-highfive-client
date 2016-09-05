@@ -22,9 +22,9 @@ describe('Header/Menu', () => {
         // it('should have an Admin Link', () => {
         //     expect(wrapper.find('ul.navbar-right li').at(1).text()).to.eql('Admin');
         // });
-        // it('should have an Logout Link', () => {
-        //     expect(wrapper.find('Link').text()).to.eql('Logout');
-        // });
+        it('should have an Logout Link', () => {
+            expect(wrapper.find('Link').text()).to.eql('Logout');
+        });
     });
 
     describe('UI Functionality', () => {
