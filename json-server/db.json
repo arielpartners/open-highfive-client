@@ -13,90 +13,90 @@
   "metrics": {
     "week": [
       {
-        "companyValue": "Excellence",
-        "count": 0
+        "corporateValue": "Excellence",
+        "points": 0
       },
       {
-        "companyValue": "Integrity",
-        "count": 0
+        "corporateValue": "Integrity",
+        "points": 0
       },
       {
-        "companyValue": "Respect",
-        "count": 0
+        "corporateValue": "Respect",
+        "points": 0
       },
       {
-        "companyValue": "Teamwork",
-        "count": 0
+        "corporateValue": "Teamwork",
+        "points": 0
       },
       {
-        "companyValue": "Vigilance",
-        "count": 0
+        "corporateValue": "Vigilance",
+        "points": 0
       }
     ],
     "month": [
       {
-        "companyValue": "Excellence",
-        "count": 120
+        "corporateValue": "Excellence",
+        "points": 120
       },
       {
-        "companyValue": "Integrity",
-        "count": 54
+        "corporateValue": "Integrity",
+        "points": 54
       },
       {
-        "companyValue": "Respect",
-        "count": 33
+        "corporateValue": "Respect",
+        "points": 33
       },
       {
-        "companyValue": "Teamwork",
-        "count": 116
+        "corporateValue": "Teamwork",
+        "points": 116
       },
       {
-        "companyValue": "Vigilance",
-        "count": 74
+        "corporateValue": "Vigilance",
+        "points": 74
       }
     ],
     "year": [
       {
-        "companyValue": "Excellence",
-        "count": 1440
+        "corporateValue": "Excellence",
+        "points": 1440
       },
       {
-        "companyValue": "Integrity",
-        "count": 650
+        "corporateValue": "Integrity",
+        "points": 650
       },
       {
-        "companyValue": "Respect",
-        "count": 400
+        "corporateValue": "Respect",
+        "points": 400
       },
       {
-        "companyValue": "Teamwork",
-        "count": 1387
+        "corporateValue": "Teamwork",
+        "points": 1387
       },
       {
-        "companyValue": "Vigilance",
-        "count": 888
+        "corporateValue": "Vigilance",
+        "points": 888
       }
     ],
     "toDate": [
       {
-        "companyValue": "Excellence",
-        "count": 1440
+        "corporateValue": "Excellence",
+        "points": 1440
       },
       {
-        "companyValue": "Integrity",
-        "count": 650
+        "corporateValue": "Integrity",
+        "points": 650
       },
       {
-        "companyValue": "Respect",
-        "count": 400
+        "corporateValue": "Respect",
+        "points": 400
       },
       {
-        "companyValue": "Teamwork",
-        "count": 1387
+        "corporateValue": "Teamwork",
+        "points": 1387
       },
       {
-        "companyValue": "Vigilance",
-        "count": 888
+        "corporateValue": "Vigilance",
+        "points": 888
       }
     ]
   },
