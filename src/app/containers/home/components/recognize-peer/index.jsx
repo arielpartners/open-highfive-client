@@ -1,4 +1,5 @@
-import React, {Component} from 'react';
+import React from 'react';
+import cx from 'classnames';
 import {getFormData} from '../../../../index';
 
 /* istanbul ignore next */
@@ -57,11 +58,20 @@ export class RecognizePeer extends Component {
     }
 
     render() {
-        let {users, createRecognition} = this.props;
+        const labelClass = 'mdl-textfield__label',
+            inputClass = 'mdl-textfield__input',
+            errorClass = 'mdl-textfield__error',
+            fieldSetClass = 'mdl-textfield mdl-js-textfield mdl-textfield--floating-label extrawide',
+            receiverOnChange = (event) => {
+                /* eslint-disable no-console */
+                console.log('user email changed', event.target.options[event.target.selectedIndex].value);
+                /* eslint-enable no-console */
+            };
 
-        let form,
+        let {user, users, createRecognition} = this.props,
+            form,
             statics = [
-                {senderEmail : 'test@test.com'},
+                {senderEmail : user.email},
                 {organizationName: 'DHS'},
                 {points: 1}
             ],
@@ -89,16 +99,22 @@ export class RecognizePeer extends Component {
                 </h2>
 
                 <div className="form-group h5-margintop20">
-                    <select name="receiverEmail" className="form-control" required ref={addInput}>
+                    <select name="receiverEmail"
+                            className="form-control"
+                            required
+                            onChange={receiverOnChange}
+                            ref={addInput}>
                         <option value="" disabled selected hidden>Select an Employee</option>
                         {
                             userList.map(
-                                (user)=>(
+                                (employee)=>(
                                     <option
-                                        value={user.email} key={user.email}>{user.firstName + ' ' + user.lastName}</option>
+                                        value={employee.email}
+                                        key={employee.email}>{employee.firstName + ' ' + employee.lastName}</option>
                                 )
                             )
                         }
+                        <option value="AddNew">Add a New User</option>
                     </select>
                 </div>
 
@@ -118,48 +134,30 @@ export class RecognizePeer extends Component {
                         <option value="Experiment">Experiment</option>
                     </select>
                 </div>
-
-                { /* Commenting out because we might go back to this later */ }
-                {/*<fieldset className="form-group" name="corporateValueName">*/}
-                {/*<label>Select a Core Value that was demonstrated:</label>*/}
-                {/*<div className="radio">*/}
-                {/*<label>*/}
-                {/*<input type="radio" name="corpvalue" id="corpvalueExcellence" value="Integrity"/>*/}
-                {/*<strong>Teamwork</strong>: Support My Team Members*/}
-                {/*</label>*/}
-                {/*</div>*/}
-                {/*<div className="radio">*/}
-                {/*<label>*/}
-                {/*<input type="radio" name="corpvalue" id="corpvalueAccountability" value="Vigilance"/>*/}
-                {/*<strong>Improvement</strong>: Streamline My Organization*/}
-                {/*</label>*/}
-                {/*</div>*/}
-                {/*<div className="radio">*/}
-                {/*<label>*/}
-                {/*<input type="radio" name="corpvalue" id="corpvalueInitiative" value="Respect"/>*/}
-                {/*<strong>Delivery</strong>: Continuous Product Delivery*/}
-                {/*</label>*/}
-                {/*</div>*/}
-                {/*<div className="radio">*/}
-                {/*<label>*/}
-                {/*<input type="radio" name="corpvalue" id="corpvalueTeamwork" value="Excellence"/>*/}
-                {/*<strong>Experiment</strong>: Open to New Ideas*/}
-                {/*</label>*/}
-                {/*</div>*/}
-                {/*</fieldset>*/}
-
-            {/*<div className="form-group">*/}
-                {/*<select name="points" className="form-control" required ref={addInput}>*/}
-                    {/*<option value="" disabled selected hidden>Select a Recognition Level</option>*/}
-                    {/*<option value="50">50</option>*/}
-                    {/*<option value="40">40</option>*/}
-                    {/*<option value="30">30</option>*/}
-                    {/*<option value="20">20</option>*/}
-                    {/*<option value="10">10</option>*/}
-                {/*</select>*/}
-                {/*<p>You have <strong>70 points</strong> left to award this month</p>*/}
-            {/*</div>*/}
-
+                <div className={ cx('mdl-card__supporting-text', {hide: newUserHidden}) }>
+                    <div className="mdl-card__supporting-text">
+                        <div className={fieldSetClass}>
+                            <input ref={addInput}
+                                   className={inputClass}
+                                   type="text"
+                                   required={true}
+                                   tabIndex={4}
+                                   name="newUserName"/>
+                            <label className={labelClass} htmlFor="newUserName">Firstname Lastname</label>
+                            <span className={errorClass}>Password is required</span>
+                        </div>
+                        <div className={fieldSetClass}>
+                            <input ref={addInput}
+                                   className={inputClass}
+                                   required={true}
+                                   tabIndex={5}
+                                   type="email"
+                                   name="newUserEmail"/>
+                            <label className={labelClass} htmlFor="newUserEmail">Email</label>
+                            <span className={errorClass}>Valid email address is required</span>
+                        </div>
+                    </div>
+                </div>
                 <div className="form-group">
                     <input type="submit" className="btn btn-primary" value="Give your Reward" data-dismiss="modal"/>
                     &nbsp;
