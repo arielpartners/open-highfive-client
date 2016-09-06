@@ -6,6 +6,11 @@ export const DoughnutChart = ({chartData}) => {
         percentageInnerCutout: 85,
         borderWidth: 0
     };
+
+    if (!chartData) {
+        return null;
+    }
+
     return (
         <Doughnut data={chartData} options={chartOptions} height="120" width="300"/>
     );

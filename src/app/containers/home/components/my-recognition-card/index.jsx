@@ -27,13 +27,15 @@ export class MyRecognitionCard extends Component {
     render() {
         let {date, senderName, points, corporateValueName = '', description, openModal} = this.props;
 
+        let corporateValue = corporateValueName || '';
+
         return (
-            <div className={ cx('h5-recognition-receipt', 'h5-' + corporateValueName.toLowerCase()) }>
+            <div className={ cx('h5-recognition-receipt', 'h5-' + corporateValue.toLowerCase()) }>
                 <h2>
                     <span>
                         <a href="#">
                             <strong> {senderName}</strong>
-                        </a> awarded you for {points} for</span> {corporateValueName}</h2>
+                        </a> awarded you for {points} for</span> {corporateValue}</h2>
 
                 <blockquote>{description}<span>{date}</span></blockquote>
 

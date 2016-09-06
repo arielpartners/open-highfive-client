@@ -9,6 +9,7 @@ import {syncHistoryWithStore} from 'react-router-redux';
 import Header from './containers/header';
 import Login from './containers/login';
 import Home from './containers/home';
+import {Reports} from './containers/reports';
 // import Modal from './containers/modal';
 
 const store = configureStore();
@@ -48,6 +49,7 @@ render(
             <Route path="/" component={App}>
                 <IndexRoute component={Home} />
                 <Route path="/home" component={Home} />
+                <Route path="/reports" component={Reports} />
                 <Route path="/login" component={Login} />
             </Route>
         </Router>
