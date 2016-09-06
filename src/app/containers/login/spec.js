@@ -16,7 +16,7 @@ import {shallow, mount} from 'enzyme';
 import {expect} from 'chai';
 
 /* eslint-disable no-unused-expressions, max-statements, no-console, camelcase, max-nested-callbacks */
-describe('Login component', () => {
+describe.only('Login component', () => {
     let wrapper,
         props = {};
     beforeEach(()=> {
