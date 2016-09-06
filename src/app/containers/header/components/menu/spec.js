@@ -23,7 +23,7 @@ describe('Header/Menu', () => {
         //     expect(wrapper.find('ul.navbar-right li').at(1).text()).to.eql('Admin');
         // });
         it('should have an Logout Link', () => {
-            expect(wrapper.find('Link')).to.have.length(1);
+            expect(wrapper.find('Link')).to.have.length(3);
         });
     });
 
