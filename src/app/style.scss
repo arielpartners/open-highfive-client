@@ -136,6 +136,10 @@ body {
   font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
 }
 
+.h5-contentarea {
+  background: #FFF;
+}
+
 h1 {
   font-family: "Merriweather", Georgia, Times, "Times New Roman", serif;
   color: #264363;
@@ -232,6 +236,54 @@ h3 {
   display: block;
   margin-top: 10px;
   font-style: normal;
+}
+
+.h5-recognition-card.h5-teamwork h3 {
+  color: #00578C;
+}
+
+.h5-recognition-card.h5-teamwork h3 i {
+  display: inline-block;
+  background: url(./img/iconTeamwork.png) no-repeat left top;
+  width: 30px;
+  height: 30px;
+  margin: 0 5px -15px -35px;
+}
+
+.h5-recognition-card.h5-improvement h3 {
+  color: #330099;
+}
+
+.h5-recognition-card.h5-improvement h3 i {
+  display: inline-block;
+  background: url(./img/iconImprovement.png) no-repeat left top;
+  width: 30px;
+  height: 30px;
+  margin: 0 5px -15px -35px;
+}
+
+.h5-recognition-card.h5-delivery h3 {
+  color: #007700;
+}
+
+.h5-recognition-card.h5-delivery h3 i {
+  display: inline-block;
+  background: url(./img/iconDelivery.png) no-repeat left top;
+  width: 30px;
+  height: 30px;
+  margin: 0 5px -15px -35px;
+}
+
+.h5-recognition-card.h5-experiment h3 {
+  color: #FF6600;
+}
+
+.h5-recognition-card.h5-experiment h3 i {
+  display: inline-block;
+  background: url(./img/iconExperiment.png) no-repeat left top;
+  width: 30px;
+  height: 30px;
+  margin: 0 5px -15px -35px;
 }
 
 .h5-recognition-card.h5-integrity h3 {
@@ -560,26 +612,21 @@ h3 {
   margin: 0 15px;
 }
 
-.h5-stats-color-integrity {
-  background: #FF6600;
-}
-
-.h5-stats-color-vigilance {
-  background: #990000;
-}
-
-.h5-stats-color-respect {
+.h5-stats-color-teamwork {
   background: #00578C;
 }
 
-.h5-stats-color-excellence {
+.h5-stats-color-improvement {
   background: #330099;
 }
 
-.h5-stats-color-accountability {
+.h5-stats-color-delivery {
   background: #007700;
 }
 
+.h5-stats-color-experiment {
+  background: #FF6600;
+}
 
 .h5-reports-content {
   position: relative;

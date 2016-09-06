@@ -54,7 +54,7 @@ export class Home extends Component {
         }
 
         return (
-            <div className="container-fluid">
+            <div className="container-fluid h5-contentarea">
                 <div className="row">
                     <div className="col-lg-3">
                         <Greeting user={user} myRecognitions={myRecognitions} />
