@@ -6,11 +6,10 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as MetricActions from './actions';
+
 import {logout} from '../login/actions';
 
 import {Menu} from './components/menu';
-//import {Metrics} from './components/metrics';
 
 import pjson from '../../../../package.json';
 
@@ -25,22 +24,13 @@ class Header extends React.Component {
         super(props);
     }
 
-    componentDidMount() {
-        this.props.requestMetrics();
-    }
-
-    componentWillReceiveProps(nextProps) {
-        if (this.props.metrics !== nextProps.metrics) {
-            //this.props.requestMetrics();
-        }
-    }
     /* eslint-disable no-shadow */
     render() {
         const {
-            //metrics,
+            healthCheck,
             loggedIn,
             logout,
-            healthCheck,
+            routing
         } = this.props;
 
         return (
@@ -68,7 +58,7 @@ class Header extends React.Component {
                     </div>
                 </div>
                 {
-                    (loggedIn) ? <Menu logout={logout}/> : null
+                    (loggedIn) ? <Menu logout={logout} routing={routing}/> : null
                 }
 
             </div>
@@ -84,6 +74,6 @@ export default connect(
     // Map State to Props (Reducers)
     (state) => state,
     //Map DispatchToProps (Actions)
-    (dispatch) => (bindActionCreators({...MetricActions, logout}, dispatch))
+    (dispatch) => (bindActionCreators({logout}, dispatch))
 )(Header);
 

@@ -4,7 +4,7 @@ import * as ActionTypes from '../../../action-types';
 import {receiveMetrics} from '../actions';
 
 // Configure AJAX
-const BASE_URL = '/api/metrics';
+const BASE_URL = '/api/metrics/Ariel Partners';
 
 // loadRecognitionsEpic
 export default action$ => {
