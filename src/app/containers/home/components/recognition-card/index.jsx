@@ -33,7 +33,7 @@ export class RecognitionCard extends Component {
                 <h3><i></i>{corporateValue}</h3>
                 <blockquote>
                     {description}
-                    <span>{points} Points from {senderName}</span>
+                    <span>{points} Point from {senderName}</span>
                 </blockquote>
 
                 <div className="h5-recognized-person">
