@@ -21,8 +21,8 @@ if (config.enableProxy) {
     //app.enable('trust proxy');
     app.use('/api', proxy(config.proxyDomain, {
         //preserveHostHdr: true,
-        reqBodyEncoding: 'UTF-8',
-        timeout: 10000,
+        //reqBodyEncoding: 'UTF-8',
+        //timeout: 10000,
         decorateRequest: (proxyReq, originalReq) => {
             //FIXME: if we allow gzip compress, IIS in Azure sitting in front of Node is blowing up on a 502
             //I think this needs a fix to web.config to handle this, may need a web.config here to override
