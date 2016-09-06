@@ -35,11 +35,6 @@ if (config.enableProxy) {
                 let localDomain = req.headers.host.substr(0, req.headers.host.indexOf(':') || req.headers.length);
                 res._headers['set-cookie'] = JSON.parse(JSON.stringify(res._headers['set-cookie']).replace(config.proxyDomain, localDomain));
             }
-            delete res._headers['Location'];
-            delete res._headers['location'];
-            if (res.status() === 201) {
-                res.status(200);
-            }
             try {
                 callback(null, data);
             }
