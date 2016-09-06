@@ -44,7 +44,7 @@ export class MyRecognitionCard extends Component {
                        data-toggle="modal"
                        data-target="#recognitionDetails"
                        onClick={openModal}>
-                        <span class="glyphicon glyphicon-new-window"></span>
+                        <span className="glyphicon glyphicon-new-window"></span>
                     </a>
                 </div>
 
