@@ -65,11 +65,10 @@ export const Metrics = ({metrics}) => {
                         {getRecognitionsCategory('To Date', 'toDate', '400px')}
 
                         <div className="h5-stats-legend">
-                            <span className="h5-squaredot h5-stats-color-integrity"> </span>Integrity
-                            <span className="h5-squaredot h5-stats-color-Vigilance"> </span>Vigilance
-                            <span className="h5-squaredot h5-stats-color-respect"> </span>Respect
-                            <span className="h5-squaredot h5-stats-color-excellence"> </span>Excellence
-                            <span className="h5-squaredot h5-stats-color-accountability"> </span>Accountability
+                            <span className="h5-squaredot h5-stats-color-integrity"> </span>Teamwork
+                            <span className="h5-squaredot h5-stats-color-Vigilance"> </span>Improvement
+                            <span className="h5-squaredot h5-stats-color-respect"> </span>Delivery
+                            <span className="h5-squaredot h5-stats-color-excellence"> </span>Experiment
                         </div>
                     </div>
 

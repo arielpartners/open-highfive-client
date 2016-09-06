@@ -25,9 +25,8 @@ const onSubmit = (form, getData, inputs, createRecognition, statics) => {
 export const RecognizePeer = ({users, createRecognition}) => {
     let form,
         statics = [
-            {senderEmail: 'test@test.com'},
-            {corporateValueName: 'Integrity'},
-            {organizationName: 'Ariel Partners'},
+            {senderEmail : 'test@test.com'},
+            {organizationName: 'DHS'},
             {points: 1}
         ],
         inputs = [],
@@ -77,51 +76,55 @@ export const RecognizePeer = ({users, createRecognition}) => {
                           placeholder="Write a few words about what they did or why it was memorable" id="occurrence"
                           name="description"></textarea>
             </div>
+            <div className="form-group">
+                <select name="corporateValueName" className="form-control" required ref={addInput}>
+                    <option value="" disabled selected hidden>Select a Category</option>
+                    <option value="Teamwork">Teamwork</option>
+                    <option value="Improvement">Improvement</option>
+                    <option value="Delivery">Delivery</option>
+                    <option value="Experiment">Experiment</option>
+                </select>
+            </div>
 
-            {/*<fieldset className="form-group">*/}
-            {/*<label>Select a Core Value that was demonstrated:</label>*/}
-            {/*<div className="radio">*/}
-            {/*<label>*/}
-            {/*<input type="radio" name="corpvalue" id="corpvalueExcellence" value="Integrity"/>*/}
-            {/*<strong>Integrity</strong>: Service Before Sell*/}
-            {/*</label>*/}
-            {/*</div>*/}
-            {/*<div className="radio">*/}
-            {/*<label>*/}
-            {/*<input type="radio" name="corpvalue" id="corpvalueAccountability" value="Vigilance"/>*/}
-            {/*<strong>Vigilance</strong>: Guarding America*/}
-            {/*</label>*/}
-            {/*</div>*/}
-            {/*<div className="radio disabled">*/}
-            {/*<label>*/}
-            {/*<input type="radio" name="corpvalue" id="corpvalueInitiative" value="Respect"/>*/}
-            {/*<strong>Respect</strong>: Honoring our Partners*/}
-            {/*</label>*/}
-            {/*</div>*/}
-            {/*<div className="radio disabled">*/}
-            {/*<label>*/}
-            {/*<input type="radio" name="corpvalue" id="corpvalueTeamwork" value="Excellence"/>*/}
-            {/*<strong>Excellence</strong>: Exceeding Expectations*/}
-            {/*</label>*/}
-            {/*</div>*/}
-            {/*<div className="radio disabled">*/}
-            {/*<label>*/}
-            {/*<input type="radio" name="corpvalue" id="corpvalueEmpowerment" value="Accountability"/>*/}
-            {/*<strong>Accountability</strong>: Taking Ownership*/}
-            {/*</label>*/}
-            {/*</div>*/}
+            { /* Commenting out because we might go back to this later */ }
+            {/*<fieldset className="form-group" name="corporateValueName">*/}
+                {/*<label>Select a Core Value that was demonstrated:</label>*/}
+                {/*<div className="radio">*/}
+                    {/*<label>*/}
+                        {/*<input type="radio" name="corpvalue" id="corpvalueExcellence" value="Integrity"/>*/}
+                        {/*<strong>Teamwork</strong>: Support My Team Members*/}
+                    {/*</label>*/}
+                {/*</div>*/}
+                {/*<div className="radio">*/}
+                    {/*<label>*/}
+                        {/*<input type="radio" name="corpvalue" id="corpvalueAccountability" value="Vigilance"/>*/}
+                        {/*<strong>Improvement</strong>: Streamline My Organization*/}
+                    {/*</label>*/}
+                {/*</div>*/}
+                {/*<div className="radio">*/}
+                    {/*<label>*/}
+                        {/*<input type="radio" name="corpvalue" id="corpvalueInitiative" value="Respect"/>*/}
+                        {/*<strong>Delivery</strong>: Continuous Product Delivery*/}
+                    {/*</label>*/}
+                {/*</div>*/}
+                {/*<div className="radio">*/}
+                    {/*<label>*/}
+                        {/*<input type="radio" name="corpvalue" id="corpvalueTeamwork" value="Excellence"/>*/}
+                        {/*<strong>Experiment</strong>: Open to New Ideas*/}
+                    {/*</label>*/}
+                {/*</div>*/}
             {/*</fieldset>*/}
 
             {/*<div className="form-group">*/}
-            {/*<select name="points" className="form-control" required ref={addInput}>*/}
-            {/*<option value="" disabled selected hidden>Select a Recognition Level</option>*/}
-            {/*<option value="50">50</option>*/}
-            {/*<option value="40">40</option>*/}
-            {/*<option value="30">30</option>*/}
-            {/*<option value="20">20</option>*/}
-            {/*<option value="10">10</option>*/}
-            {/*</select>*/}
-            {/*<p>You have <strong>70 points</strong> left to award this month</p>*/}
+                {/*<select name="points" className="form-control" required ref={addInput}>*/}
+                    {/*<option value="" disabled selected hidden>Select a Recognition Level</option>*/}
+                    {/*<option value="50">50</option>*/}
+                    {/*<option value="40">40</option>*/}
+                    {/*<option value="30">30</option>*/}
+                    {/*<option value="20">20</option>*/}
+                    {/*<option value="10">10</option>*/}
+                {/*</select>*/}
+                {/*<p>You have <strong>70 points</strong> left to award this month</p>*/}
             {/*</div>*/}
             <div className="mdl-card__supporting-text">
                 <div className="mdl-card__supporting-text">
