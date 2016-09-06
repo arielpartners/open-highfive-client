@@ -148,17 +148,17 @@ export class RecognizePeer extends Component {
                 {/*</div>*/}
                 {/*</fieldset>*/}
 
-                {/*<div className="form-group">*/}
+            {/*<div className="form-group">*/}
                 {/*<select name="points" className="form-control" required ref={addInput}>*/}
-                {/*<option value="" disabled selected hidden>Select a Recognition Level</option>*/}
-                {/*<option value="50">50</option>*/}
-                {/*<option value="40">40</option>*/}
-                {/*<option value="30">30</option>*/}
-                {/*<option value="20">20</option>*/}
-                {/*<option value="10">10</option>*/}
+                    {/*<option value="" disabled selected hidden>Select a Recognition Level</option>*/}
+                    {/*<option value="50">50</option>*/}
+                    {/*<option value="40">40</option>*/}
+                    {/*<option value="30">30</option>*/}
+                    {/*<option value="20">20</option>*/}
+                    {/*<option value="10">10</option>*/}
                 {/*</select>*/}
                 {/*<p>You have <strong>70 points</strong> left to award this month</p>*/}
-                {/*</div>*/}
+            {/*</div>*/}
 
                 <div className="form-group">
                     <input type="submit" className="btn btn-primary" value="Give your Reward" data-dismiss="modal"/>
