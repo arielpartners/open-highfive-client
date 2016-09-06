@@ -83,7 +83,7 @@ export class Home extends Component {
                         <Metrics loggedIn={true} metrics={metrics}/>
                     </div>
 
-                    <RecognizePeer users={filteredUsers} createRecognition={createRecognition}/>
+                    <RecognizePeer user={user} users={filteredUsers} createRecognition={createRecognition}/>
 
                 </div>
 

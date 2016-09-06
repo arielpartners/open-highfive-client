@@ -1,6 +1,6 @@
 {
   "name": "highfive",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "HighFive peer recognition app",
   "main": "server.js",
   "engines": {
