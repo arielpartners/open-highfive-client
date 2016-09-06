@@ -92,6 +92,7 @@ export class Home extends Component {
     }
 }
 
+/* eslint-disable complexity */
 const mapStateToProps = (state) => {
     return Object.assign({}, state, {
         recognitions : state.recognitions || [],
@@ -101,9 +102,11 @@ const mapStateToProps = (state) => {
         corporateValues: state.corporateValues || ''
     });
 };
+/* eslint-enable complexity */
 
 /* istanbul ignore next */
 // export default connect(mapStateToProps)(Home);
+
 export default connect(
     // Map State to Props (Reducers)
     mapStateToProps,
