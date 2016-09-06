@@ -97,7 +97,8 @@ const mapStateToProps = (state) => {
         recognitions : state.recognitions || [],
         users : state.users || [],
         metrics : state.metrics || [],
-        modalDisplay: state.modalDisplay || {view: false, recognition: {}}
+        modalDisplay: state.modalDisplay || {view: false, recognition: {}},
+        corporateValues: state.corporateValues || ''
     });
 };
 
