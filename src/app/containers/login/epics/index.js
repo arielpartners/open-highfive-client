@@ -44,7 +44,7 @@ const changeEmailEpic = action$ =>
         .mergeMap(action => (
             spawnEpic(loginEpic, Actions.login(action.payload))
                 .concat(
-                    ajax.put(CHANGE_USER_URL + '/' + action.payload.email, JSON.stringify(action.payload), HEADER)
+                    ajax.put(CHANGE_USER_URL + '/' + action.payload.email + '/', JSON.stringify(action.payload), HEADER)
                         .map(Actions.emailChanged)
                         .catch(error => Observable.of({
                             type: ActionTypes.CHANGE_EMAIL_ERROR,
@@ -59,7 +59,7 @@ const changePasswordEpic = action$ =>
         .mergeMap(action => (
             spawnEpic(loginEpic, Actions.login(action.payload))
                 .concat(
-                    ajax.put(CHANGE_USER_URL + '/' + action.payload.email, JSON.stringify(action.payload), HEADER)
+                    ajax.put(CHANGE_USER_URL + '/' + action.payload.email + '/', JSON.stringify(action.payload), HEADER)
                         .map(Actions.passwordChanged)
                         .catch(error => Observable.of({
                             type: ActionTypes.CHANGE_PASSWORD_ERROR,
