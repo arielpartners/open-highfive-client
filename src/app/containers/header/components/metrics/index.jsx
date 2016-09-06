@@ -10,10 +10,10 @@ if (__WEBPACK__) {
 
 // TODO: Colors need to be mapped to corporate values not index
 const configColors = [
-    {color: '#FF6600', highlight: '#FF5A5E'},
-    {color: '#990000', highlight: '#5AD3D1'},
-    {color: '#00578C', highlight: '#FFC870'},
-    {color: '#330099', highlight: '#A8B3C5'},
+    {color: '#00578C', highlight: '#FF5A5E'},
+    {color: '#330099', highlight: '#5AD3D1'},
+    {color: '#007700', highlight: '#FFC870'},
+    {color: '#FF6600', highlight: '#A8B3C5'},
     {color: '#007700', highlight: '#616774'},
     {color: '#009700', highlight: '#619774'},
     {color: '#005700', highlight: '#616774'},
@@ -65,11 +65,10 @@ export const Metrics = ({metrics}) => {
                         {getRecognitionsCategory('To Date', 'toDate', '400px')}
 
                         <div className="h5-stats-legend">
-                            <span className="h5-squaredot h5-stats-color-integrity"> </span>Integrity
-                            <span className="h5-squaredot h5-stats-color-Vigilance"> </span>Vigilance
-                            <span className="h5-squaredot h5-stats-color-respect"> </span>Respect
-                            <span className="h5-squaredot h5-stats-color-excellence"> </span>Excellence
-                            <span className="h5-squaredot h5-stats-color-accountability"> </span>Accountability
+                            <span className="h5-squaredot h5-stats-color-teamwork"> </span>Teamwork
+                            <span className="h5-squaredot h5-stats-color-improvement"> </span>Improvement
+                            <span className="h5-squaredot h5-stats-color-delivery"> </span>Respect
+                            <span className="h5-squaredot h5-stats-color-experiment"> </span>Experiment
                         </div>
                     </div>
 
