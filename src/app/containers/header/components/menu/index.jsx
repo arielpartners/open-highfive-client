@@ -28,7 +28,10 @@ export const Menu = ({logout}) => {
                 <div className="collapse navbar-collapse" id="navbar">
                     <ul className="nav navbar-nav">
                         <li className="active">
-                            <a href="#">Home <span className="sr-only">(current)</span></a>
+                            <Link to="/home">Home</Link>
+                        </li>
+                        <li>
+                            <Link to="/reports">Reports</Link>
                         </li>
                         {/*<li><a href="#">Spot Recognition</a></li>*/}
                         {/*<li><a href="#">Annual Evaluation</a></li>*/}
