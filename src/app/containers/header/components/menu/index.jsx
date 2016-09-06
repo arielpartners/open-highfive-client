@@ -9,8 +9,8 @@ if (__WEBPACK__) {
 
 export const Menu = ({logout, routing}) => {
     const homePath = '/home',
-          loginPath = '/login',
-          reportsPath = '/reports';
+        loginPath = '/login',
+        reportsPath = '/reports';
 
     return (
         <nav className="navbar navbar-default">

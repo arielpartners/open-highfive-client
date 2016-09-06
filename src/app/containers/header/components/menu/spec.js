@@ -10,7 +10,8 @@ describe('Header/Menu', () => {
 
     beforeEach(() => {
         props = {
-            logout: sinon.stub()
+            logout: sinon.stub(),
+            routing: {locationBeforeTransitions: {pathname: '/home'}}
         };
         wrapper = shallow(<Menu {...props}/>);
     });
