@@ -67,19 +67,6 @@ export const RecognizePeer = ({users, createRecognition}) => {
                           placeholder="Write a few words about what they did or why it was memorable" id="occurrence"
                           name="description"></textarea>
             </div>
-            
-            <div className="form-group">
-                <select name="corporateValueName" className="form-control" required ref={addInput}>
-                    <option value="" disabled selected hidden>Select a Category</option>
-                    <option value="Teamwork">Teamwork</option>
-                    <option value="Improvement">Improvement</option>
-                    <option value="Delivery">Delivery</option>
-                    <option value="Experiment">Experiment</option>
-                </select>
-            </div>
-
-
-
             <div className="form-group">
                 <select name="corporateValueName" className="form-control" required ref={addInput}>
                     <option value="" disabled selected hidden>Select a Category</option>
