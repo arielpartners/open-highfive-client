@@ -1,12 +1,17 @@
 import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
+import cx from 'classnames';
 
 /* istanbul ignore next */
 if (__WEBPACK__) {
     require('./style.scss');
 }
 
-export const Menu = ({logout}) => {
+export const Menu = ({logout, routing}) => {
+    const homePath = '/home',
+          loginPath = '/login',
+          reportsPath = '/reports';
+
     return (
         <nav className="navbar navbar-default">
             <div className="container-fluid">
@@ -27,11 +32,15 @@ export const Menu = ({logout}) => {
 
                 <div className="collapse navbar-collapse" id="navbar">
                     <ul className="nav navbar-nav">
-                        <li className="active">
-                            <Link to="/home">Home</Link>
+                        <li className={cx(
+                            {active: routing.locationBeforeTransitions.pathname === homePath}
+                        )}>
+                            <Link to={homePath}>Home</Link>
                         </li>
-                        <li>
-                            <Link to="/reports">Reports</Link>
+                        <li className={cx(
+                            {active: routing.locationBeforeTransitions.pathname === reportsPath}
+                        )}>
+                            <Link to={reportsPath}>Reports</Link>
                         </li>
                         {/*<li><a href="#">Spot Recognition</a></li>*/}
                         {/*<li><a href="#">Annual Evaluation</a></li>*/}
@@ -41,7 +50,7 @@ export const Menu = ({logout}) => {
                         {/*<li><a href="#">Settings</a></li>*/}
                         {/*<li><a href="#">Admin</a></li>*/}
                         <li>
-                            <Link to="/login" onClick={logout}>Logout</Link>
+                            <Link to={loginPath} onClick={logout}>Logout</Link>
                         </li>
                     </ul>
                 </div>

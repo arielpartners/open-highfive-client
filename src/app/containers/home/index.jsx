@@ -10,6 +10,9 @@ import {RecognizePeer} from './components/recognize-peer';
 import {bindActionCreators} from 'redux';
 import * as HomeActions from './actions';
 import * as RecognitionCardActions from './actions/recognition-card';
+
+// TODO: move metrics out of header
+import * as MetricActions from '../header/actions';
 import {Metrics} from '../header/components/metrics';
 
 /* istanbul ignore next */
@@ -27,14 +30,13 @@ export class Home extends Component {
         /* eslint-disable no-undef */
         componentHandler.upgradeDom();
         /* eslint-enable no-undef */
+        this.props.requestMyRecognitions();
         this.props.requestRecognitions();
         this.props.requestUsers();
+        this.props.requestMetrics();
     }
 
     componentDidUpdate() {
-        if(this.props.user && this.props.user.email) {
-            this.props.requestMyRecognitions();
-        }
         /* eslint-disable no-undef */
         componentHandler.upgradeDom();
         /* eslint-enable no-undef */
@@ -110,6 +112,6 @@ export default connect(
     // Map State to Props (Reducers)
     mapStateToProps,
     //Map DispatchToProps (Actions)
-    (dispatch) => (bindActionCreators({...HomeActions, ...RecognitionCardActions}, dispatch))
+    (dispatch) => (bindActionCreators({...HomeActions, ...RecognitionCardActions, ...MetricActions}, dispatch))
     // {...HomeActions}
 )(Home);

@@ -8,24 +8,28 @@ if (__WEBPACK__) {
     //require('./style.scss');
 }
 
+// TODO: Colors need to be mapped to corporate values not index
 const configColors = [
     {color: '#FF6600', highlight: '#FF5A5E'},
     {color: '#990000', highlight: '#5AD3D1'},
     {color: '#00578C', highlight: '#FFC870'},
     {color: '#330099', highlight: '#A8B3C5'},
-    {color: '#007700', highlight: '#616774'}
+    {color: '#007700', highlight: '#616774'},
+    {color: '#009700', highlight: '#619774'},
+    {color: '#005700', highlight: '#616774'},
+    {color: '#003700', highlight: '#613774'}
 ];
 
 const configureChip = (recognitions, k) => {
     const recognitionsData = (recognitions || {})[k] || [];
     let chipTotal = 0;
     const chipData = recognitionsData.map((companyValueData, index) => {
-        chipTotal += companyValueData.count;
+        chipTotal += companyValueData.points;
         return {
-            value: companyValueData.count,
+            value: companyValueData.points,
             color: configColors[index].color,
             highlight: configColors[index].highlight,
-            label: companyValueData.companyValue
+            label: companyValueData.corporateValue
         };
     });
     return {
