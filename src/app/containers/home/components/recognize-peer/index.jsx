@@ -65,7 +65,7 @@ export const RecognizePeer = ({users, createRecognition}) => {
                           className="form-control"
                           required
                           placeholder="Write a few words about what they did or why it was memorable" id="occurrence"
-                          name="occurrence"></textarea>
+                          name="description"></textarea>
             </div>
 
             {/*<fieldset className="form-group">*/}
