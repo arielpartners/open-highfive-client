@@ -21,13 +21,6 @@ const onSubmit = (form, getData, inputs, createRecognition, statics) => {
     }
 };
 /* eslint-enable max-params */
-/*
- <script>
- $(document).ready(function(){
- $('[data-toggle="popover"]').popover();
- });
- </script>
- */
 
 /* global $ */
 /* eslint-disable max-len */
