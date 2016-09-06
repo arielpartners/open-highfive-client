@@ -1,4 +1,5 @@
 import React from 'react';
+import cx from 'classnames';
 import {getFormData} from '../../../../index';
 
 /* istanbul ignore next */
@@ -22,10 +23,11 @@ const onSubmit = (form, getData, inputs, createRecognition, statics) => {
 };
 /* eslint-enable max-params */
 
-export const RecognizePeer = ({users, createRecognition}) => {
+export const RecognizePeer = ({user, users, createRecognition}) => {
     let form,
+        newUserHidden = true,
         statics = [
-            {senderEmail : 'test@test.com'},
+            {senderEmail : user.email},
             {organizationName: 'DHS'},
             {points: 1}
         ],
@@ -35,17 +37,25 @@ export const RecognizePeer = ({users, createRecognition}) => {
             inputs.push(input);
         };
 
-    const labelClass = 'mdl-textfield__label',
+    const
+        ADD_NEW = 'Add New',
+        labelClass = 'mdl-textfield__label',
         inputClass = 'mdl-textfield__input',
         errorClass = 'mdl-textfield__error',
         fieldSetClass = 'mdl-textfield mdl-js-textfield mdl-textfield--floating-label extrawide',
         receiverOnChange = (event) => {
-
+            const selectedUser =  event.target.options[event.target.selectedIndex].value;
+            newUserHidden = selectedUser === ADD_NEW ? false : true;
+            /* eslint-disable no-console */
+                console.log('user email changed', event.target.options[event.target.selectedIndex].value);
+            /* eslint-enable no-console */
         };
 
     return (
-        <form onSubmit={(event) => event.preventDefault() &
-        onSubmit(form, getFormData, inputs, createRecognition, statics)}
+        <form onSubmit={
+            (event) => event.preventDefault() &
+            onSubmit(form, getFormData, inputs, createRecognition, statics)
+        }
               noValidate
               ref={(ref)=> {
                   form = ref;
@@ -55,7 +65,12 @@ export const RecognizePeer = ({users, createRecognition}) => {
             <h2 className="h5-sectionhdr">Reward Someone <em>for a deed well done</em></h2>
 
             <div className="form-group h5-margintop20">
-                <select name="receiverEmail" className="form-control" required ref={addInput}>
+                <select name="receiverEmail"
+                        className="form-control"
+                        onChange={receiverOnChange}
+                        tabIndex={1}
+                        required
+                        ref={addInput}>
                     <option value="" disabled selected hidden>Select an Employee</option>
                     {
                         userList.map(
@@ -65,19 +80,24 @@ export const RecognizePeer = ({users, createRecognition}) => {
                             )
                         )
                     }
-                    <option value="AddNew">Add a New User</option>
+                    <option value={ADD_NEW}>Add a New User</option>
                 </select>
             </div>
 
             <div className="form-group">
                 <textarea ref={addInput}
                           className="form-control"
+                          tabIndex={2}
                           required
                           placeholder="Write a few words about what they did or why it was memorable" id="occurrence"
                           name="description"></textarea>
             </div>
             <div className="form-group">
-                <select name="corporateValueName" className="form-control" required ref={addInput}>
+                <select name="corporateValueName"
+                        className="form-control"
+                        tabIndex={3}
+                        required
+                        ref={addInput}>
                     <option value="" disabled selected hidden>Select a Category</option>
                     <option value="Teamwork">Teamwork</option>
                     <option value="Improvement">Improvement</option>
@@ -126,27 +146,29 @@ export const RecognizePeer = ({users, createRecognition}) => {
                 {/*</select>*/}
                 {/*<p>You have <strong>70 points</strong> left to award this month</p>*/}
             {/*</div>*/}
-            <div className="mdl-card__supporting-text">
+            <div className={ cx('mdl-card__supporting-text', {hide: newUserHidden}) }>
                 <div className="mdl-card__supporting-text">
                     <div className={fieldSetClass}>
                         <input ref={addInput}
                                className={inputClass}
+                               type="text"
                                required={true}
-                               tabIndex={1}
-                               type="email" name="email"/>
-                        <label className={labelClass} htmlFor="email">Email</label>
-                        <span className={errorClass}>Valid email address is required</span>
+                               tabIndex={4}
+                               name="newUserName"/>
+                        <label className={labelClass} htmlFor="newUserName">Firstname Lastname</label>
+                        <span className={errorClass}>Password is required</span>
                     </div>
                     <div className={fieldSetClass}>
                         <input ref={addInput}
                                className={inputClass}
-                               type="password"
                                required={true}
-                               tabIndex={2}
-                               name="password"/>
-                        <label className={labelClass} htmlFor="password">Password</label>
-                        <span className={errorClass}>Password is required</span>
+                               tabIndex={5}
+                               type="email"
+                               name="newUserEmail"/>
+                        <label className={labelClass} htmlFor="newUserEmail">Email</label>
+                        <span className={errorClass}>Valid email address is required</span>
                     </div>
+
                 </div>
             </div>
             <div className="form-group">
